@@ -9,13 +9,16 @@
 /* Begin PBXBuildFile section */
 		2708B6591BE43411003C4A2B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2708B6581BE43411003C4A2B /* main.m */; };
 		2708B65C1BE43411003C4A2B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2708B65B1BE43411003C4A2B /* AppDelegate.m */; };
-		2708B65F1BE43411003C4A2B /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2708B65E1BE43411003C4A2B /* FirstViewController.m */; };
-		2708B6621BE43411003C4A2B /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2708B6611BE43411003C4A2B /* SecondViewController.m */; };
 		2708B6651BE43411003C4A2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2708B6631BE43411003C4A2B /* Main.storyboard */; };
 		2708B6671BE43411003C4A2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2708B6661BE43411003C4A2B /* Assets.xcassets */; };
 		2708B66A1BE43411003C4A2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2708B6681BE43411003C4A2B /* LaunchScreen.storyboard */; };
 		2708B6751BE43412003C4A2B /* PocketFacilitatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2708B6741BE43412003C4A2B /* PocketFacilitatorTests.m */; };
 		2708B6801BE43412003C4A2B /* PocketFacilitatorUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2708B67F1BE43412003C4A2B /* PocketFacilitatorUITests.m */; };
+		27C44A2F1BE55668000D01D8 /* InitiativesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C44A2E1BE55668000D01D8 /* InitiativesTableViewController.m */; };
+		27C44A351BE556D2000D01D8 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C44A341BE556D2000D01D8 /* ProfileViewController.m */; };
+		27C44A3E1BE55D0F000D01D8 /* ShopSynergoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C44A3D1BE55D0F000D01D8 /* ShopSynergoViewController.m */; };
+		27C44A451BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C44A441BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.m */; };
+		27C44A4B1BE57BE9000D01D8 /* DesiredOutcomesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C44A4A1BE57BE9000D01D8 /* DesiredOutcomesViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,10 +43,6 @@
 		2708B6581BE43411003C4A2B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2708B65A1BE43411003C4A2B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2708B65B1BE43411003C4A2B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2708B65D1BE43411003C4A2B /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		2708B65E1BE43411003C4A2B /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		2708B6601BE43411003C4A2B /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		2708B6611BE43411003C4A2B /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		2708B6641BE43411003C4A2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2708B6661BE43411003C4A2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2708B6691BE43411003C4A2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,6 +53,16 @@
 		2708B67B1BE43412003C4A2B /* PocketFacilitatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PocketFacilitatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2708B67F1BE43412003C4A2B /* PocketFacilitatorUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PocketFacilitatorUITests.m; sourceTree = "<group>"; };
 		2708B6811BE43412003C4A2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27C44A2D1BE55668000D01D8 /* InitiativesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitiativesTableViewController.h; sourceTree = "<group>"; };
+		27C44A2E1BE55668000D01D8 /* InitiativesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitiativesTableViewController.m; sourceTree = "<group>"; };
+		27C44A331BE556D2000D01D8 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		27C44A341BE556D2000D01D8 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		27C44A3C1BE55D0F000D01D8 /* ShopSynergoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShopSynergoViewController.h; path = ../ShopSynergoViewController.h; sourceTree = "<group>"; };
+		27C44A3D1BE55D0F000D01D8 /* ShopSynergoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShopSynergoViewController.m; path = ../ShopSynergoViewController.m; sourceTree = "<group>"; };
+		27C44A431BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+UIColor_SynergoColors.h"; sourceTree = "<group>"; };
+		27C44A441BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+UIColor_SynergoColors.m"; sourceTree = "<group>"; };
+		27C44A491BE57BE9000D01D8 /* DesiredOutcomesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesiredOutcomesViewController.h; sourceTree = "<group>"; };
+		27C44A4A1BE57BE9000D01D8 /* DesiredOutcomesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesiredOutcomesViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +93,8 @@
 		2708B64B1BE43411003C4A2B = {
 			isa = PBXGroup;
 			children = (
+				27C44A431BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.h */,
+				27C44A441BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.m */,
 				2708B6561BE43411003C4A2B /* PocketFacilitator */,
 				2708B6731BE43412003C4A2B /* PocketFacilitatorTests */,
 				2708B67E1BE43412003C4A2B /* PocketFacilitatorUITests */,
@@ -106,11 +117,8 @@
 			children = (
 				2708B65A1BE43411003C4A2B /* AppDelegate.h */,
 				2708B65B1BE43411003C4A2B /* AppDelegate.m */,
-				2708B65D1BE43411003C4A2B /* FirstViewController.h */,
-				2708B65E1BE43411003C4A2B /* FirstViewController.m */,
-				2708B6601BE43411003C4A2B /* SecondViewController.h */,
-				2708B6611BE43411003C4A2B /* SecondViewController.m */,
 				2708B6631BE43411003C4A2B /* Main.storyboard */,
+				27C44A3F1BE55D31000D01D8 /* ViewControllers */,
 				2708B6661BE43411003C4A2B /* Assets.xcassets */,
 				2708B6681BE43411003C4A2B /* LaunchScreen.storyboard */,
 				2708B66B1BE43411003C4A2B /* Info.plist */,
@@ -143,6 +151,21 @@
 				2708B6811BE43412003C4A2B /* Info.plist */,
 			);
 			path = PocketFacilitatorUITests;
+			sourceTree = "<group>";
+		};
+		27C44A3F1BE55D31000D01D8 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				27C44A2D1BE55668000D01D8 /* InitiativesTableViewController.h */,
+				27C44A2E1BE55668000D01D8 /* InitiativesTableViewController.m */,
+				27C44A331BE556D2000D01D8 /* ProfileViewController.h */,
+				27C44A341BE556D2000D01D8 /* ProfileViewController.m */,
+				27C44A3C1BE55D0F000D01D8 /* ShopSynergoViewController.h */,
+				27C44A3D1BE55D0F000D01D8 /* ShopSynergoViewController.m */,
+				27C44A491BE57BE9000D01D8 /* DesiredOutcomesViewController.h */,
+				27C44A4A1BE57BE9000D01D8 /* DesiredOutcomesViewController.m */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,6 +235,7 @@
 				TargetAttributes = {
 					2708B6531BE43411003C4A2B = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = C67UGMY2HN;
 					};
 					2708B66F1BE43412003C4A2B = {
 						CreatedOnToolsVersion = 7.1;
@@ -275,10 +299,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2708B6621BE43411003C4A2B /* SecondViewController.m in Sources */,
 				2708B65C1BE43411003C4A2B /* AppDelegate.m in Sources */,
-				2708B65F1BE43411003C4A2B /* FirstViewController.m in Sources */,
 				2708B6591BE43411003C4A2B /* main.m in Sources */,
+				27C44A2F1BE55668000D01D8 /* InitiativesTableViewController.m in Sources */,
+				27C44A4B1BE57BE9000D01D8 /* DesiredOutcomesViewController.m in Sources */,
+				27C44A451BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.m in Sources */,
+				27C44A351BE556D2000D01D8 /* ProfileViewController.m in Sources */,
+				27C44A3E1BE55D0F000D01D8 /* ShopSynergoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,10 +446,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = PocketFacilitator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicksapps.PocketFacilitator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -430,10 +459,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = PocketFacilitator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicksapps.PocketFacilitator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -504,6 +535,7 @@
 				2708B6861BE43412003C4A2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2708B6871BE43412003C4A2B /* Build configuration list for PBXNativeTarget "PocketFacilitatorTests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +544,7 @@
 				2708B6891BE43412003C4A2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2708B68A1BE43412003C4A2B /* Build configuration list for PBXNativeTarget "PocketFacilitatorUITests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +553,7 @@
 				2708B68C1BE43412003C4A2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
