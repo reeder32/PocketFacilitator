@@ -7,6 +7,9 @@
 //
 
 #import "ShopSynergoViewController.h"
+#import "SVProgressHUD/SVProgressHUD.h"
+#import "Reachability.h"
+
 
 @interface ShopSynergoViewController ()
 
@@ -17,8 +20,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSURL *url = [NSURL URLWithString:@"http://yhst-132339165737199.stores.yahoo.net/equipment.html"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [self.shopSynergoWebView loadRequest:request];
+    [self webPageHasLoaded:url];
+}
+-(BOOL)prefersStatusBarHidden{
+    return true;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,14 +31,26 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)checkForInternetConnection{
+    Reachability *reachability = [Reachability reachabilityForInternetConnection]
+    [reachability startNotifier];
 }
-*/
+
+
+-(BOOL)webPageHasLoaded:(NSURL *)url{
+    
+    if (url) {
+        [SVProgressHUD showWithStatus:@"Loading..."];
+        [SVProgressHUD dismissWithDelay:3.0];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        [self.shopSynergoWebView loadRequest:request];
+        return true;
+    }else{
+    
+    
+    return false;
+    }
+}
+
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "UIColor+UIColor_SynergoColors.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,29 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    //app background view color
+    [[UIWindow appearance] setBackgroundColor:[UIColor synergoGrayColor]];
+   
+    //unselected icon tint color
+    [[UIView appearanceWhenContainedInInstancesOfClasses:@[[UITabBar class]]] setTintColor:[UIColor synergoGrayColor]];
+    
+    //selected tint color
+    [[UITabBar appearance] setTintColor:[UIColor synergoBlueColor]];
+    
+    //text tint color
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor synergoGrayColor], NSForegroundColorAttributeName, nil]
+                                             forState:UIControlStateNormal];
+    //background tint color
+    [[UITabBar appearance] setBarTintColor:[UIColor synergoBrownColor]];
+    
+    //setup navigation appearance
+    UINavigationBar.appearance.barTintColor = [UIColor synergoBrownColor];
+    UINavigationBar.appearance.tintColor = [UIColor synergoBlueColor];
+   
+    NSDictionary *textAttributes = @{ NSForegroundColorAttributeName       : [UIColor synergoBlueColor],
+                                      NSFontAttributeName            : [UIFont fontWithName:@"Helvetica" size:15.0]
+                                      };
+    UINavigationBar.appearance.titleTextAttributes = textAttributes;
     return YES;
 }
 

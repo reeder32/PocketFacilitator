@@ -26,7 +26,9 @@
     self.lowElementsButton.layer.cornerRadius = 4.0;
 }
 
-
+-(BOOL)prefersStatusBarHidden{
+    return true;
+}
 
 
 @end

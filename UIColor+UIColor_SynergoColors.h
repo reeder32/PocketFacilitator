@@ -16,4 +16,6 @@
 
 + (UIColor *)synergoBrownColor;
 
++ (UIColor *)synergoGrayColor;
+
 @end

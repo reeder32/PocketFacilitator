@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface InitiativesTableViewController : UITableViewController
-
+@property (strong, nonatomic) NSArray *initiativesArray;
 @end

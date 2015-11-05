@@ -22,4 +22,7 @@
     return [UIColor colorWithRed:0.28f green:0.18f blue:0.18f alpha:1.0f];
 }
 
++ (UIColor *)synergoGrayColor{
+    return [UIColor colorWithRed:0.86f green:0.87f blue:0.86f alpha:1.0f];
+}
 @end

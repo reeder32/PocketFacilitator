@@ -19,6 +19,22 @@
 		27C44A3E1BE55D0F000D01D8 /* ShopSynergoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C44A3D1BE55D0F000D01D8 /* ShopSynergoViewController.m */; };
 		27C44A451BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C44A441BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.m */; };
 		27C44A4B1BE57BE9000D01D8 /* DesiredOutcomesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C44A4A1BE57BE9000D01D8 /* DesiredOutcomesViewController.m */; };
+		27C44A8C1BE7D38D000D01D8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27C44A8B1BE7D38D000D01D8 /* QuartzCore.framework */; };
+		27C44AA51BE7D469000D01D8 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C44A9E1BE7D469000D01D8 /* SVIndefiniteAnimatedView.m */; };
+		27C44AA61BE7D469000D01D8 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 27C44AA01BE7D469000D01D8 /* SVProgressHUD.bundle */; };
+		27C44AA71BE7D469000D01D8 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C44AA21BE7D469000D01D8 /* SVProgressHUD.m */; };
+		27C44AA81BE7D469000D01D8 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C44AA41BE7D469000D01D8 /* SVRadialGradientLayer.m */; };
+		27F1700C1BEB602B0052A758 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27F1700B1BEB602B0052A758 /* SystemConfiguration.framework */; };
+		27F170201BEB63B50052A758 /* APLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F1700F1BEB63B50052A758 /* APLAppDelegate.m */; };
+		27F170211BEB63B50052A758 /* APLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F170111BEB63B50052A758 /* APLViewController.m */; };
+		27F170221BEB63B50052A758 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27F170121BEB63B50052A758 /* MainStoryboard.storyboard */; };
+		27F170231BEB63B50052A758 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27F170141BEB63B50052A758 /* Default-568h@2x.png */; };
+		27F170241BEB63B50052A758 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27F170151BEB63B50052A758 /* InfoPlist.strings */; };
+		27F170251BEB63B50052A758 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27F170171BEB63B50052A758 /* Localizable.strings */; };
+		27F170261BEB63B50052A758 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27F1701A1BEB63B50052A758 /* Images.xcassets */; };
+		27F170271BEB63B50052A758 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F1701B1BEB63B50052A758 /* main.m */; };
+		27F170281BEB63B50052A758 /* Reachability-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27F1701C1BEB63B50052A758 /* Reachability-Info.plist */; };
+		27F170291BEB63B50052A758 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F1701F1BEB63B50052A758 /* Reachability.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +79,31 @@
 		27C44A441BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+UIColor_SynergoColors.m"; sourceTree = "<group>"; };
 		27C44A491BE57BE9000D01D8 /* DesiredOutcomesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesiredOutcomesViewController.h; sourceTree = "<group>"; };
 		27C44A4A1BE57BE9000D01D8 /* DesiredOutcomesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesiredOutcomesViewController.m; sourceTree = "<group>"; };
+		27C44A8B1BE7D38D000D01D8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		27C44A9D1BE7D469000D01D8 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		27C44A9E1BE7D469000D01D8 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		27C44A9F1BE7D469000D01D8 /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
+		27C44AA01BE7D469000D01D8 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		27C44AA11BE7D469000D01D8 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		27C44AA21BE7D469000D01D8 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		27C44AA31BE7D469000D01D8 /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVRadialGradientLayer.h; sourceTree = "<group>"; };
+		27C44AA41BE7D469000D01D8 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
+		27F1700B1BEB602B0052A758 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		27F1700E1BEB63B50052A758 /* APLAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLAppDelegate.h; sourceTree = "<group>"; };
+		27F1700F1BEB63B50052A758 /* APLAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLAppDelegate.m; sourceTree = "<group>"; };
+		27F170101BEB63B50052A758 /* APLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLViewController.h; sourceTree = "<group>"; };
+		27F170111BEB63B50052A758 /* APLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLViewController.m; sourceTree = "<group>"; };
+		27F170131BEB63B50052A758 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		27F170141BEB63B50052A758 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		27F170161BEB63B50052A758 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		27F170181BEB63B50052A758 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		27F170191BEB63B50052A758 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		27F1701A1BEB63B50052A758 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		27F1701B1BEB63B50052A758 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		27F1701C1BEB63B50052A758 /* Reachability-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Reachability-Info.plist"; sourceTree = "<group>"; };
+		27F1701D1BEB63B50052A758 /* Reachability-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Reachability-Prefix.pch"; sourceTree = "<group>"; };
+		27F1701E1BEB63B50052A758 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		27F1701F1BEB63B50052A758 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +111,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27F1700C1BEB602B0052A758 /* SystemConfiguration.framework in Frameworks */,
+				27C44A8C1BE7D38D000D01D8 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,8 +136,6 @@
 		2708B64B1BE43411003C4A2B = {
 			isa = PBXGroup;
 			children = (
-				27C44A431BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.h */,
-				27C44A441BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.m */,
 				2708B6561BE43411003C4A2B /* PocketFacilitator */,
 				2708B6731BE43412003C4A2B /* PocketFacilitatorTests */,
 				2708B67E1BE43412003C4A2B /* PocketFacilitatorUITests */,
@@ -115,10 +156,12 @@
 		2708B6561BE43411003C4A2B /* PocketFacilitator */ = {
 			isa = PBXGroup;
 			children = (
-				2708B65A1BE43411003C4A2B /* AppDelegate.h */,
-				2708B65B1BE43411003C4A2B /* AppDelegate.m */,
 				2708B6631BE43411003C4A2B /* Main.storyboard */,
 				27C44A3F1BE55D31000D01D8 /* ViewControllers */,
+				27C44AA91BE7D48E000D01D8 /* Frameworks */,
+				27C44AAA1BE7D4A2000D01D8 /* Classes */,
+				2708B65A1BE43411003C4A2B /* AppDelegate.h */,
+				2708B65B1BE43411003C4A2B /* AppDelegate.m */,
 				2708B6661BE43411003C4A2B /* Assets.xcassets */,
 				2708B6681BE43411003C4A2B /* LaunchScreen.storyboard */,
 				2708B66B1BE43411003C4A2B /* Info.plist */,
@@ -166,6 +209,64 @@
 				27C44A4A1BE57BE9000D01D8 /* DesiredOutcomesViewController.m */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		27C44A9C1BE7D469000D01D8 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				27C44A9D1BE7D469000D01D8 /* SVIndefiniteAnimatedView.h */,
+				27C44A9E1BE7D469000D01D8 /* SVIndefiniteAnimatedView.m */,
+				27C44A9F1BE7D469000D01D8 /* SVProgressHUD-Prefix.pch */,
+				27C44AA01BE7D469000D01D8 /* SVProgressHUD.bundle */,
+				27C44AA11BE7D469000D01D8 /* SVProgressHUD.h */,
+				27C44AA21BE7D469000D01D8 /* SVProgressHUD.m */,
+				27C44AA31BE7D469000D01D8 /* SVRadialGradientLayer.h */,
+				27C44AA41BE7D469000D01D8 /* SVRadialGradientLayer.m */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
+		27C44AA91BE7D48E000D01D8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				27F1700D1BEB63B50052A758 /* Reachability */,
+				27F1700B1BEB602B0052A758 /* SystemConfiguration.framework */,
+				27C44A9C1BE7D469000D01D8 /* SVProgressHUD */,
+				27C44A8B1BE7D38D000D01D8 /* QuartzCore.framework */,
+			);
+			name = Frameworks;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		27C44AAA1BE7D4A2000D01D8 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				27C44A431BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.h */,
+				27C44A441BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.m */,
+			);
+			name = Classes;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		27F1700D1BEB63B50052A758 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				27F1700E1BEB63B50052A758 /* APLAppDelegate.h */,
+				27F1700F1BEB63B50052A758 /* APLAppDelegate.m */,
+				27F170101BEB63B50052A758 /* APLViewController.h */,
+				27F170111BEB63B50052A758 /* APLViewController.m */,
+				27F170121BEB63B50052A758 /* MainStoryboard.storyboard */,
+				27F170141BEB63B50052A758 /* Default-568h@2x.png */,
+				27F170151BEB63B50052A758 /* InfoPlist.strings */,
+				27F170171BEB63B50052A758 /* Localizable.strings */,
+				27F1701A1BEB63B50052A758 /* Images.xcassets */,
+				27F1701B1BEB63B50052A758 /* main.m */,
+				27F1701C1BEB63B50052A758 /* Reachability-Info.plist */,
+				27F1701D1BEB63B50052A758 /* Reachability-Prefix.pch */,
+				27F1701E1BEB63B50052A758 /* Reachability.h */,
+				27F1701F1BEB63B50052A758 /* Reachability.m */,
+			);
+			path = Reachability;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,9 +373,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27F170261BEB63B50052A758 /* Images.xcassets in Resources */,
 				2708B66A1BE43411003C4A2B /* LaunchScreen.storyboard in Resources */,
+				27F170241BEB63B50052A758 /* InfoPlist.strings in Resources */,
+				27F170281BEB63B50052A758 /* Reachability-Info.plist in Resources */,
+				27F170221BEB63B50052A758 /* MainStoryboard.storyboard in Resources */,
 				2708B6671BE43411003C4A2B /* Assets.xcassets in Resources */,
 				2708B6651BE43411003C4A2B /* Main.storyboard in Resources */,
+				27F170251BEB63B50052A758 /* Localizable.strings in Resources */,
+				27C44AA61BE7D469000D01D8 /* SVProgressHUD.bundle in Resources */,
+				27F170231BEB63B50052A758 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,13 +407,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27F170271BEB63B50052A758 /* main.m in Sources */,
 				2708B65C1BE43411003C4A2B /* AppDelegate.m in Sources */,
 				2708B6591BE43411003C4A2B /* main.m in Sources */,
 				27C44A2F1BE55668000D01D8 /* InitiativesTableViewController.m in Sources */,
+				27C44AA51BE7D469000D01D8 /* SVIndefiniteAnimatedView.m in Sources */,
 				27C44A4B1BE57BE9000D01D8 /* DesiredOutcomesViewController.m in Sources */,
+				27C44AA71BE7D469000D01D8 /* SVProgressHUD.m in Sources */,
 				27C44A451BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.m in Sources */,
+				27F170201BEB63B50052A758 /* APLAppDelegate.m in Sources */,
 				27C44A351BE556D2000D01D8 /* ProfileViewController.m in Sources */,
+				27F170291BEB63B50052A758 /* Reachability.m in Sources */,
 				27C44A3E1BE55D0F000D01D8 /* ShopSynergoViewController.m in Sources */,
+				27F170211BEB63B50052A758 /* APLViewController.m in Sources */,
+				27C44AA81BE7D469000D01D8 /* SVRadialGradientLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +470,31 @@
 				2708B6691BE43411003C4A2B /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		27F170121BEB63B50052A758 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27F170131BEB63B50052A758 /* Base */,
+				27F170191BEB63B50052A758 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		27F170151BEB63B50052A758 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27F170161BEB63B50052A758 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		27F170171BEB63B50052A758 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27F170181BEB63B50052A758 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
