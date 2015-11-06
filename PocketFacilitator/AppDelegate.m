@@ -37,7 +37,7 @@
     UINavigationBar.appearance.tintColor = [UIColor synergoMaroonColor];
     
     NSDictionary *textAttributes = @{ NSForegroundColorAttributeName       : [UIColor synergoMaroonColor],
-                                      NSFontAttributeName            : [UIFont fontWithName:@"Montserrat-Regular" size:17.0]
+                                      NSFontAttributeName            : [UIFont fontWithName:@"OpenSans" size:17.0]
                                       };
     UINavigationBar.appearance.titleTextAttributes = textAttributes;
     return YES;

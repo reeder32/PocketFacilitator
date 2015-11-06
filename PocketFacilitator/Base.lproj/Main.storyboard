@@ -16,6 +16,28 @@
         <scene sceneID="1lv-Le-g2V">
             <objects>
                 <tableViewController id="Bo3-rw-xit" customClass="InitiativesTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="lvI-EA-Mi9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="InitiativesCell" id="q1W-6z-nzE">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="q1W-6z-nzE" id="crb-Be-v1z">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Bo3-rw-xit" id="5Oj-uh-eAU"/>
+                            <outlet property="delegate" destination="Bo3-rw-xit" id="cvw-tx-jYM"/>
+                        </connections>
+                    </tableView>
                     <navigationItem key="navigationItem" title="Initiatives" id="gqq-OC-jcn"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6FR-NG-l0M" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -184,7 +206,7 @@
         <scene sceneID="hNf-yk-Ae1">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3eb-3j-C1e" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Initiatives" image="goals" id="7uZ-4g-eQT"/>
+                    <tabBarItem key="tabBarItem" title="Initiatives" image="high-five" id="7uZ-4g-eQT"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lrN-fU-FyR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -264,7 +286,7 @@
     <resources>
         <image name="carabiner-closed" width="30" height="30"/>
         <image name="carabiner-open" width="30" height="30"/>
-        <image name="goals" width="30" height="30"/>
+        <image name="high-five" width="30" height="30"/>
         <image name="profile" width="30" height="30"/>
         <image name="small-logo" width="30" height="32"/>
     </resources>
