@@ -22,9 +22,7 @@
     NSURL *url = [NSURL URLWithString:@"http://yhst-132339165737199.stores.yahoo.net/equipment.html"];
     [self webPageHasLoaded:url];
 }
--(BOOL)prefersStatusBarHidden{
-    return true;
-}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

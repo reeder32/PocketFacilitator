@@ -1,18 +1,18 @@
 //
-//  InitiativesTableViewController.m
+//  HighElementsTableViewController.m
 //  PocketFacilitator
 //
-//  Created by Nick Reeder on 10/31/15.
+//  Created by Nick Reeder on 11/6/15.
 //  Copyright © 2015 Nick Reeder. All rights reserved.
 //
 
-#import "InitiativesTableViewController.h"
+#import "HighElementsTableViewController.h"
 
-@interface InitiativesTableViewController ()
+@interface HighElementsTableViewController ()
 
 @end
 
-@implementation InitiativesTableViewController
+@implementation HighElementsTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,24 +32,24 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
-    return 1;
+#warning Incomplete implementation, return the number of sections
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    return self.initiativesArray.count;
+#warning Incomplete implementation, return the number of rows
+    return 0;
 }
 
-
+/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"InitiativesCell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
     // Configure the cell...
     
     return cell;
 }
-
+*/
 
 /*
 // Override to support conditional editing of the table view.

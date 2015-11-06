@@ -61,12 +61,14 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<true/>
+	<false/>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Montserrat-Regular.otf</string>
 		<string>Oswald-Regular.ttf</string>
 		<string>OpenSans-Regular.ttf</string>
 	</array>
+	<key>UIStatusBarHidden</key>
+	<true/>
 </dict>
 </plist>

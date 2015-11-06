@@ -64,6 +64,38 @@
             </objects>
             <point key="canvasLocation" x="2367" y="1079"/>
         </scene>
+        <!--Low Elements-->
+        <scene sceneID="gyb-F2-vKh">
+            <objects>
+                <tableViewController id="o0g-yw-nvC" customClass="LowElementsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="TZ6-Ar-6s2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="6AC-dn-61a">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6AC-dn-61a" id="uhQ-GA-iIN">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="o0g-yw-nvC" id="VjR-QE-3xw"/>
+                            <outlet property="delegate" destination="o0g-yw-nvC" id="5V8-Eb-2yj"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Low Elements" id="7fV-bq-pfn"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4VN-kQ-4s5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3010" y="1079"/>
+        </scene>
         <!--Shop Synergo-->
         <scene sceneID="TN9-rf-Obl">
             <objects>
@@ -107,7 +139,7 @@
         <scene sceneID="w7a-9y-EzX">
             <objects>
                 <tableViewController id="ZBP-Sn-OQX" customClass="DesiredOutcomesTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="grouped" allowsSelection="NO" rowHeight="60" sectionHeaderHeight="18" sectionFooterHeight="18" id="j9n-0o-xP1">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="grouped" rowHeight="60" sectionHeaderHeight="18" sectionFooterHeight="18" id="j9n-0o-xP1">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
@@ -117,7 +149,7 @@
                         <sections>
                             <tableViewSection headerTitle="Choose an element" id="bjs-h7-JcI">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" shouldIndentWhileEditing="NO" id="p2U-c4-c2r">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" shouldIndentWhileEditing="NO" id="p2U-c4-c2r">
                                         <rect key="frame" x="0.0" y="114" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p2U-c4-c2r" id="W6s-i0-HPG">
@@ -140,8 +172,11 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                         <inset key="separatorInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
+                                        <connections>
+                                            <segue destination="KbI-vC-6Zl" kind="show" id="ljH-4j-u7G"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" shouldIndentWhileEditing="NO" id="nde-0e-ADT">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" shouldIndentWhileEditing="NO" id="nde-0e-ADT">
                                         <rect key="frame" x="0.0" y="174" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nde-0e-ADT" id="ctk-c3-94v">
@@ -164,6 +199,9 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                         <inset key="separatorInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
+                                        <connections>
+                                            <segue destination="o0g-yw-nvC" kind="show" id="ejS-Px-CYg"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -178,6 +216,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zAB-km-lUN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2362" y="372"/>
+        </scene>
+        <!--High Elements-->
+        <scene sceneID="UdO-lX-nLk">
+            <objects>
+                <tableViewController id="KbI-vC-6Zl" customClass="HighElementsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="jd6-Oi-fS1">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="d1W-oa-YtY">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d1W-oa-YtY" id="Y2N-AE-L1O">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="KbI-vC-6Zl" id="9yY-jw-17A"/>
+                            <outlet property="delegate" destination="KbI-vC-6Zl" id="O1o-RS-KSm"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="High Elements" id="SNs-ad-cob"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W3h-vw-wBm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3010" y="372"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -200,7 +270,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="558" y="372"/>
+            <point key="canvasLocation" x="502" y="336"/>
         </scene>
         <!--Initiatives-->
         <scene sceneID="hNf-yk-Ae1">
@@ -286,7 +356,7 @@
     <resources>
         <image name="carabiner-closed" width="30" height="30"/>
         <image name="carabiner-open" width="30" height="30"/>
-        <image name="high-five" width="30" height="30"/>
+        <image name="high-five" width="40" height="40"/>
         <image name="profile" width="30" height="30"/>
         <image name="small-logo" width="30" height="32"/>
     </resources>

@@ -17,6 +17,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
     //app background view color
     [[UIWindow appearance] setBackgroundColor:[UIColor synergoLightGrayColor]];
     
@@ -40,6 +41,8 @@
                                       NSFontAttributeName            : [UIFont fontWithName:@"OpenSans" size:17.0]
                                       };
     UINavigationBar.appearance.titleTextAttributes = textAttributes;
+    NSDictionary *buttonAttributes = @{ NSFontAttributeName : [UIFont fontWithName:@"OpenSans" size:0.1]};
+    [[UIBarButtonItem appearance]setTitleTextAttributes:buttonAttributes forState:UIControlStateNormal];
     return YES;
 }
 
