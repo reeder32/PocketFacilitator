@@ -32,7 +32,7 @@
 }
 
 -(void)checkForInternetConnection{
-    Reachability *reachability = [Reachability reachabilityForInternetConnection]
+    Reachability *reachability = [Reachability reachabilityForInternetConnection];
     [reachability startNotifier];
 }
 

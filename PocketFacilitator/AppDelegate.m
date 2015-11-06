@@ -18,26 +18,26 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     //app background view color
-    [[UIWindow appearance] setBackgroundColor:[UIColor synergoGrayColor]];
-   
+    [[UIWindow appearance] setBackgroundColor:[UIColor synergoLightGrayColor]];
+    
     //unselected icon tint color
-    [[UIView appearanceWhenContainedInInstancesOfClasses:@[[UITabBar class]]] setTintColor:[UIColor synergoGrayColor]];
+    [[UIView appearanceWhenContainedInInstancesOfClasses:@[[UITabBar class]]] setTintColor:[UIColor synergoDarkGrayColor]];
     
     //selected tint color
-    [[UITabBar appearance] setTintColor:[UIColor synergoBlueColor]];
+    [[UITabBar appearance] setTintColor:[UIColor synergoMaroonColor]];
     
     //text tint color
-    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor synergoGrayColor], NSForegroundColorAttributeName, nil]
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor synergoDarkGrayColor], NSForegroundColorAttributeName, nil]
                                              forState:UIControlStateNormal];
     //background tint color
-    [[UITabBar appearance] setBarTintColor:[UIColor synergoBrownColor]];
+    [[UITabBar appearance] setBarTintColor:[UIColor synergoLightGrayColor]];
     
     //setup navigation appearance
-    UINavigationBar.appearance.barTintColor = [UIColor synergoBrownColor];
-    UINavigationBar.appearance.tintColor = [UIColor synergoBlueColor];
-   
-    NSDictionary *textAttributes = @{ NSForegroundColorAttributeName       : [UIColor synergoBlueColor],
-                                      NSFontAttributeName            : [UIFont fontWithName:@"Helvetica" size:15.0]
+    
+    UINavigationBar.appearance.tintColor = [UIColor synergoMaroonColor];
+    
+    NSDictionary *textAttributes = @{ NSForegroundColorAttributeName       : [UIColor synergoMaroonColor],
+                                      NSFontAttributeName            : [UIFont fontWithName:@"Montserrat-Regular" size:17.0]
                                       };
     UINavigationBar.appearance.titleTextAttributes = textAttributes;
     return YES;

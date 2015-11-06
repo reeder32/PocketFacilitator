@@ -10,12 +10,12 @@
 
 @interface UIColor (UIColor_SynergoColors)
 
-+ (UIColor *)synergoBlueColor;
++ (UIColor *)synergoMaroonColor;
 
 + (UIColor *)synergoRedColor;
 
-+ (UIColor *)synergoBrownColor;
++ (UIColor *)synergoDarkGrayColor;
 
-+ (UIColor *)synergoGrayColor;
++ (UIColor *)synergoLightGrayColor;
 
 @end
