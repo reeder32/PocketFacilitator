@@ -8,7 +8,7 @@
 
 #import "ShopSynergoViewController.h"
 #import "SVProgressHUD/SVProgressHUD.h"
-#import "Reachability.h"
+
 
 
 @interface ShopSynergoViewController ()
@@ -32,8 +32,7 @@
 }
 
 -(void)checkForInternetConnection{
-    Reachability *reachability = [Reachability reachabilityForInternetConnection];
-    [reachability startNotifier];
+    
 }
 
 

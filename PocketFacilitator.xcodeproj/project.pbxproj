@@ -20,12 +20,7 @@
 		27C44A451BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C44A441BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.m */; };
 		27C44A4B1BE57BE9000D01D8 /* DesiredOutcomesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C44A4A1BE57BE9000D01D8 /* DesiredOutcomesViewController.m */; };
 		27C44A8C1BE7D38D000D01D8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27C44A8B1BE7D38D000D01D8 /* QuartzCore.framework */; };
-		27C44AA51BE7D469000D01D8 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C44A9E1BE7D469000D01D8 /* SVIndefiniteAnimatedView.m */; };
-		27C44AA61BE7D469000D01D8 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 27C44AA01BE7D469000D01D8 /* SVProgressHUD.bundle */; };
-		27C44AA71BE7D469000D01D8 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C44AA21BE7D469000D01D8 /* SVProgressHUD.m */; };
-		27C44AA81BE7D469000D01D8 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C44AA41BE7D469000D01D8 /* SVRadialGradientLayer.m */; };
 		27F1700C1BEB602B0052A758 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27F1700B1BEB602B0052A758 /* SystemConfiguration.framework */; };
-		27F170291BEB63B50052A758 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F1701F1BEB63B50052A758 /* Reachability.m */; };
 		27F1702F1BEC871D0052A758 /* DesiredOutcomesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F1702E1BEC871D0052A758 /* DesiredOutcomesTableViewController.m */; };
 		27F1703B1BEC8F4A0052A758 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27F170311BEC8F4A0052A758 /* OpenSans-Bold.ttf */; };
 		27F1703C1BEC8F4A0052A758 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27F170321BEC8F4A0052A758 /* OpenSans-BoldItalic.ttf */; };
@@ -60,6 +55,10 @@
 		27F170701BEC8F760052A758 /* Montserrat-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 27F170681BEC8F760052A758 /* Montserrat-Regular.otf */; };
 		27F170711BEC8F760052A758 /* Montserrat-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 27F170691BEC8F760052A758 /* Montserrat-SemiBold.otf */; };
 		27F170721BEC8F760052A758 /* Montserrat-UltraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 27F1706A1BEC8F760052A758 /* Montserrat-UltraLight.otf */; };
+		27F170861BEC9D2D0052A758 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F1707F1BEC9D2D0052A758 /* SVIndefiniteAnimatedView.m */; };
+		27F170871BEC9D2D0052A758 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 27F170811BEC9D2D0052A758 /* SVProgressHUD.bundle */; };
+		27F170881BEC9D2D0052A758 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F170831BEC9D2D0052A758 /* SVProgressHUD.m */; };
+		27F170891BEC9D2D0052A758 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F170851BEC9D2D0052A758 /* SVRadialGradientLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,17 +104,7 @@
 		27C44A491BE57BE9000D01D8 /* DesiredOutcomesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesiredOutcomesViewController.h; sourceTree = "<group>"; };
 		27C44A4A1BE57BE9000D01D8 /* DesiredOutcomesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesiredOutcomesViewController.m; sourceTree = "<group>"; };
 		27C44A8B1BE7D38D000D01D8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		27C44A9D1BE7D469000D01D8 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
-		27C44A9E1BE7D469000D01D8 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
-		27C44A9F1BE7D469000D01D8 /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
-		27C44AA01BE7D469000D01D8 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
-		27C44AA11BE7D469000D01D8 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
-		27C44AA21BE7D469000D01D8 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
-		27C44AA31BE7D469000D01D8 /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVRadialGradientLayer.h; sourceTree = "<group>"; };
-		27C44AA41BE7D469000D01D8 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
 		27F1700B1BEB602B0052A758 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		27F1701E1BEB63B50052A758 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		27F1701F1BEB63B50052A758 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		27F1702D1BEC871D0052A758 /* DesiredOutcomesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesiredOutcomesTableViewController.h; sourceTree = "<group>"; };
 		27F1702E1BEC871D0052A758 /* DesiredOutcomesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesiredOutcomesTableViewController.m; sourceTree = "<group>"; };
 		27F170311BEC8F4A0052A758 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
@@ -151,6 +140,14 @@
 		27F170681BEC8F760052A758 /* Montserrat-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.otf"; sourceTree = "<group>"; };
 		27F170691BEC8F760052A758 /* Montserrat-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.otf"; sourceTree = "<group>"; };
 		27F1706A1BEC8F760052A758 /* Montserrat-UltraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-UltraLight.otf"; sourceTree = "<group>"; };
+		27F1707E1BEC9D2D0052A758 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		27F1707F1BEC9D2D0052A758 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		27F170801BEC9D2D0052A758 /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
+		27F170811BEC9D2D0052A758 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		27F170821BEC9D2D0052A758 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		27F170831BEC9D2D0052A758 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		27F170841BEC9D2D0052A758 /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVRadialGradientLayer.h; sourceTree = "<group>"; };
+		27F170851BEC9D2D0052A758 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,27 +258,11 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
-		27C44A9C1BE7D469000D01D8 /* SVProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				27C44A9D1BE7D469000D01D8 /* SVIndefiniteAnimatedView.h */,
-				27C44A9E1BE7D469000D01D8 /* SVIndefiniteAnimatedView.m */,
-				27C44A9F1BE7D469000D01D8 /* SVProgressHUD-Prefix.pch */,
-				27C44AA01BE7D469000D01D8 /* SVProgressHUD.bundle */,
-				27C44AA11BE7D469000D01D8 /* SVProgressHUD.h */,
-				27C44AA21BE7D469000D01D8 /* SVProgressHUD.m */,
-				27C44AA31BE7D469000D01D8 /* SVRadialGradientLayer.h */,
-				27C44AA41BE7D469000D01D8 /* SVRadialGradientLayer.m */,
-			);
-			path = SVProgressHUD;
-			sourceTree = "<group>";
-		};
 		27C44AA91BE7D48E000D01D8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				27F1700D1BEB63B50052A758 /* Reachability */,
+				27F1707D1BEC9D2D0052A758 /* SVProgressHUD */,
 				27F1700B1BEB602B0052A758 /* SystemConfiguration.framework */,
-				27C44A9C1BE7D469000D01D8 /* SVProgressHUD */,
 				27C44A8B1BE7D38D000D01D8 /* QuartzCore.framework */,
 			);
 			name = Frameworks;
@@ -296,15 +277,6 @@
 			);
 			name = Classes;
 			path = ..;
-			sourceTree = "<group>";
-		};
-		27F1700D1BEB63B50052A758 /* Reachability */ = {
-			isa = PBXGroup;
-			children = (
-				27F1701E1BEB63B50052A758 /* Reachability.h */,
-				27F1701F1BEB63B50052A758 /* Reachability.m */,
-			);
-			path = Reachability;
 			sourceTree = "<group>";
 		};
 		27F170301BEC8F1C0052A758 /* Fonts */ = {
@@ -345,6 +317,21 @@
 				27F1703A1BEC8F4A0052A758 /* OpenSans-SemiboldItalic.ttf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		27F1707D1BEC9D2D0052A758 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				27F1707E1BEC9D2D0052A758 /* SVIndefiniteAnimatedView.h */,
+				27F1707F1BEC9D2D0052A758 /* SVIndefiniteAnimatedView.m */,
+				27F170801BEC9D2D0052A758 /* SVProgressHUD-Prefix.pch */,
+				27F170811BEC9D2D0052A758 /* SVProgressHUD.bundle */,
+				27F170821BEC9D2D0052A758 /* SVProgressHUD.h */,
+				27F170831BEC9D2D0052A758 /* SVProgressHUD.m */,
+				27F170841BEC9D2D0052A758 /* SVRadialGradientLayer.h */,
+				27F170851BEC9D2D0052A758 /* SVRadialGradientLayer.m */,
+			);
+			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -459,6 +446,7 @@
 				27F170431BEC8F4A0052A758 /* OpenSans-Semibold.ttf in Resources */,
 				27F1703D1BEC8F4A0052A758 /* OpenSans-ExtraBold.ttf in Resources */,
 				2708B6671BE43411003C4A2B /* Assets.xcassets in Resources */,
+				27F170871BEC9D2D0052A758 /* SVProgressHUD.bundle in Resources */,
 				27F170411BEC8F4A0052A758 /* OpenSans-LightItalic.ttf in Resources */,
 				2708B6651BE43411003C4A2B /* Main.storyboard in Resources */,
 				27F170601BEC8F660052A758 /* Oswald-Regular.ttf in Resources */,
@@ -466,7 +454,6 @@
 				27F1706E1BEC8F760052A758 /* Montserrat-Hairline.otf in Resources */,
 				27F1703B1BEC8F4A0052A758 /* OpenSans-Bold.ttf in Resources */,
 				27F170561BEC8F660052A758 /* Oswald-Demi-BoldItalic.ttf in Resources */,
-				27C44AA61BE7D469000D01D8 /* SVProgressHUD.bundle in Resources */,
 				27F170721BEC8F760052A758 /* Montserrat-UltraLight.otf in Resources */,
 				27F170441BEC8F4A0052A758 /* OpenSans-SemiboldItalic.ttf in Resources */,
 				27F1706D1BEC8F760052A758 /* Montserrat-ExtraBold.otf in Resources */,
@@ -514,16 +501,15 @@
 			files = (
 				2708B65C1BE43411003C4A2B /* AppDelegate.m in Sources */,
 				27F1702F1BEC871D0052A758 /* DesiredOutcomesTableViewController.m in Sources */,
+				27F170861BEC9D2D0052A758 /* SVIndefiniteAnimatedView.m in Sources */,
 				2708B6591BE43411003C4A2B /* main.m in Sources */,
 				27C44A2F1BE55668000D01D8 /* InitiativesTableViewController.m in Sources */,
-				27C44AA51BE7D469000D01D8 /* SVIndefiniteAnimatedView.m in Sources */,
 				27C44A4B1BE57BE9000D01D8 /* DesiredOutcomesViewController.m in Sources */,
-				27C44AA71BE7D469000D01D8 /* SVProgressHUD.m in Sources */,
 				27C44A451BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.m in Sources */,
+				27F170881BEC9D2D0052A758 /* SVProgressHUD.m in Sources */,
 				27C44A351BE556D2000D01D8 /* ProfileViewController.m in Sources */,
-				27F170291BEB63B50052A758 /* Reachability.m in Sources */,
 				27C44A3E1BE55D0F000D01D8 /* ShopSynergoViewController.m in Sources */,
-				27C44AA81BE7D469000D01D8 /* SVRadialGradientLayer.m in Sources */,
+				27F170891BEC9D2D0052A758 /* SVRadialGradientLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
