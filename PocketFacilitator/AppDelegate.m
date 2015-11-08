@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "UIColor+UIColor_SynergoColors.h"
 
+
 @interface AppDelegate ()
 
 @end
