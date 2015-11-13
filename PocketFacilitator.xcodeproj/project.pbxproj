@@ -14,15 +14,16 @@
 		2708B66A1BE43411003C4A2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2708B6681BE43411003C4A2B /* LaunchScreen.storyboard */; };
 		2708B6751BE43412003C4A2B /* PocketFacilitatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2708B6741BE43412003C4A2B /* PocketFacilitatorTests.m */; };
 		2708B6801BE43412003C4A2B /* PocketFacilitatorUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2708B67F1BE43412003C4A2B /* PocketFacilitatorUITests.m */; };
+		276E95B21BF56A5800117387 /* PocketFacilitator.db in Resources */ = {isa = PBXBuildFile; fileRef = 276E95B11BF56A5800117387 /* PocketFacilitator.db */; };
+		276E95B51BF56AB400117387 /* LowElementsDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 276E95B41BF56AB400117387 /* LowElementsDetails.m */; };
+		276E95BB1BF56DCF00117387 /* LowElementsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 276E95BA1BF56DCF00117387 /* LowElementsTableViewCell.m */; };
 		27711BF11BEE84C200B3BAE6 /* PocketFacilitator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27711BEF1BEE84C200B3BAE6 /* PocketFacilitator.xcdatamodeld */; };
 		278ED5461BEEDE2C00EB0B71 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 278ED5451BEEDE2C00EB0B71 /* CoreData.framework */; };
 		278ED5541BEEF4EB00EB0B71 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 278ED5531BEEF4EB00EB0B71 /* libsqlite3.0.tbd */; };
-		278ED55B1BEF0FA800EB0B71 /* HighElementsFromDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 278ED55A1BEF0FA800EB0B71 /* HighElementsFromDatabase.m */; };
+		278ED55B1BEF0FA800EB0B71 /* ElementsFromDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 278ED55A1BEF0FA800EB0B71 /* ElementsFromDatabase.m */; };
 		278ED55E1BEF12D000EB0B71 /* HighElementsDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 278ED55D1BEF12D000EB0B71 /* HighElementsDetails.m */; };
 		278ED5611BEF23CD00EB0B71 /* ElementsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 278ED5601BEF23CD00EB0B71 /* ElementsTableViewCell.m */; };
 		278ED5641BEF39E100EB0B71 /* ElementsDetailViewTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 278ED5631BEF39E100EB0B71 /* ElementsDetailViewTableViewController.m */; };
-		278ED5661BEF58CF00EB0B71 /* PocketFacilitator.db in Resources */ = {isa = PBXBuildFile; fileRef = 278ED5651BEF58CF00EB0B71 /* PocketFacilitator.db */; };
-		27C44A2F1BE55668000D01D8 /* InitiativesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C44A2E1BE55668000D01D8 /* InitiativesTableViewController.m */; };
 		27C44A351BE556D2000D01D8 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C44A341BE556D2000D01D8 /* ProfileViewController.m */; };
 		27C44A3E1BE55D0F000D01D8 /* ShopSynergoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C44A3D1BE55D0F000D01D8 /* ShopSynergoViewController.m */; };
 		27C44A451BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C44A441BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.m */; };
@@ -68,6 +69,7 @@
 		27F170871BEC9D2D0052A758 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 27F170811BEC9D2D0052A758 /* SVProgressHUD.bundle */; };
 		27F170881BEC9D2D0052A758 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F170831BEC9D2D0052A758 /* SVProgressHUD.m */; };
 		27F170891BEC9D2D0052A758 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F170851BEC9D2D0052A758 /* SVRadialGradientLayer.m */; };
+		27F3C41C1BF47FF6008CB992 /* ElementsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F3C41B1BF47FF6008CB992 /* ElementsTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,20 +104,22 @@
 		2708B67B1BE43412003C4A2B /* PocketFacilitatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PocketFacilitatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2708B67F1BE43412003C4A2B /* PocketFacilitatorUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PocketFacilitatorUITests.m; sourceTree = "<group>"; };
 		2708B6811BE43412003C4A2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		276E95B11BF56A5800117387 /* PocketFacilitator.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = PocketFacilitator.db; sourceTree = "<group>"; };
+		276E95B31BF56AB400117387 /* LowElementsDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LowElementsDetails.h; sourceTree = "<group>"; };
+		276E95B41BF56AB400117387 /* LowElementsDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LowElementsDetails.m; sourceTree = "<group>"; };
+		276E95B91BF56DCF00117387 /* LowElementsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LowElementsTableViewCell.h; sourceTree = "<group>"; };
+		276E95BA1BF56DCF00117387 /* LowElementsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LowElementsTableViewCell.m; sourceTree = "<group>"; };
 		27711BF01BEE84C200B3BAE6 /* PocketFacilitator.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PocketFacilitator.xcdatamodel; sourceTree = "<group>"; };
 		278ED5451BEEDE2C00EB0B71 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		278ED5531BEEF4EB00EB0B71 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
-		278ED5591BEF0FA800EB0B71 /* HighElementsFromDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighElementsFromDatabase.h; sourceTree = "<group>"; };
-		278ED55A1BEF0FA800EB0B71 /* HighElementsFromDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighElementsFromDatabase.m; sourceTree = "<group>"; };
+		278ED5591BEF0FA800EB0B71 /* ElementsFromDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElementsFromDatabase.h; sourceTree = "<group>"; };
+		278ED55A1BEF0FA800EB0B71 /* ElementsFromDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElementsFromDatabase.m; sourceTree = "<group>"; };
 		278ED55C1BEF12D000EB0B71 /* HighElementsDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighElementsDetails.h; sourceTree = "<group>"; };
 		278ED55D1BEF12D000EB0B71 /* HighElementsDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighElementsDetails.m; sourceTree = "<group>"; };
 		278ED55F1BEF23CD00EB0B71 /* ElementsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElementsTableViewCell.h; sourceTree = "<group>"; };
 		278ED5601BEF23CD00EB0B71 /* ElementsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElementsTableViewCell.m; sourceTree = "<group>"; };
 		278ED5621BEF39E100EB0B71 /* ElementsDetailViewTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElementsDetailViewTableViewController.h; sourceTree = "<group>"; };
 		278ED5631BEF39E100EB0B71 /* ElementsDetailViewTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElementsDetailViewTableViewController.m; sourceTree = "<group>"; };
-		278ED5651BEF58CF00EB0B71 /* PocketFacilitator.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = PocketFacilitator.db; sourceTree = "<group>"; };
-		27C44A2D1BE55668000D01D8 /* InitiativesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitiativesTableViewController.h; sourceTree = "<group>"; };
-		27C44A2E1BE55668000D01D8 /* InitiativesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitiativesTableViewController.m; sourceTree = "<group>"; };
 		27C44A331BE556D2000D01D8 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		27C44A341BE556D2000D01D8 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		27C44A3C1BE55D0F000D01D8 /* ShopSynergoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShopSynergoViewController.h; path = ../ShopSynergoViewController.h; sourceTree = "<group>"; };
@@ -171,6 +175,8 @@
 		27F170831BEC9D2D0052A758 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		27F170841BEC9D2D0052A758 /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVRadialGradientLayer.h; sourceTree = "<group>"; };
 		27F170851BEC9D2D0052A758 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
+		27F3C41A1BF47FF6008CB992 /* ElementsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElementsTableViewController.h; sourceTree = "<group>"; };
+		27F3C41B1BF47FF6008CB992 /* ElementsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElementsTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,10 +211,12 @@
 		2708B64B1BE43411003C4A2B = {
 			isa = PBXGroup;
 			children = (
+				276E95B31BF56AB400117387 /* LowElementsDetails.h */,
+				276E95B41BF56AB400117387 /* LowElementsDetails.m */,
 				278ED55C1BEF12D000EB0B71 /* HighElementsDetails.h */,
 				278ED55D1BEF12D000EB0B71 /* HighElementsDetails.m */,
-				278ED5591BEF0FA800EB0B71 /* HighElementsFromDatabase.h */,
-				278ED55A1BEF0FA800EB0B71 /* HighElementsFromDatabase.m */,
+				278ED5591BEF0FA800EB0B71 /* ElementsFromDatabase.h */,
+				278ED55A1BEF0FA800EB0B71 /* ElementsFromDatabase.m */,
 				27711BEF1BEE84C200B3BAE6 /* PocketFacilitator.xcdatamodeld */,
 				2708B6561BE43411003C4A2B /* PocketFacilitator */,
 				2708B6731BE43412003C4A2B /* PocketFacilitatorTests */,
@@ -248,7 +256,7 @@
 		2708B6571BE43411003C4A2B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				278ED5651BEF58CF00EB0B71 /* PocketFacilitator.db */,
+				276E95B11BF56A5800117387 /* PocketFacilitator.db */,
 				2708B6581BE43411003C4A2B /* main.m */,
 			);
 			name = "Supporting Files";
@@ -275,12 +283,12 @@
 		27C44A3F1BE55D31000D01D8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				27F3C41A1BF47FF6008CB992 /* ElementsTableViewController.h */,
+				27F3C41B1BF47FF6008CB992 /* ElementsTableViewController.m */,
 				27EF836F1BECA5EC00B7F96D /* LowElementsTableViewController.h */,
 				27EF83701BECA5EC00B7F96D /* LowElementsTableViewController.m */,
 				27EF836C1BECA5DD00B7F96D /* HighElementsTableViewController.h */,
 				27EF836D1BECA5DD00B7F96D /* HighElementsTableViewController.m */,
-				27C44A2D1BE55668000D01D8 /* InitiativesTableViewController.h */,
-				27C44A2E1BE55668000D01D8 /* InitiativesTableViewController.m */,
 				27C44A331BE556D2000D01D8 /* ProfileViewController.h */,
 				27C44A341BE556D2000D01D8 /* ProfileViewController.m */,
 				27C44A3C1BE55D0F000D01D8 /* ShopSynergoViewController.h */,
@@ -313,6 +321,8 @@
 				27C44A441BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.m */,
 				278ED55F1BEF23CD00EB0B71 /* ElementsTableViewCell.h */,
 				278ED5601BEF23CD00EB0B71 /* ElementsTableViewCell.m */,
+				276E95B91BF56DCF00117387 /* LowElementsTableViewCell.h */,
+				276E95BA1BF56DCF00117387 /* LowElementsTableViewCell.m */,
 			);
 			name = Classes;
 			path = ..;
@@ -485,7 +495,7 @@
 				27F170431BEC8F4A0052A758 /* OpenSans-Semibold.ttf in Resources */,
 				27F1703D1BEC8F4A0052A758 /* OpenSans-ExtraBold.ttf in Resources */,
 				2708B6671BE43411003C4A2B /* Assets.xcassets in Resources */,
-				278ED5661BEF58CF00EB0B71 /* PocketFacilitator.db in Resources */,
+				276E95B21BF56A5800117387 /* PocketFacilitator.db in Resources */,
 				27F170871BEC9D2D0052A758 /* SVProgressHUD.bundle in Resources */,
 				27F170411BEC8F4A0052A758 /* OpenSans-LightItalic.ttf in Resources */,
 				2708B6651BE43411003C4A2B /* Main.storyboard in Resources */,
@@ -546,9 +556,11 @@
 				278ED5641BEF39E100EB0B71 /* ElementsDetailViewTableViewController.m in Sources */,
 				27F170861BEC9D2D0052A758 /* SVIndefiniteAnimatedView.m in Sources */,
 				2708B6591BE43411003C4A2B /* main.m in Sources */,
-				27C44A2F1BE55668000D01D8 /* InitiativesTableViewController.m in Sources */,
-				278ED55B1BEF0FA800EB0B71 /* HighElementsFromDatabase.m in Sources */,
+				276E95BB1BF56DCF00117387 /* LowElementsTableViewCell.m in Sources */,
+				278ED55B1BEF0FA800EB0B71 /* ElementsFromDatabase.m in Sources */,
+				276E95B51BF56AB400117387 /* LowElementsDetails.m in Sources */,
 				27C44A451BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.m in Sources */,
+				27F3C41C1BF47FF6008CB992 /* ElementsTableViewController.m in Sources */,
 				27F170881BEC9D2D0052A758 /* SVProgressHUD.m in Sources */,
 				27C44A351BE556D2000D01D8 /* ProfileViewController.m in Sources */,
 				27C44A3E1BE55D0F000D01D8 /* ShopSynergoViewController.m in Sources */,

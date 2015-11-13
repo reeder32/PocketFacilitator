@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface LowElementsTableViewController : UITableViewController
-
+@property (strong, nonatomic) NSArray *lowElementsArray;
 @end

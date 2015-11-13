@@ -35,7 +35,6 @@
     [[UITabBar appearance] setBarTintColor:[UIColor synergoLightGrayColor]];
     
     //setup navigation appearance
-    
     UINavigationBar.appearance.tintColor = [UIColor synergoMaroonColor];
     
     NSDictionary *textAttributes = @{ NSForegroundColorAttributeName       : [UIColor synergoMaroonColor],
@@ -44,6 +43,9 @@
     UINavigationBar.appearance.titleTextAttributes = textAttributes;
     NSDictionary *buttonAttributes = @{ NSFontAttributeName : [UIFont fontWithName:@"OpenSans" size:0.1]};
     [[UIBarButtonItem appearance]setTitleTextAttributes:buttonAttributes forState:UIControlStateNormal];
+    
+    //setup uitableview cells
+    [[UITableViewCell appearance] setTintColor:[UIColor synergoRedColor]];
     return YES;
 }
 

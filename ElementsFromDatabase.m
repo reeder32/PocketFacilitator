@@ -1,21 +1,22 @@
 //
-//  HighElementsFromDatabase.m
+//  ElementsFromDatabase.m
 //  PocketFacilitator
 //
 //  Created by Nick Reeder on 11/7/15.
 //  Copyright © 2015 Nick Reeder. All rights reserved.
 //
 
-#import "HighElementsFromDatabase.h"
+#import "ElementsFromDatabase.h"
 #import "HighElementsDetails.h"
+#import "LowElementsDetails.h"
 #import <sqlite3.h>
 
-@implementation HighElementsFromDatabase
+@implementation ElementsFromDatabase
 
-static HighElementsFromDatabase *_database;
-+ (HighElementsFromDatabase *)database{
+static ElementsFromDatabase *_database;
++ (ElementsFromDatabase *)database{
     if (_database == nil) {
-        _database = [[HighElementsFromDatabase alloc]init];
+        _database = [[ElementsFromDatabase alloc]init];
     }
     return _database;
 }
@@ -67,6 +68,45 @@ static HighElementsFromDatabase *_database;
     return mutArray;
     
 }
+-(NSArray *)lowElementsArray{
+    
+    NSMutableArray *mutArray = [NSMutableArray array];
+    sqlite3_stmt *selectStatement;
+    NSString *querySQL = [NSString stringWithFormat: @"SELECT name, variations, guidelines, desiredOutcomes, reflectionQuestions FROM LowElements",nil];
+    
+    if (sqlite3_prepare_v2(_database,
+                           [querySQL UTF8String], -1, &selectStatement, NULL) == SQLITE_OK)
+    {
+        
+        
+        while(sqlite3_step(selectStatement) == SQLITE_ROW)
+        {
+            
+            char *nameChars = (char *) sqlite3_column_text(selectStatement, 0);
+            char *variationsChar = (char *) sqlite3_column_text(selectStatement, 1);
+            char *guidelinesChar = (char *) sqlite3_column_text(selectStatement, 2);
+            char *desiredOutcomesChar = (char *) sqlite3_column_text(selectStatement, 3);
+            char *reflectionQuestionsChar = (char *) sqlite3_column_text(selectStatement, 4);
+            NSString *name = [NSString stringWithUTF8String:nameChars];
+            NSString *variations = [NSString stringWithUTF8String:variationsChar];
+            NSString *guidelines = [NSString stringWithUTF8String:guidelinesChar];
+            NSString *outcomes = [NSString stringWithUTF8String:desiredOutcomesChar];
+            NSString *questions = [NSString stringWithUTF8String:reflectionQuestionsChar];
+            LowElementsDetails *details = [[LowElementsDetails alloc]initWithUniqueName:name variations:variations guidelines:guidelines desiredOutcomes:outcomes reflectionQuestions:questions];
+            [mutArray addObject:details];
+        }
+        //  username.text=@"No Username";
+        
+        
+        sqlite3_finalize(selectStatement);
+        
+        
+    }
+    return mutArray;
+    
+}
+
+
 
 
 @end

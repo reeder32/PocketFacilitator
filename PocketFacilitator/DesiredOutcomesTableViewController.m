@@ -7,6 +7,7 @@
 //
 
 #import "DesiredOutcomesTableViewController.h"
+#import "UIColor+UIColor_SynergoColors.h"
 
 @implementation DesiredOutcomesTableViewController
 - (void)viewDidLoad {
@@ -48,11 +49,18 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 2.0;
+    return 9;
+}
+-(void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.contentView.superview.backgroundColor = [[UIColor synergoLightGrayColor]colorWithAlphaComponent:.2];
+   
 }
 
-
-
+-(void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.contentView.superview.backgroundColor = [UIColor whiteColor];
+}
 
 /*
  // Override to support conditional editing of the table view.

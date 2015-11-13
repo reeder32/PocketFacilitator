@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ShopSynergoViewController : UIViewController
+
+@interface ShopSynergoViewController : UIViewController <UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *shopSynergoWebView;
 
 @end

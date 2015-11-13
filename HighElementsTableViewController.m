@@ -7,7 +7,7 @@
 //
 
 #import "HighElementsTableViewController.h"
-#import "HighElementsFromDatabase.h"
+#import "ElementsFromDatabase.h"
 #import "HighElementsDetails.h"
 #import "ElementsTableViewCell.h"
 #import "ElementsDetailViewTableViewController.h"
@@ -20,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.highElementsArray = [HighElementsFromDatabase database].highElementsArray;
+    self.highElementsArray = [ElementsFromDatabase database].highElementsArray;
     self.tableView.rowHeight = 50;
     [self.tableView reloadData];
 

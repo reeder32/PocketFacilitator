@@ -1,18 +1,19 @@
 //
-//  InitiativesTableViewController.m
+//  ElementsTableViewController.m
 //  PocketFacilitator
 //
-//  Created by Nick Reeder on 10/31/15.
+//  Created by Nick Reeder on 11/12/15.
 //  Copyright © 2015 Nick Reeder. All rights reserved.
 //
 
-#import "InitiativesTableViewController.h"
+#import "ElementsTableViewController.h"
+#import "UIColor+UIColor_SynergoColors.h"
 
-@interface InitiativesTableViewController ()
+@interface ElementsTableViewController ()
 
 @end
 
-@implementation InitiativesTableViewController
+@implementation ElementsTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,24 +33,29 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    return self.initiativesArray.count;
+    return 4;
 }
-
-
+-(void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.contentView.superview.backgroundColor = [[UIColor synergoLightGrayColor]colorWithAlphaComponent:.2];
+}
+-(void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.contentView.superview.backgroundColor = [UIColor whiteColor];
+}
+/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"InitiativesCell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
     
     return cell;
 }
-
+*/
 
 /*
 // Override to support conditional editing of the table view.
