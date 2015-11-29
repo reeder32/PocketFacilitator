@@ -10,6 +10,7 @@
 #import "UIColor+UIColor_SynergoColors.h"
 
 
+
 @interface AppDelegate ()
 
 @end
@@ -18,7 +19,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    LeftMenuViewController *leftMenu = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"LeftMenuViewController"];
     
+    
+    [SlideNavigationController sharedInstance].leftMenu = leftMenu;
     //app background view color
     [[UIWindow appearance] setBackgroundColor:[UIColor synergoLightGrayColor]];
     
@@ -70,5 +74,6 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
 
 @end

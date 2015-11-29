@@ -14,7 +14,6 @@
 		2708B66A1BE43411003C4A2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2708B6681BE43411003C4A2B /* LaunchScreen.storyboard */; };
 		2708B6751BE43412003C4A2B /* PocketFacilitatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2708B6741BE43412003C4A2B /* PocketFacilitatorTests.m */; };
 		2708B6801BE43412003C4A2B /* PocketFacilitatorUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2708B67F1BE43412003C4A2B /* PocketFacilitatorUITests.m */; };
-		276E95B21BF56A5800117387 /* PocketFacilitator.db in Resources */ = {isa = PBXBuildFile; fileRef = 276E95B11BF56A5800117387 /* PocketFacilitator.db */; };
 		276E95B51BF56AB400117387 /* LowElementsDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 276E95B41BF56AB400117387 /* LowElementsDetails.m */; };
 		276E95BB1BF56DCF00117387 /* LowElementsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 276E95BA1BF56DCF00117387 /* LowElementsTableViewCell.m */; };
 		27711BF11BEE84C200B3BAE6 /* PocketFacilitator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27711BEF1BEE84C200B3BAE6 /* PocketFacilitator.xcdatamodeld */; };
@@ -24,10 +23,26 @@
 		278ED55E1BEF12D000EB0B71 /* HighElementsDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 278ED55D1BEF12D000EB0B71 /* HighElementsDetails.m */; };
 		278ED5611BEF23CD00EB0B71 /* ElementsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 278ED5601BEF23CD00EB0B71 /* ElementsTableViewCell.m */; };
 		278ED5641BEF39E100EB0B71 /* ElementsDetailViewTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 278ED5631BEF39E100EB0B71 /* ElementsDetailViewTableViewController.m */; };
+		279926BF1C0A682F007D27F1 /* IceBreakersDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 279926BE1C0A682F007D27F1 /* IceBreakersDetails.m */; };
+		279926C21C0A68A4007D27F1 /* InitiativesDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 279926C11C0A68A4007D27F1 /* InitiativesDetails.m */; };
+		279BCDED1C0A6C2D003ABA13 /* InitiativesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 279BCDEC1C0A6C2D003ABA13 /* InitiativesTableViewController.m */; };
+		279BCDF01C0A6C3A003ABA13 /* IceBreakersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 279BCDEF1C0A6C3A003ABA13 /* IceBreakersTableViewController.m */; };
+		279BCDF71C0A6F38003ABA13 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 279BCDF61C0A6F38003ABA13 /* MenuTableViewController.m */; };
+		279BCE341C0A7C6F003ABA13 /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 279BCE0A1C0A7C6F003ABA13 /* LeftMenuViewController.m */; };
+		279BCE371C0A7C6F003ABA13 /* RightMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 279BCE101C0A7C6F003ABA13 /* RightMenuViewController.m */; };
+		279BCE3E1C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 279BCE1D1C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorFade.m */; };
+		279BCE3F1C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorScale.m in Sources */ = {isa = PBXBuildFile; fileRef = 279BCE1F1C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorScale.m */; };
+		279BCE401C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 279BCE211C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorScaleAndFade.m */; };
+		279BCE411C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorSlide.m in Sources */ = {isa = PBXBuildFile; fileRef = 279BCE231C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorSlide.m */; };
+		279BCE421C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 279BCE251C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorSlideAndFade.m */; };
+		279BCE451C0A7C6F003ABA13 /* SlideNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 279BCE2A1C0A7C6F003ABA13 /* SlideNavigationController.m */; };
 		27C44A351BE556D2000D01D8 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C44A341BE556D2000D01D8 /* ProfileViewController.m */; };
 		27C44A3E1BE55D0F000D01D8 /* ShopSynergoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C44A3D1BE55D0F000D01D8 /* ShopSynergoViewController.m */; };
 		27C44A451BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C44A441BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.m */; };
 		27C44A8C1BE7D38D000D01D8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27C44A8B1BE7D38D000D01D8 /* QuartzCore.framework */; };
+		27D399FA1C013BAA00BCAEDC /* PocketFacilitator.db in Resources */ = {isa = PBXBuildFile; fileRef = 27D399F91C013BAA00BCAEDC /* PocketFacilitator.db */; };
+		27D399FF1C0143BC00BCAEDC /* Favorites+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D399FC1C0143BC00BCAEDC /* Favorites+CoreDataProperties.m */; };
+		27D39A001C0143BC00BCAEDC /* Favorites.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D399FE1C0143BC00BCAEDC /* Favorites.m */; };
 		27EF836E1BECA5DD00B7F96D /* HighElementsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EF836D1BECA5DD00B7F96D /* HighElementsTableViewController.m */; };
 		27EF83711BECA5EC00B7F96D /* LowElementsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EF83701BECA5EC00B7F96D /* LowElementsTableViewController.m */; };
 		27F1700C1BEB602B0052A758 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27F1700B1BEB602B0052A758 /* SystemConfiguration.framework */; };
@@ -104,7 +119,6 @@
 		2708B67B1BE43412003C4A2B /* PocketFacilitatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PocketFacilitatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2708B67F1BE43412003C4A2B /* PocketFacilitatorUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PocketFacilitatorUITests.m; sourceTree = "<group>"; };
 		2708B6811BE43412003C4A2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		276E95B11BF56A5800117387 /* PocketFacilitator.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = PocketFacilitator.db; sourceTree = "<group>"; };
 		276E95B31BF56AB400117387 /* LowElementsDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LowElementsDetails.h; sourceTree = "<group>"; };
 		276E95B41BF56AB400117387 /* LowElementsDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LowElementsDetails.m; sourceTree = "<group>"; };
 		276E95B91BF56DCF00117387 /* LowElementsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LowElementsTableViewCell.h; sourceTree = "<group>"; };
@@ -120,6 +134,33 @@
 		278ED5601BEF23CD00EB0B71 /* ElementsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElementsTableViewCell.m; sourceTree = "<group>"; };
 		278ED5621BEF39E100EB0B71 /* ElementsDetailViewTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElementsDetailViewTableViewController.h; sourceTree = "<group>"; };
 		278ED5631BEF39E100EB0B71 /* ElementsDetailViewTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElementsDetailViewTableViewController.m; sourceTree = "<group>"; };
+		279926BD1C0A682F007D27F1 /* IceBreakersDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IceBreakersDetails.h; sourceTree = "<group>"; };
+		279926BE1C0A682F007D27F1 /* IceBreakersDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IceBreakersDetails.m; sourceTree = "<group>"; };
+		279926C01C0A68A4007D27F1 /* InitiativesDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitiativesDetails.h; sourceTree = "<group>"; };
+		279926C11C0A68A4007D27F1 /* InitiativesDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitiativesDetails.m; sourceTree = "<group>"; };
+		279BCDEB1C0A6C2D003ABA13 /* InitiativesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitiativesTableViewController.h; sourceTree = "<group>"; };
+		279BCDEC1C0A6C2D003ABA13 /* InitiativesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitiativesTableViewController.m; sourceTree = "<group>"; };
+		279BCDEE1C0A6C3A003ABA13 /* IceBreakersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IceBreakersTableViewController.h; sourceTree = "<group>"; };
+		279BCDEF1C0A6C3A003ABA13 /* IceBreakersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IceBreakersTableViewController.m; sourceTree = "<group>"; };
+		279BCDF51C0A6F38003ABA13 /* MenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewController.h; sourceTree = "<group>"; };
+		279BCDF61C0A6F38003ABA13 /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewController.m; sourceTree = "<group>"; };
+		279BCE091C0A7C6F003ABA13 /* LeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMenuViewController.h; sourceTree = "<group>"; };
+		279BCE0A1C0A7C6F003ABA13 /* LeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMenuViewController.m; sourceTree = "<group>"; };
+		279BCE0F1C0A7C6F003ABA13 /* RightMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightMenuViewController.h; sourceTree = "<group>"; };
+		279BCE101C0A7C6F003ABA13 /* RightMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightMenuViewController.m; sourceTree = "<group>"; };
+		279BCE1B1C0A7C6F003ABA13 /* SlideNavigationContorllerAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimator.h; sourceTree = "<group>"; };
+		279BCE1C1C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorFade.h; sourceTree = "<group>"; };
+		279BCE1D1C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorFade.m; sourceTree = "<group>"; };
+		279BCE1E1C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorScale.h; sourceTree = "<group>"; };
+		279BCE1F1C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorScale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorScale.m; sourceTree = "<group>"; };
+		279BCE201C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorScaleAndFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorScaleAndFade.h; sourceTree = "<group>"; };
+		279BCE211C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorScaleAndFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorScaleAndFade.m; sourceTree = "<group>"; };
+		279BCE221C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorSlide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorSlide.h; sourceTree = "<group>"; };
+		279BCE231C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorSlide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorSlide.m; sourceTree = "<group>"; };
+		279BCE241C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorSlideAndFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorSlideAndFade.h; sourceTree = "<group>"; };
+		279BCE251C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorSlideAndFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorSlideAndFade.m; sourceTree = "<group>"; };
+		279BCE291C0A7C6F003ABA13 /* SlideNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationController.h; sourceTree = "<group>"; };
+		279BCE2A1C0A7C6F003ABA13 /* SlideNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationController.m; sourceTree = "<group>"; };
 		27C44A331BE556D2000D01D8 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		27C44A341BE556D2000D01D8 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		27C44A3C1BE55D0F000D01D8 /* ShopSynergoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShopSynergoViewController.h; path = ../ShopSynergoViewController.h; sourceTree = "<group>"; };
@@ -127,6 +168,11 @@
 		27C44A431BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+UIColor_SynergoColors.h"; sourceTree = "<group>"; };
 		27C44A441BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+UIColor_SynergoColors.m"; sourceTree = "<group>"; };
 		27C44A8B1BE7D38D000D01D8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		27D399F91C013BAA00BCAEDC /* PocketFacilitator.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = PocketFacilitator.db; sourceTree = "<group>"; };
+		27D399FB1C0143BC00BCAEDC /* Favorites+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Favorites+CoreDataProperties.h"; sourceTree = "<group>"; };
+		27D399FC1C0143BC00BCAEDC /* Favorites+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Favorites+CoreDataProperties.m"; sourceTree = "<group>"; };
+		27D399FD1C0143BC00BCAEDC /* Favorites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Favorites.h; sourceTree = "<group>"; };
+		27D399FE1C0143BC00BCAEDC /* Favorites.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Favorites.m; sourceTree = "<group>"; };
 		27EF836C1BECA5DD00B7F96D /* HighElementsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HighElementsTableViewController.h; path = ../HighElementsTableViewController.h; sourceTree = "<group>"; };
 		27EF836D1BECA5DD00B7F96D /* HighElementsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HighElementsTableViewController.m; path = ../HighElementsTableViewController.m; sourceTree = "<group>"; };
 		27EF836F1BECA5EC00B7F96D /* LowElementsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LowElementsTableViewController.h; path = ../LowElementsTableViewController.h; sourceTree = "<group>"; };
@@ -211,13 +257,6 @@
 		2708B64B1BE43411003C4A2B = {
 			isa = PBXGroup;
 			children = (
-				276E95B31BF56AB400117387 /* LowElementsDetails.h */,
-				276E95B41BF56AB400117387 /* LowElementsDetails.m */,
-				278ED55C1BEF12D000EB0B71 /* HighElementsDetails.h */,
-				278ED55D1BEF12D000EB0B71 /* HighElementsDetails.m */,
-				278ED5591BEF0FA800EB0B71 /* ElementsFromDatabase.h */,
-				278ED55A1BEF0FA800EB0B71 /* ElementsFromDatabase.m */,
-				27711BEF1BEE84C200B3BAE6 /* PocketFacilitator.xcdatamodeld */,
 				2708B6561BE43411003C4A2B /* PocketFacilitator */,
 				2708B6731BE43412003C4A2B /* PocketFacilitatorTests */,
 				2708B67E1BE43412003C4A2B /* PocketFacilitatorUITests */,
@@ -248,6 +287,7 @@
 				2708B6661BE43411003C4A2B /* Assets.xcassets */,
 				2708B6681BE43411003C4A2B /* LaunchScreen.storyboard */,
 				2708B66B1BE43411003C4A2B /* Info.plist */,
+				273A07E31BF6779F0007BB4B /* Model */,
 				2708B6571BE43411003C4A2B /* Supporting Files */,
 			);
 			path = PocketFacilitator;
@@ -256,7 +296,7 @@
 		2708B6571BE43411003C4A2B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				276E95B11BF56A5800117387 /* PocketFacilitator.db */,
+				27D399F91C013BAA00BCAEDC /* PocketFacilitator.db */,
 				2708B6581BE43411003C4A2B /* main.m */,
 			);
 			name = "Supporting Files";
@@ -280,6 +320,77 @@
 			path = PocketFacilitatorUITests;
 			sourceTree = "<group>";
 		};
+		273A07E31BF6779F0007BB4B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				279926C01C0A68A4007D27F1 /* InitiativesDetails.h */,
+				279926C11C0A68A4007D27F1 /* InitiativesDetails.m */,
+				279926BD1C0A682F007D27F1 /* IceBreakersDetails.h */,
+				279926BE1C0A682F007D27F1 /* IceBreakersDetails.m */,
+				276E95B31BF56AB400117387 /* LowElementsDetails.h */,
+				276E95B41BF56AB400117387 /* LowElementsDetails.m */,
+				278ED55C1BEF12D000EB0B71 /* HighElementsDetails.h */,
+				278ED55D1BEF12D000EB0B71 /* HighElementsDetails.m */,
+				278ED5591BEF0FA800EB0B71 /* ElementsFromDatabase.h */,
+				278ED55A1BEF0FA800EB0B71 /* ElementsFromDatabase.m */,
+				27711BEF1BEE84C200B3BAE6 /* PocketFacilitator.xcdatamodeld */,
+				27D399FB1C0143BC00BCAEDC /* Favorites+CoreDataProperties.h */,
+				27D399FC1C0143BC00BCAEDC /* Favorites+CoreDataProperties.m */,
+				27D399FD1C0143BC00BCAEDC /* Favorites.h */,
+				27D399FE1C0143BC00BCAEDC /* Favorites.m */,
+			);
+			name = Model;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		279BCDF81C0A7C6F003ABA13 /* SlideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				279BCE041C0A7C6F003ABA13 /* Helper Classes */,
+				279BCE191C0A7C6F003ABA13 /* Source */,
+			);
+			path = SlideMenu;
+			sourceTree = "<group>";
+		};
+		279BCE041C0A7C6F003ABA13 /* Helper Classes */ = {
+			isa = PBXGroup;
+			children = (
+				279BCE091C0A7C6F003ABA13 /* LeftMenuViewController.h */,
+				279BCE0A1C0A7C6F003ABA13 /* LeftMenuViewController.m */,
+				279BCE0F1C0A7C6F003ABA13 /* RightMenuViewController.h */,
+				279BCE101C0A7C6F003ABA13 /* RightMenuViewController.m */,
+			);
+			path = "Helper Classes";
+			sourceTree = "<group>";
+		};
+		279BCE191C0A7C6F003ABA13 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				279BCE1A1C0A7C6F003ABA13 /* Animations */,
+				279BCE291C0A7C6F003ABA13 /* SlideNavigationController.h */,
+				279BCE2A1C0A7C6F003ABA13 /* SlideNavigationController.m */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		279BCE1A1C0A7C6F003ABA13 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				279BCE1B1C0A7C6F003ABA13 /* SlideNavigationContorllerAnimator.h */,
+				279BCE1C1C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorFade.h */,
+				279BCE1D1C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorFade.m */,
+				279BCE1E1C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorScale.h */,
+				279BCE1F1C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorScale.m */,
+				279BCE201C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorScaleAndFade.h */,
+				279BCE211C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorScaleAndFade.m */,
+				279BCE221C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorSlide.h */,
+				279BCE231C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorSlide.m */,
+				279BCE241C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorSlideAndFade.h */,
+				279BCE251C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorSlideAndFade.m */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 		27C44A3F1BE55D31000D01D8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +408,12 @@
 				27F1702E1BEC871D0052A758 /* DesiredOutcomesTableViewController.m */,
 				278ED5621BEF39E100EB0B71 /* ElementsDetailViewTableViewController.h */,
 				278ED5631BEF39E100EB0B71 /* ElementsDetailViewTableViewController.m */,
+				279BCDEB1C0A6C2D003ABA13 /* InitiativesTableViewController.h */,
+				279BCDEC1C0A6C2D003ABA13 /* InitiativesTableViewController.m */,
+				279BCDEE1C0A6C3A003ABA13 /* IceBreakersTableViewController.h */,
+				279BCDEF1C0A6C3A003ABA13 /* IceBreakersTableViewController.m */,
+				279BCDF51C0A6F38003ABA13 /* MenuTableViewController.h */,
+				279BCDF61C0A6F38003ABA13 /* MenuTableViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -304,6 +421,7 @@
 		27C44AA91BE7D48E000D01D8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				279BCDF81C0A7C6F003ABA13 /* SlideMenu */,
 				278ED5531BEEF4EB00EB0B71 /* libsqlite3.0.tbd */,
 				278ED5451BEEDE2C00EB0B71 /* CoreData.framework */,
 				27F1707D1BEC9D2D0052A758 /* SVProgressHUD */,
@@ -393,6 +511,7 @@
 				2708B6501BE43411003C4A2B /* Sources */,
 				2708B6511BE43411003C4A2B /* Frameworks */,
 				2708B6521BE43411003C4A2B /* Resources */,
+				27D39A031C01499A00BCAEDC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -495,7 +614,7 @@
 				27F170431BEC8F4A0052A758 /* OpenSans-Semibold.ttf in Resources */,
 				27F1703D1BEC8F4A0052A758 /* OpenSans-ExtraBold.ttf in Resources */,
 				2708B6671BE43411003C4A2B /* Assets.xcassets in Resources */,
-				276E95B21BF56A5800117387 /* PocketFacilitator.db in Resources */,
+				27D399FA1C013BAA00BCAEDC /* PocketFacilitator.db in Resources */,
 				27F170871BEC9D2D0052A758 /* SVProgressHUD.bundle in Resources */,
 				27F170411BEC8F4A0052A758 /* OpenSans-LightItalic.ttf in Resources */,
 				2708B6651BE43411003C4A2B /* Main.storyboard in Resources */,
@@ -544,30 +663,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		27D39A031C01499A00BCAEDC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2708B6501BE43411003C4A2B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				279BCE371C0A7C6F003ABA13 /* RightMenuViewController.m in Sources */,
+				279BCE401C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
+				279926C21C0A68A4007D27F1 /* InitiativesDetails.m in Sources */,
 				2708B65C1BE43411003C4A2B /* AppDelegate.m in Sources */,
+				279BCE411C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
 				278ED55E1BEF12D000EB0B71 /* HighElementsDetails.m in Sources */,
+				279BCE421C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
 				278ED5611BEF23CD00EB0B71 /* ElementsTableViewCell.m in Sources */,
 				27F1702F1BEC871D0052A758 /* DesiredOutcomesTableViewController.m in Sources */,
 				278ED5641BEF39E100EB0B71 /* ElementsDetailViewTableViewController.m in Sources */,
+				279BCDED1C0A6C2D003ABA13 /* InitiativesTableViewController.m in Sources */,
+				279BCDF71C0A6F38003ABA13 /* MenuTableViewController.m in Sources */,
 				27F170861BEC9D2D0052A758 /* SVIndefiniteAnimatedView.m in Sources */,
 				2708B6591BE43411003C4A2B /* main.m in Sources */,
+				279BCE451C0A7C6F003ABA13 /* SlideNavigationController.m in Sources */,
 				276E95BB1BF56DCF00117387 /* LowElementsTableViewCell.m in Sources */,
 				278ED55B1BEF0FA800EB0B71 /* ElementsFromDatabase.m in Sources */,
 				276E95B51BF56AB400117387 /* LowElementsDetails.m in Sources */,
 				27C44A451BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.m in Sources */,
+				279926BF1C0A682F007D27F1 /* IceBreakersDetails.m in Sources */,
 				27F3C41C1BF47FF6008CB992 /* ElementsTableViewController.m in Sources */,
 				27F170881BEC9D2D0052A758 /* SVProgressHUD.m in Sources */,
 				27C44A351BE556D2000D01D8 /* ProfileViewController.m in Sources */,
 				27C44A3E1BE55D0F000D01D8 /* ShopSynergoViewController.m in Sources */,
 				27EF836E1BECA5DD00B7F96D /* HighElementsTableViewController.m in Sources */,
+				279BCDF01C0A6C3A003ABA13 /* IceBreakersTableViewController.m in Sources */,
 				27711BF11BEE84C200B3BAE6 /* PocketFacilitator.xcdatamodeld in Sources */,
+				279BCE3E1C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorFade.m in Sources */,
 				27EF83711BECA5EC00B7F96D /* LowElementsTableViewController.m in Sources */,
+				279BCE3F1C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorScale.m in Sources */,
 				27F170891BEC9D2D0052A758 /* SVRadialGradientLayer.m in Sources */,
+				27D39A001C0143BC00BCAEDC /* Favorites.m in Sources */,
+				279BCE341C0A7C6F003ABA13 /* LeftMenuViewController.m in Sources */,
+				27D399FF1C0143BC00BCAEDC /* Favorites+CoreDataProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -709,6 +859,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = PocketFacilitator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicksapps.PocketFacilitator;
@@ -722,6 +876,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = PocketFacilitator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicksapps.PocketFacilitator;
@@ -734,6 +892,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
 				INFOPLIST_FILE = PocketFacilitatorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicksapps.PocketFacilitatorTests;
@@ -746,6 +905,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
 				INFOPLIST_FILE = PocketFacilitatorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicksapps.PocketFacilitatorTests;
@@ -757,6 +917,10 @@
 		2708B68B1BE43412003C4A2B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = PocketFacilitatorUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicksapps.PocketFacilitatorUITests;
@@ -769,6 +933,10 @@
 		2708B68C1BE43412003C4A2B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = PocketFacilitatorUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicksapps.PocketFacilitatorUITests;

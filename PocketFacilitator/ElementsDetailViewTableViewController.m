@@ -8,7 +8,9 @@
 
 #import "ElementsDetailViewTableViewController.h"
 
+
 @interface ElementsDetailViewTableViewController ()
+@property (nonatomic) NSMutableArray *favorites;
 
 @end
 
@@ -16,8 +18,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     self.detailNavItem.title = self.name;
-    self.guidelinesTextView.text = self.guidelines;
+    self.guidelinesTitle.text = self.guidelines;
     [self formatTextData];
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -52,63 +55,46 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 -(void)formatTextData{
-    NSArray *outcomesArray = [self.desiredOutcomes componentsSeparatedByString:@"*"];
-    NSString * outcomesString = [outcomesArray componentsJoinedByString:@" - "];
-    self.desiredOutcomesLabel.text = outcomesString;
+    NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:@"@"];
+    NSArray *outcomesArray = [self.desiredOutcomes componentsSeparatedByCharactersInSet:set];
+    if (outcomesArray.count >2) {
+        NSString * outcomesString = [outcomesArray componentsJoinedByString:@" - "];
+        self.desiredOutcomesTitle.text = outcomesString;
+    }else{
+        NSString *originalString = [outcomesArray componentsJoinedByString:@" "];
+        self.desiredOutcomesTitle.text = originalString;
+    }
     
-    NSArray *variationsArray = [self.variations componentsSeparatedByString:@","];
+    
+    NSArray *variationsArray = [self.variations componentsSeparatedByString:@"@"];
     NSString * variationsString = [variationsArray componentsJoinedByString:@".\n"];
-    self.variationsTextView.text = variationsString;
+    self.variationsTitle.numberOfLines = variationsArray.count*2;
+    self.variationsTitle.text = variationsString;
     
+   
     NSArray *questionsArray = [self.reflectionQuestions componentsSeparatedByString:@"?"];
     NSString * questionsString = [questionsArray componentsJoinedByString:@"?\n"];
-    self.questionsTextView.text = questionsString;
+    self.reflectionQuestionsTitle.numberOfLines = questionsArray.count*2;
+    self.reflectionQuestionsTitle.text = questionsString;
     
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+-(void)scrollViewDidScroll: (UIScrollView*)scrollView
+{
+    float scrollViewHeight = scrollView.frame.size.height;
+    float scrollContentSizeHeight = scrollView.contentSize.height;
+    float scrollOffset = scrollView.contentOffset.y;
+    
+    if (scrollOffset == 0)
+    {
+        NSLog(@"We are at the top");
+    }
+    else if (scrollOffset + scrollViewHeight == scrollContentSizeHeight)
+    {
+        // then we are at the end
+        NSLog(@"We are at the bottom");
+    }
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

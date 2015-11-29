@@ -8,13 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "HighElementsDetails.h"
+@import CoreData;
 
 @interface ElementsDetailViewTableViewController : UITableViewController<UITextViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UITextView *guidelinesTextView;
-@property (weak, nonatomic) IBOutlet UITextView *variationsTextView;
-@property (weak, nonatomic) IBOutlet UITextView *questionsTextView;
-@property (weak, nonatomic) IBOutlet UILabel *desiredOutcomesLabel;
+@property (weak, nonatomic) IBOutlet UILabel *guidelinesTitle;
+@property (weak, nonatomic) IBOutlet UILabel *variationsTitle;
+@property (weak, nonatomic) IBOutlet UILabel *desiredOutcomesTitle;
+@property (weak, nonatomic) IBOutlet UILabel *reflectionQuestionsTitle;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *navigationBarConstraint;
+
+
 
 @property NSString *name;
 @property NSString *guidelines;
@@ -25,6 +29,6 @@
 
 @property (weak, nonatomic) IBOutlet UINavigationItem *detailNavItem;
 @property (strong, nonatomic) HighElementsDetails *elementDetail;
-@property (weak, nonatomic) IBOutlet UITableViewCell *variationsTableViewCell;
+
 
 @end
