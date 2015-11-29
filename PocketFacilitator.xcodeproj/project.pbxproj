@@ -28,14 +28,10 @@
 		279BCDED1C0A6C2D003ABA13 /* InitiativesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 279BCDEC1C0A6C2D003ABA13 /* InitiativesTableViewController.m */; };
 		279BCDF01C0A6C3A003ABA13 /* IceBreakersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 279BCDEF1C0A6C3A003ABA13 /* IceBreakersTableViewController.m */; };
 		279BCDF71C0A6F38003ABA13 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 279BCDF61C0A6F38003ABA13 /* MenuTableViewController.m */; };
-		279BCE341C0A7C6F003ABA13 /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 279BCE0A1C0A7C6F003ABA13 /* LeftMenuViewController.m */; };
-		279BCE371C0A7C6F003ABA13 /* RightMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 279BCE101C0A7C6F003ABA13 /* RightMenuViewController.m */; };
-		279BCE3E1C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 279BCE1D1C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorFade.m */; };
-		279BCE3F1C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorScale.m in Sources */ = {isa = PBXBuildFile; fileRef = 279BCE1F1C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorScale.m */; };
-		279BCE401C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 279BCE211C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorScaleAndFade.m */; };
-		279BCE411C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorSlide.m in Sources */ = {isa = PBXBuildFile; fileRef = 279BCE231C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorSlide.m */; };
-		279BCE421C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 279BCE251C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorSlideAndFade.m */; };
-		279BCE451C0A7C6F003ABA13 /* SlideNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 279BCE2A1C0A7C6F003ABA13 /* SlideNavigationController.m */; };
+		279BCE481C0ABB66003ABA13 /* AcknowledgementsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 279BCE471C0ABB66003ABA13 /* AcknowledgementsViewController.m */; };
+		279BCE4B1C0ABBA3003ABA13 /* TermsOfServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 279BCE4A1C0ABBA3003ABA13 /* TermsOfServiceViewController.m */; };
+		279BCE4E1C0AE746003ABA13 /* LeftMenuSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 279BCE4D1C0AE746003ABA13 /* LeftMenuSegue.m */; };
+		279BCE511C0AF76D003ABA13 /* LegalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 279BCE501C0AF76D003ABA13 /* LegalTableViewController.m */; };
 		27C44A351BE556D2000D01D8 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C44A341BE556D2000D01D8 /* ProfileViewController.m */; };
 		27C44A3E1BE55D0F000D01D8 /* ShopSynergoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C44A3D1BE55D0F000D01D8 /* ShopSynergoViewController.m */; };
 		27C44A451BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C44A441BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.m */; };
@@ -144,23 +140,14 @@
 		279BCDEF1C0A6C3A003ABA13 /* IceBreakersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IceBreakersTableViewController.m; sourceTree = "<group>"; };
 		279BCDF51C0A6F38003ABA13 /* MenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewController.h; sourceTree = "<group>"; };
 		279BCDF61C0A6F38003ABA13 /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewController.m; sourceTree = "<group>"; };
-		279BCE091C0A7C6F003ABA13 /* LeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMenuViewController.h; sourceTree = "<group>"; };
-		279BCE0A1C0A7C6F003ABA13 /* LeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMenuViewController.m; sourceTree = "<group>"; };
-		279BCE0F1C0A7C6F003ABA13 /* RightMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightMenuViewController.h; sourceTree = "<group>"; };
-		279BCE101C0A7C6F003ABA13 /* RightMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightMenuViewController.m; sourceTree = "<group>"; };
-		279BCE1B1C0A7C6F003ABA13 /* SlideNavigationContorllerAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimator.h; sourceTree = "<group>"; };
-		279BCE1C1C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorFade.h; sourceTree = "<group>"; };
-		279BCE1D1C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorFade.m; sourceTree = "<group>"; };
-		279BCE1E1C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorScale.h; sourceTree = "<group>"; };
-		279BCE1F1C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorScale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorScale.m; sourceTree = "<group>"; };
-		279BCE201C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorScaleAndFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorScaleAndFade.h; sourceTree = "<group>"; };
-		279BCE211C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorScaleAndFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorScaleAndFade.m; sourceTree = "<group>"; };
-		279BCE221C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorSlide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorSlide.h; sourceTree = "<group>"; };
-		279BCE231C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorSlide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorSlide.m; sourceTree = "<group>"; };
-		279BCE241C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorSlideAndFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorSlideAndFade.h; sourceTree = "<group>"; };
-		279BCE251C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorSlideAndFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorSlideAndFade.m; sourceTree = "<group>"; };
-		279BCE291C0A7C6F003ABA13 /* SlideNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationController.h; sourceTree = "<group>"; };
-		279BCE2A1C0A7C6F003ABA13 /* SlideNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationController.m; sourceTree = "<group>"; };
+		279BCE461C0ABB66003ABA13 /* AcknowledgementsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AcknowledgementsViewController.h; sourceTree = "<group>"; };
+		279BCE471C0ABB66003ABA13 /* AcknowledgementsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AcknowledgementsViewController.m; sourceTree = "<group>"; };
+		279BCE491C0ABBA3003ABA13 /* TermsOfServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsOfServiceViewController.h; sourceTree = "<group>"; };
+		279BCE4A1C0ABBA3003ABA13 /* TermsOfServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsOfServiceViewController.m; sourceTree = "<group>"; };
+		279BCE4C1C0AE746003ABA13 /* LeftMenuSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMenuSegue.h; sourceTree = "<group>"; };
+		279BCE4D1C0AE746003ABA13 /* LeftMenuSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMenuSegue.m; sourceTree = "<group>"; };
+		279BCE4F1C0AF76D003ABA13 /* LegalTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegalTableViewController.h; sourceTree = "<group>"; };
+		279BCE501C0AF76D003ABA13 /* LegalTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegalTableViewController.m; sourceTree = "<group>"; };
 		27C44A331BE556D2000D01D8 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		27C44A341BE556D2000D01D8 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		27C44A3C1BE55D0F000D01D8 /* ShopSynergoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShopSynergoViewController.h; path = ../ShopSynergoViewController.h; sourceTree = "<group>"; };
@@ -257,6 +244,8 @@
 		2708B64B1BE43411003C4A2B = {
 			isa = PBXGroup;
 			children = (
+				279BCE4C1C0AE746003ABA13 /* LeftMenuSegue.h */,
+				279BCE4D1C0AE746003ABA13 /* LeftMenuSegue.m */,
 				2708B6561BE43411003C4A2B /* PocketFacilitator */,
 				2708B6731BE43412003C4A2B /* PocketFacilitatorTests */,
 				2708B67E1BE43412003C4A2B /* PocketFacilitatorUITests */,
@@ -278,6 +267,8 @@
 			isa = PBXGroup;
 			children = (
 				2708B6631BE43411003C4A2B /* Main.storyboard */,
+				279BCE4F1C0AF76D003ABA13 /* LegalTableViewController.h */,
+				279BCE501C0AF76D003ABA13 /* LegalTableViewController.m */,
 				2708B65A1BE43411003C4A2B /* AppDelegate.h */,
 				2708B65B1BE43411003C4A2B /* AppDelegate.m */,
 				27C44A3F1BE55D31000D01D8 /* ViewControllers */,
@@ -343,54 +334,6 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		279BCDF81C0A7C6F003ABA13 /* SlideMenu */ = {
-			isa = PBXGroup;
-			children = (
-				279BCE041C0A7C6F003ABA13 /* Helper Classes */,
-				279BCE191C0A7C6F003ABA13 /* Source */,
-			);
-			path = SlideMenu;
-			sourceTree = "<group>";
-		};
-		279BCE041C0A7C6F003ABA13 /* Helper Classes */ = {
-			isa = PBXGroup;
-			children = (
-				279BCE091C0A7C6F003ABA13 /* LeftMenuViewController.h */,
-				279BCE0A1C0A7C6F003ABA13 /* LeftMenuViewController.m */,
-				279BCE0F1C0A7C6F003ABA13 /* RightMenuViewController.h */,
-				279BCE101C0A7C6F003ABA13 /* RightMenuViewController.m */,
-			);
-			path = "Helper Classes";
-			sourceTree = "<group>";
-		};
-		279BCE191C0A7C6F003ABA13 /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				279BCE1A1C0A7C6F003ABA13 /* Animations */,
-				279BCE291C0A7C6F003ABA13 /* SlideNavigationController.h */,
-				279BCE2A1C0A7C6F003ABA13 /* SlideNavigationController.m */,
-			);
-			path = Source;
-			sourceTree = "<group>";
-		};
-		279BCE1A1C0A7C6F003ABA13 /* Animations */ = {
-			isa = PBXGroup;
-			children = (
-				279BCE1B1C0A7C6F003ABA13 /* SlideNavigationContorllerAnimator.h */,
-				279BCE1C1C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorFade.h */,
-				279BCE1D1C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorFade.m */,
-				279BCE1E1C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorScale.h */,
-				279BCE1F1C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorScale.m */,
-				279BCE201C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorScaleAndFade.h */,
-				279BCE211C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorScaleAndFade.m */,
-				279BCE221C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorSlide.h */,
-				279BCE231C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorSlide.m */,
-				279BCE241C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorSlideAndFade.h */,
-				279BCE251C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorSlideAndFade.m */,
-			);
-			path = Animations;
-			sourceTree = "<group>";
-		};
 		27C44A3F1BE55D31000D01D8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -414,6 +357,10 @@
 				279BCDEF1C0A6C3A003ABA13 /* IceBreakersTableViewController.m */,
 				279BCDF51C0A6F38003ABA13 /* MenuTableViewController.h */,
 				279BCDF61C0A6F38003ABA13 /* MenuTableViewController.m */,
+				279BCE461C0ABB66003ABA13 /* AcknowledgementsViewController.h */,
+				279BCE471C0ABB66003ABA13 /* AcknowledgementsViewController.m */,
+				279BCE491C0ABBA3003ABA13 /* TermsOfServiceViewController.h */,
+				279BCE4A1C0ABBA3003ABA13 /* TermsOfServiceViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -421,7 +368,6 @@
 		27C44AA91BE7D48E000D01D8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				279BCDF81C0A7C6F003ABA13 /* SlideMenu */,
 				278ED5531BEEF4EB00EB0B71 /* libsqlite3.0.tbd */,
 				278ED5451BEEDE2C00EB0B71 /* CoreData.framework */,
 				27F1707D1BEC9D2D0052A758 /* SVProgressHUD */,
@@ -684,13 +630,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				279BCE371C0A7C6F003ABA13 /* RightMenuViewController.m in Sources */,
-				279BCE401C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
 				279926C21C0A68A4007D27F1 /* InitiativesDetails.m in Sources */,
 				2708B65C1BE43411003C4A2B /* AppDelegate.m in Sources */,
-				279BCE411C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
+				279BCE4B1C0ABBA3003ABA13 /* TermsOfServiceViewController.m in Sources */,
 				278ED55E1BEF12D000EB0B71 /* HighElementsDetails.m in Sources */,
-				279BCE421C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
 				278ED5611BEF23CD00EB0B71 /* ElementsTableViewCell.m in Sources */,
 				27F1702F1BEC871D0052A758 /* DesiredOutcomesTableViewController.m in Sources */,
 				278ED5641BEF39E100EB0B71 /* ElementsDetailViewTableViewController.m in Sources */,
@@ -698,25 +641,24 @@
 				279BCDF71C0A6F38003ABA13 /* MenuTableViewController.m in Sources */,
 				27F170861BEC9D2D0052A758 /* SVIndefiniteAnimatedView.m in Sources */,
 				2708B6591BE43411003C4A2B /* main.m in Sources */,
-				279BCE451C0A7C6F003ABA13 /* SlideNavigationController.m in Sources */,
 				276E95BB1BF56DCF00117387 /* LowElementsTableViewCell.m in Sources */,
 				278ED55B1BEF0FA800EB0B71 /* ElementsFromDatabase.m in Sources */,
 				276E95B51BF56AB400117387 /* LowElementsDetails.m in Sources */,
 				27C44A451BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.m in Sources */,
 				279926BF1C0A682F007D27F1 /* IceBreakersDetails.m in Sources */,
 				27F3C41C1BF47FF6008CB992 /* ElementsTableViewController.m in Sources */,
+				279BCE481C0ABB66003ABA13 /* AcknowledgementsViewController.m in Sources */,
+				279BCE4E1C0AE746003ABA13 /* LeftMenuSegue.m in Sources */,
 				27F170881BEC9D2D0052A758 /* SVProgressHUD.m in Sources */,
 				27C44A351BE556D2000D01D8 /* ProfileViewController.m in Sources */,
+				279BCE511C0AF76D003ABA13 /* LegalTableViewController.m in Sources */,
 				27C44A3E1BE55D0F000D01D8 /* ShopSynergoViewController.m in Sources */,
 				27EF836E1BECA5DD00B7F96D /* HighElementsTableViewController.m in Sources */,
 				279BCDF01C0A6C3A003ABA13 /* IceBreakersTableViewController.m in Sources */,
 				27711BF11BEE84C200B3BAE6 /* PocketFacilitator.xcdatamodeld in Sources */,
-				279BCE3E1C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorFade.m in Sources */,
 				27EF83711BECA5EC00B7F96D /* LowElementsTableViewController.m in Sources */,
-				279BCE3F1C0A7C6F003ABA13 /* SlideNavigationContorllerAnimatorScale.m in Sources */,
 				27F170891BEC9D2D0052A758 /* SVRadialGradientLayer.m in Sources */,
 				27D39A001C0143BC00BCAEDC /* Favorites.m in Sources */,
-				279BCE341C0A7C6F003ABA13 /* LeftMenuViewController.m in Sources */,
 				27D399FF1C0143BC00BCAEDC /* Favorites+CoreDataProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

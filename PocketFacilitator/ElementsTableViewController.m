@@ -9,7 +9,7 @@
 #import "ElementsTableViewController.h"
 #import "UIColor+UIColor_SynergoColors.h"
 #import "Favorites.h"
-#import "LeftMenuViewController.h"
+
 
 
 @interface ElementsTableViewController ()
@@ -21,28 +21,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-        // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-#pragma mark - SlideNavigationController Methods -
 
-- (BOOL)slideNavigationControllerShouldDisplayLeftMenu
-{
-    return YES;
-}
-
-- (BOOL)slideNavigationControllerShouldDisplayRightMenu
-{
-    return NO;
-}
 
 
 #pragma mark - Table view data source
@@ -62,4 +47,6 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.contentView.superview.backgroundColor = [UIColor whiteColor];
 }
+
+
 @end

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SlideNavigationController.h"
-@interface ElementsTableViewController : UITableViewController <SlideNavigationControllerDelegate>
+
+@interface ElementsTableViewController : UITableViewController
 
 @end

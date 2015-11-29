@@ -19,10 +19,6 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    LeftMenuViewController *leftMenu = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"LeftMenuViewController"];
-    
-    
-    [SlideNavigationController sharedInstance].leftMenu = leftMenu;
     //app background view color
     [[UIWindow appearance] setBackgroundColor:[UIColor synergoLightGrayColor]];
     
