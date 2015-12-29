@@ -1,14 +1,14 @@
 //
-//  InitiativesDetails.m
+//  DesiredLearningOutcomesObject.m
 //  PocketFacilitator
 //
-//  Created by Nick Reeder on 11/28/15.
+//  Created by Nick Reeder on 12/28/15.
 //  Copyright © 2015 Nick Reeder. All rights reserved.
 //
 
-#import "InitiativesDetails.h"
+#import "DesiredLearningOutcomesObject.h"
 
-@implementation InitiativesDetails
+@implementation DesiredLearningOutcomesObject
 - (id)initWithUniqueName:(NSString *)name variations:(NSString *)variations
               guidelines:(NSString *)guidelines desiredOutcomes:(NSString *)desiredOutcomes
      reflectionQuestions:(NSString *)reflectionQuestions equipment:(NSString *)equipment{

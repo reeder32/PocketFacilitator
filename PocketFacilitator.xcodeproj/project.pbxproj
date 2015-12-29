@@ -32,11 +32,15 @@
 		279BCE4B1C0ABBA3003ABA13 /* TermsOfServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 279BCE4A1C0ABBA3003ABA13 /* TermsOfServiceViewController.m */; };
 		279BCE4E1C0AE746003ABA13 /* LeftMenuSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 279BCE4D1C0AE746003ABA13 /* LeftMenuSegue.m */; };
 		279BCE511C0AF76D003ABA13 /* LegalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 279BCE501C0AF76D003ABA13 /* LegalTableViewController.m */; };
+		27A590601C31D6C8009EFA5A /* InitiativesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A5905F1C31D6C8009EFA5A /* InitiativesTableViewCell.m */; };
+		27A590621C31DB1B009EFA5A /* PocketFacilitator.db in Resources */ = {isa = PBXBuildFile; fileRef = 27A590611C31DB1B009EFA5A /* PocketFacilitator.db */; };
+		27A590651C322E10009EFA5A /* DesiredLearningOutcomesObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A590641C322E10009EFA5A /* DesiredLearningOutcomesObject.m */; };
+		27A590681C32388A009EFA5A /* DesiredLearningOutcomesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A590671C32388A009EFA5A /* DesiredLearningOutcomesTableViewCell.m */; };
+		27A5906B1C3238E3009EFA5A /* DesiredLearningOutcomesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A5906A1C3238E3009EFA5A /* DesiredLearningOutcomesTableViewController.m */; };
 		27C44A351BE556D2000D01D8 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C44A341BE556D2000D01D8 /* ProfileViewController.m */; };
 		27C44A3E1BE55D0F000D01D8 /* ShopSynergoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C44A3D1BE55D0F000D01D8 /* ShopSynergoViewController.m */; };
 		27C44A451BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C44A441BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.m */; };
 		27C44A8C1BE7D38D000D01D8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27C44A8B1BE7D38D000D01D8 /* QuartzCore.framework */; };
-		27D399FA1C013BAA00BCAEDC /* PocketFacilitator.db in Resources */ = {isa = PBXBuildFile; fileRef = 27D399F91C013BAA00BCAEDC /* PocketFacilitator.db */; };
 		27D399FF1C0143BC00BCAEDC /* Favorites+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D399FC1C0143BC00BCAEDC /* Favorites+CoreDataProperties.m */; };
 		27D39A001C0143BC00BCAEDC /* Favorites.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D399FE1C0143BC00BCAEDC /* Favorites.m */; };
 		27EF836E1BECA5DD00B7F96D /* HighElementsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EF836D1BECA5DD00B7F96D /* HighElementsTableViewController.m */; };
@@ -148,6 +152,15 @@
 		279BCE4D1C0AE746003ABA13 /* LeftMenuSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMenuSegue.m; sourceTree = "<group>"; };
 		279BCE4F1C0AF76D003ABA13 /* LegalTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegalTableViewController.h; sourceTree = "<group>"; };
 		279BCE501C0AF76D003ABA13 /* LegalTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegalTableViewController.m; sourceTree = "<group>"; };
+		27A5905E1C31D6C8009EFA5A /* InitiativesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitiativesTableViewCell.h; sourceTree = "<group>"; };
+		27A5905F1C31D6C8009EFA5A /* InitiativesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitiativesTableViewCell.m; sourceTree = "<group>"; };
+		27A590611C31DB1B009EFA5A /* PocketFacilitator.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = PocketFacilitator.db; sourceTree = "<group>"; };
+		27A590631C322E10009EFA5A /* DesiredLearningOutcomesObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesiredLearningOutcomesObject.h; sourceTree = "<group>"; };
+		27A590641C322E10009EFA5A /* DesiredLearningOutcomesObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesiredLearningOutcomesObject.m; sourceTree = "<group>"; };
+		27A590661C32388A009EFA5A /* DesiredLearningOutcomesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesiredLearningOutcomesTableViewCell.h; sourceTree = "<group>"; };
+		27A590671C32388A009EFA5A /* DesiredLearningOutcomesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesiredLearningOutcomesTableViewCell.m; sourceTree = "<group>"; };
+		27A590691C3238E3009EFA5A /* DesiredLearningOutcomesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesiredLearningOutcomesTableViewController.h; sourceTree = "<group>"; };
+		27A5906A1C3238E3009EFA5A /* DesiredLearningOutcomesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesiredLearningOutcomesTableViewController.m; sourceTree = "<group>"; };
 		27C44A331BE556D2000D01D8 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		27C44A341BE556D2000D01D8 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		27C44A3C1BE55D0F000D01D8 /* ShopSynergoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShopSynergoViewController.h; path = ../ShopSynergoViewController.h; sourceTree = "<group>"; };
@@ -155,7 +168,6 @@
 		27C44A431BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+UIColor_SynergoColors.h"; sourceTree = "<group>"; };
 		27C44A441BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+UIColor_SynergoColors.m"; sourceTree = "<group>"; };
 		27C44A8B1BE7D38D000D01D8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		27D399F91C013BAA00BCAEDC /* PocketFacilitator.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = PocketFacilitator.db; sourceTree = "<group>"; };
 		27D399FB1C0143BC00BCAEDC /* Favorites+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Favorites+CoreDataProperties.h"; sourceTree = "<group>"; };
 		27D399FC1C0143BC00BCAEDC /* Favorites+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Favorites+CoreDataProperties.m"; sourceTree = "<group>"; };
 		27D399FD1C0143BC00BCAEDC /* Favorites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Favorites.h; sourceTree = "<group>"; };
@@ -246,6 +258,7 @@
 			children = (
 				279BCE4C1C0AE746003ABA13 /* LeftMenuSegue.h */,
 				279BCE4D1C0AE746003ABA13 /* LeftMenuSegue.m */,
+				273A07E31BF6779F0007BB4B /* Model */,
 				2708B6561BE43411003C4A2B /* PocketFacilitator */,
 				2708B6731BE43412003C4A2B /* PocketFacilitatorTests */,
 				2708B67E1BE43412003C4A2B /* PocketFacilitatorUITests */,
@@ -267,8 +280,6 @@
 			isa = PBXGroup;
 			children = (
 				2708B6631BE43411003C4A2B /* Main.storyboard */,
-				279BCE4F1C0AF76D003ABA13 /* LegalTableViewController.h */,
-				279BCE501C0AF76D003ABA13 /* LegalTableViewController.m */,
 				2708B65A1BE43411003C4A2B /* AppDelegate.h */,
 				2708B65B1BE43411003C4A2B /* AppDelegate.m */,
 				27C44A3F1BE55D31000D01D8 /* ViewControllers */,
@@ -278,7 +289,6 @@
 				2708B6661BE43411003C4A2B /* Assets.xcassets */,
 				2708B6681BE43411003C4A2B /* LaunchScreen.storyboard */,
 				2708B66B1BE43411003C4A2B /* Info.plist */,
-				273A07E31BF6779F0007BB4B /* Model */,
 				2708B6571BE43411003C4A2B /* Supporting Files */,
 			);
 			path = PocketFacilitator;
@@ -287,7 +297,7 @@
 		2708B6571BE43411003C4A2B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				27D399F91C013BAA00BCAEDC /* PocketFacilitator.db */,
+				27A590611C31DB1B009EFA5A /* PocketFacilitator.db */,
 				2708B6581BE43411003C4A2B /* main.m */,
 			);
 			name = "Supporting Files";
@@ -329,14 +339,17 @@
 				27D399FC1C0143BC00BCAEDC /* Favorites+CoreDataProperties.m */,
 				27D399FD1C0143BC00BCAEDC /* Favorites.h */,
 				27D399FE1C0143BC00BCAEDC /* Favorites.m */,
+				27A590631C322E10009EFA5A /* DesiredLearningOutcomesObject.h */,
+				27A590641C322E10009EFA5A /* DesiredLearningOutcomesObject.m */,
 			);
 			name = Model;
-			path = ..;
 			sourceTree = "<group>";
 		};
 		27C44A3F1BE55D31000D01D8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				279BCE4F1C0AF76D003ABA13 /* LegalTableViewController.h */,
+				279BCE501C0AF76D003ABA13 /* LegalTableViewController.m */,
 				27F3C41A1BF47FF6008CB992 /* ElementsTableViewController.h */,
 				27F3C41B1BF47FF6008CB992 /* ElementsTableViewController.m */,
 				27EF836F1BECA5EC00B7F96D /* LowElementsTableViewController.h */,
@@ -361,6 +374,8 @@
 				279BCE471C0ABB66003ABA13 /* AcknowledgementsViewController.m */,
 				279BCE491C0ABBA3003ABA13 /* TermsOfServiceViewController.h */,
 				279BCE4A1C0ABBA3003ABA13 /* TermsOfServiceViewController.m */,
+				27A590691C3238E3009EFA5A /* DesiredLearningOutcomesTableViewController.h */,
+				27A5906A1C3238E3009EFA5A /* DesiredLearningOutcomesTableViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -387,6 +402,10 @@
 				278ED5601BEF23CD00EB0B71 /* ElementsTableViewCell.m */,
 				276E95B91BF56DCF00117387 /* LowElementsTableViewCell.h */,
 				276E95BA1BF56DCF00117387 /* LowElementsTableViewCell.m */,
+				27A5905E1C31D6C8009EFA5A /* InitiativesTableViewCell.h */,
+				27A5905F1C31D6C8009EFA5A /* InitiativesTableViewCell.m */,
+				27A590661C32388A009EFA5A /* DesiredLearningOutcomesTableViewCell.h */,
+				27A590671C32388A009EFA5A /* DesiredLearningOutcomesTableViewCell.m */,
 			);
 			name = Classes;
 			path = ..;
@@ -560,7 +579,7 @@
 				27F170431BEC8F4A0052A758 /* OpenSans-Semibold.ttf in Resources */,
 				27F1703D1BEC8F4A0052A758 /* OpenSans-ExtraBold.ttf in Resources */,
 				2708B6671BE43411003C4A2B /* Assets.xcassets in Resources */,
-				27D399FA1C013BAA00BCAEDC /* PocketFacilitator.db in Resources */,
+				27A590621C31DB1B009EFA5A /* PocketFacilitator.db in Resources */,
 				27F170871BEC9D2D0052A758 /* SVProgressHUD.bundle in Resources */,
 				27F170411BEC8F4A0052A758 /* OpenSans-LightItalic.ttf in Resources */,
 				2708B6651BE43411003C4A2B /* Main.storyboard in Resources */,
@@ -646,18 +665,22 @@
 				276E95B51BF56AB400117387 /* LowElementsDetails.m in Sources */,
 				27C44A451BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.m in Sources */,
 				279926BF1C0A682F007D27F1 /* IceBreakersDetails.m in Sources */,
+				27A590651C322E10009EFA5A /* DesiredLearningOutcomesObject.m in Sources */,
 				27F3C41C1BF47FF6008CB992 /* ElementsTableViewController.m in Sources */,
 				279BCE481C0ABB66003ABA13 /* AcknowledgementsViewController.m in Sources */,
 				279BCE4E1C0AE746003ABA13 /* LeftMenuSegue.m in Sources */,
 				27F170881BEC9D2D0052A758 /* SVProgressHUD.m in Sources */,
+				27A590601C31D6C8009EFA5A /* InitiativesTableViewCell.m in Sources */,
 				27C44A351BE556D2000D01D8 /* ProfileViewController.m in Sources */,
 				279BCE511C0AF76D003ABA13 /* LegalTableViewController.m in Sources */,
+				27A590681C32388A009EFA5A /* DesiredLearningOutcomesTableViewCell.m in Sources */,
 				27C44A3E1BE55D0F000D01D8 /* ShopSynergoViewController.m in Sources */,
 				27EF836E1BECA5DD00B7F96D /* HighElementsTableViewController.m in Sources */,
 				279BCDF01C0A6C3A003ABA13 /* IceBreakersTableViewController.m in Sources */,
 				27711BF11BEE84C200B3BAE6 /* PocketFacilitator.xcdatamodeld in Sources */,
 				27EF83711BECA5EC00B7F96D /* LowElementsTableViewController.m in Sources */,
 				27F170891BEC9D2D0052A758 /* SVRadialGradientLayer.m in Sources */,
+				27A5906B1C3238E3009EFA5A /* DesiredLearningOutcomesTableViewController.m in Sources */,
 				27D39A001C0143BC00BCAEDC /* Favorites.m in Sources */,
 				27D399FF1C0143BC00BCAEDC /* Favorites+CoreDataProperties.m in Sources */,
 			);

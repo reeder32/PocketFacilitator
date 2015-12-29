@@ -18,14 +18,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.detailNavItem.title = self.name;
-    self.guidelinesTitle.text = self.guidelines;
+    //self.guidelinesTitle.text = self.guidelines;
     [self formatTextData];
 }
 -(void)viewWillAppear:(BOOL)animated{
-    
-    NSLog(@"%@", self.elementDetail);
     
 }
 - (void)didReceiveMemoryWarning {
@@ -36,49 +34,78 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 4;
+    if (self.equipment.length >=1) {
+        return 5;
+    }else{
+        return 4;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    if (section == 0) {
-        return 1;
-    }else if (section ==1) {
-        return 1;
-    }else if (section ==2){
-        return 1;
-    }else{
-        return 1;
-    }
+    
+    return 1;
 }
 - (IBAction)handleCloseButtonPressed:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 -(void)formatTextData{
-    NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:@"@"];
-    NSArray *outcomesArray = [self.desiredOutcomes componentsSeparatedByCharactersInSet:set];
-    if (outcomesArray.count >2) {
-        NSString * outcomesString = [outcomesArray componentsJoinedByString:@" - "];
-        self.desiredOutcomesTitle.text = outcomesString;
+    
+    //set numberOfLines to 0 as default
+    self.variationsTitle.numberOfLines = 0;
+    self.guidelinesTitle.numberOfLines = 0;
+    self.desiredOutcomesTitle.numberOfLines = 0;
+    self.reflectionQuestionsTitle.numberOfLines = 0;
+    self.equipmentTitle.numberOfLines = 0;
+    
+    //These do not need formatting
+    self.guidelinesTitle.text = self.guidelines;
+    
+    
+    //These need formatting
+    NSArray *equipmentArray = [self.equipment componentsSeparatedByString:@"@"];
+    if (equipmentArray.count >1) {
+        self.equipmentTitle.text = [equipmentArray componentsJoinedByString:@"\n"];
     }else{
-        NSString *originalString = [outcomesArray componentsJoinedByString:@" "];
-        self.desiredOutcomesTitle.text = originalString;
+        if (self.equipment.length >1) {
+            self.equipmentTitle.text = self.equipment;
+        }else{
+            self.equipmentTitle.text = @"There isn't any equipment needed";
+        }
+    }
+    NSArray *variationsArray = [self.variations componentsSeparatedByString:@"@"];
+    NSLog(@"variationsArray is %@", variationsArray);
+    if ([[variationsArray objectAtIndex:0]isEqualToString:@""]|| [[variationsArray objectAtIndex:0]isEqualToString:@" "]) {
+        self.variationsTitle.text = @"There aren't any variations on file";
+    }else{
+        self.variationsTitle.text = [variationsArray componentsJoinedByString:@"\n"];
+        
     }
     
-    
-    NSArray *variationsArray = [self.variations componentsSeparatedByString:@"@"];
-    NSString * variationsString = [variationsArray componentsJoinedByString:@".\n"];
-    self.variationsTitle.numberOfLines = variationsArray.count*2;
-    self.variationsTitle.text = variationsString;
-    
-   
     NSArray *questionsArray = [self.reflectionQuestions componentsSeparatedByString:@"?"];
-    NSString * questionsString = [questionsArray componentsJoinedByString:@"?\n"];
-    self.reflectionQuestionsTitle.numberOfLines = questionsArray.count*2;
-    self.reflectionQuestionsTitle.text = questionsString;
+    NSLog(@"questionsArray is %@", questionsArray);
+    if ([[questionsArray objectAtIndex:0]isEqualToString:@""]|| [[questionsArray objectAtIndex:0]isEqualToString:@" "]) {
+        self.reflectionQuestionsTitle.text = @"There aren't any reflection questions on file";
+        
+    }else{
+        self.reflectionQuestionsTitle.text = [questionsArray componentsJoinedByString:@"?\n"];
+    }
+    
+    NSArray *desiredOutcomesArray = [self.desiredOutcomes componentsSeparatedByString:@"@"];
+    self.desiredOutcomesTitle.text = [desiredOutcomesArray componentsJoinedByString:@"\n"];
+    NSArray *titleArray = @[self.desiredOutcomesTitle, self.reflectionQuestionsTitle, self.variationsTitle, self.guidelinesTitle, self.equipmentTitle];
+    for (UILabel *label in titleArray) {
+        [label sizeToFit];
+    }
     
 }
 
+-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 150;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return UITableViewAutomaticDimension;
+}
 -(void)scrollViewDidScroll: (UIScrollView*)scrollView
 {
     float scrollViewHeight = scrollView.frame.size.height;
@@ -87,10 +114,12 @@
     
     if (scrollOffset == 0)
     {
+        
         NSLog(@"We are at the top");
     }
     else if (scrollOffset + scrollViewHeight == scrollContentSizeHeight)
     {
+        
         // then we are at the end
         NSLog(@"We are at the bottom");
     }

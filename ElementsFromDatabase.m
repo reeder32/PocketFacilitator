@@ -11,6 +11,7 @@
 #import "LowElementsDetails.h"
 #import "IceBreakersDetails.h"
 #import "InitiativesDetails.h"
+#import "DesiredLearningOutcomesObject.h"
 #import <sqlite3.h>
 
 @implementation ElementsFromDatabase
@@ -148,7 +149,7 @@ static ElementsFromDatabase *_database;
     
     NSMutableArray *mutArray = [NSMutableArray array];
     sqlite3_stmt *selectStatement;
-    NSString *querySQL = [NSString stringWithFormat: @"SELECT name, variations, guidelines, desiredOutcomes, reflectionQuestions FROM Initiatives",nil];
+    NSString *querySQL = [NSString stringWithFormat: @"SELECT name, variations, guidelines, desiredOutcomes, reflectionQuestions, equipment FROM Initiatives",nil];
     
     if (sqlite3_prepare_v2(_database,
                            [querySQL UTF8String], -1, &selectStatement, NULL) == SQLITE_OK)
@@ -163,12 +164,14 @@ static ElementsFromDatabase *_database;
             char *guidelinesChar = (char *) sqlite3_column_text(selectStatement, 2);
             char *desiredOutcomesChar = (char *) sqlite3_column_text(selectStatement, 3);
             char *reflectionQuestionsChar = (char *) sqlite3_column_text(selectStatement, 4);
+            char *equipmentChar = (char *)sqlite3_column_text(selectStatement, 5);
             NSString *name = [NSString stringWithUTF8String:nameChars];
             NSString *variations = [NSString stringWithUTF8String:variationsChar];
             NSString *guidelines = [NSString stringWithUTF8String:guidelinesChar];
             NSString *outcomes = [NSString stringWithUTF8String:desiredOutcomesChar];
             NSString *questions = [NSString stringWithUTF8String:reflectionQuestionsChar];
-            InitiativesDetails *details = [[InitiativesDetails alloc]initWithUniqueName:name variations:variations guidelines:guidelines desiredOutcomes:outcomes reflectionQuestions:questions];
+            NSString *equipment = [NSString stringWithUTF8String:equipmentChar];
+            InitiativesDetails *details = [[InitiativesDetails alloc]initWithUniqueName:name variations:variations guidelines:guidelines desiredOutcomes:outcomes reflectionQuestions:questions equipment:equipment];
             [mutArray addObject:details];
         }
         //  username.text=@"No Username";
@@ -182,7 +185,24 @@ static ElementsFromDatabase *_database;
     
 }
 
-
+-(NSArray *)desiredOutcomesArray{
+    NSMutableArray *mutArray = [NSMutableArray array];
+    for (HighElementsDetails *detail in self.highElementsArray) {
+        DesiredLearningOutcomesObject *dlo = [[DesiredLearningOutcomesObject alloc]initWithUniqueName:detail.name variations:detail.variations guidelines:detail.guidelines desiredOutcomes:detail.desiredOutcomes reflectionQuestions:detail.reflectionQuestions equipment:nil];
+        [mutArray addObject:dlo];
+    }
+    for (LowElementsDetails *detail in self.lowElementsArray) {
+        DesiredLearningOutcomesObject *dlo = [[DesiredLearningOutcomesObject alloc]initWithUniqueName:detail.name variations:detail.variations guidelines:detail.guidelines desiredOutcomes:detail.desiredOutcomes reflectionQuestions:detail.reflectionQuestions equipment:nil];
+        [mutArray addObject:dlo];
+    }
+    for (InitiativesDetails *detail in self.initiativesArray) {
+        DesiredLearningOutcomesObject *dlo = [[DesiredLearningOutcomesObject alloc]initWithUniqueName:detail.name variations:detail.variations guidelines:detail.guidelines desiredOutcomes:detail.desiredOutcomes reflectionQuestions:detail.reflectionQuestions equipment:detail.equipment];
+        [mutArray addObject:dlo];
+    }
+    
+    return mutArray;
+    
+}
 
 
 @end

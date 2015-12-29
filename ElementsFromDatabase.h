@@ -20,4 +20,5 @@
 -(NSArray *)lowElementsArray;
 -(NSArray *)initiativesArray;
 -(NSArray *)iceBreakersArray;
+-(NSArray *)desiredOutcomesArray;
 @end

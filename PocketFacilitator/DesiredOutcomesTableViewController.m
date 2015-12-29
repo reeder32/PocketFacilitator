@@ -8,6 +8,21 @@
 
 #import "DesiredOutcomesTableViewController.h"
 #import "UIColor+UIColor_SynergoColors.h"
+#import "ElementsFromDatabase.h"
+#import "DesiredLearningOutcomesObject.h"
+
+@interface DesiredOutcomesTableViewController ()
+@property NSArray *desiredOutcomes;
+@property NSArray *trustArray;
+@property NSArray *communicationArray;
+@property NSArray *leadershipArray;
+@property NSArray *teamworkArray;
+@property NSArray *listeningSkillsArray;
+@property NSArray *selfAwarenessArray;
+@property NSArray *interpersonalSkillsArray;
+@property NSArray *conflictResolutionArray;
+@property NSArray *comfortZonesArray;
+@end
 
 @implementation DesiredOutcomesTableViewController
 - (void)viewDidLoad {
@@ -24,16 +39,70 @@
 //            NSLog(@"  %@", name);
 //        }
 //    }
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
     self.tableView.preservesSuperviewLayoutMargins = NO;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    [self.tableView reloadData];
+    self.desiredOutcomes = [ElementsFromDatabase database].desiredOutcomesArray;
+}
+-(void)viewDidAppear:(BOOL)animated{
+    NSMutableArray *trustMutArray = [NSMutableArray array];
+    NSMutableArray *commMutArray = [NSMutableArray array];
+    NSMutableArray *learderShipArray = [NSMutableArray array];
+    NSMutableArray *teamMutArray = [NSMutableArray array];
+    NSMutableArray *listenMutArray = [NSMutableArray array];
+    NSMutableArray *selfAwareMutArray = [NSMutableArray array];
+    NSMutableArray *interpersonalMutArray = [NSMutableArray array];
+    NSMutableArray *conflictMutArray = [NSMutableArray array];
+    NSMutableArray *comfortZoneMutArray = [NSMutableArray array];
+    NSMutableArray *otherArray = [NSMutableArray array];
+    for (DesiredLearningOutcomesObject *object in self.desiredOutcomes) {
+        NSString *outcomes = object.desiredOutcomes;
+        NSArray *outcomesArray = [outcomes componentsSeparatedByString:@"@"];
+        NSLog(@"outcomesArray is %@", outcomesArray);
+        if ([outcomesArray containsObject:@"Trust"]) {
+            [trustMutArray addObject:object];
+        } if ([outcomesArray containsObject:@"Communication"]){
+            [commMutArray addObject:object];
+        } if ([outcomesArray containsObject:@"Teamwork"]){
+            [teamMutArray addObject:object];
+        } if ([outcomesArray containsObject:@"Listening Skills"]){
+            [listenMutArray addObject:object];
+        } if ([outcomesArray containsObject:@"Self-Awareness"]){
+            [selfAwareMutArray addObject:object];
+        } if ([outcomesArray containsObject:@"Conflict Resolution"]){
+            [conflictMutArray addObject:object];
+        } if ([outcomesArray containsObject:@"Comfort Zones"]){
+            [comfortZoneMutArray addObject:object];
+        } if ([outcomesArray containsObject:@"Leadership"]){
+            [learderShipArray addObject:object];
+        } if ([outcomesArray containsObject:@"Interpersonal Skills"]){
+            [interpersonalMutArray addObject:object];
+        }else{
+            [otherArray addObject:object];
+        }
+    }
+    
+    self.trustArray = trustMutArray;
+    self.communicationArray = commMutArray;
+    self.leadershipArray = learderShipArray;
+    self.teamworkArray = teamMutArray;
+    self.listeningSkillsArray = listenMutArray;
+    self.selfAwarenessArray = selfAwareMutArray;
+    self.interpersonalSkillsArray = interpersonalMutArray;
+    self.conflictResolutionArray = conflictMutArray;
+    self.comfortZonesArray = comfortZoneMutArray;
+     NSLog(@"trustArray is %@", self.trustArray);
+     NSLog(@"communicationArray is %@", self.communicationArray);
+     NSLog(@"leadershipArray is %@", self.leadershipArray);
+     NSLog(@"teamworkArray is %@", self.teamworkArray);
+     NSLog(@"listeningArray is %@", self.listeningSkillsArray);
+     NSLog(@"selfawarenessArray is %@", self.selfAwarenessArray);
+     NSLog(@"interpersnalArray is %@", self.interpersonalSkillsArray);
+     NSLog(@"conflictArray is is %@", self.conflictResolutionArray);
+     NSLog(@"comfortZoneArray is %@", self.comfortZonesArray);
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

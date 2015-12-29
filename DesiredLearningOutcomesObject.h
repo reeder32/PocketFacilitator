@@ -1,14 +1,14 @@
 //
-//  Initiatives.h
+//  DesiredLearningOutcomesObject.h
 //  PocketFacilitator
 //
-//  Created by Nick Reeder on 11/28/15.
+//  Created by Nick Reeder on 12/28/15.
 //  Copyright © 2015 Nick Reeder. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface InitiativesDetails : NSObject
+@interface DesiredLearningOutcomesObject : NSObject
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *variations;
 @property (nonatomic, copy) NSString *guidelines;
@@ -23,5 +23,4 @@
          desiredOutcomes:(NSString *)desiredOutcomes
      reflectionQuestions:(NSString *)reflectionQuestions
                equipment:(NSString *)equipment;
-
 @end
