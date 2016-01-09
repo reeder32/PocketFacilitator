@@ -7,14 +7,15 @@
 //
 
 #import "LowElementsTableViewController.h"
-#import "LowElementsDetails.h"
 #import "ElementsFromDatabase.h"
+#import "ElementObject.h"
 #include "LowElementsTableViewCell.h"
 #import "ElementsDetailViewTableViewController.h"
+#import "UIColor+UIColor_SynergoColors.h"
 
 
 @interface LowElementsTableViewController ()
-
+@property NSArray *originalArray;
 @end
 
 @implementation LowElementsTableViewController
@@ -23,6 +24,7 @@
     [super viewDidLoad];
     
     self.lowElementsArray = [ElementsFromDatabase database].lowElementsArray;
+    self.originalArray = self.lowElementsArray;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -61,15 +63,16 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"ShowLowElementsDetails"]) {
-        LowElementsDetails *detail = (LowElementsDetails *)sender;
+        ElementObject *element = (ElementObject *)sender;
         ElementsDetailViewTableViewController *dvc = segue.destinationViewController;
-        NSString *name = detail.name;
-        NSString *guidelines = detail.guidelines;
-        NSString *questions = detail.reflectionQuestions;
-        NSString *desiredOutcomes = detail.desiredOutcomes;
-        NSString *variations = detail.variations;
+        NSString *name = element.name;
+        NSString *guidelines = element.guidelines;
+        NSString *questions = element.reflectionQuestions;
+        NSString *desiredOutcomes = element.desiredOutcomes;
+        NSString *variations = element.variations;
         
         NSLog(@"%@ %@ %@ %@ %@", name, guidelines, questions, desiredOutcomes, variations);
+        dvc.elementObject = element;
         dvc.name = name;
         dvc.guidelines = guidelines;
         dvc.reflectionQuestions = questions;
@@ -77,6 +80,31 @@
         dvc.variations = variations;
     }
 }
+#pragma mark - Search Bar Delegate Methods
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    [searchBar resignFirstResponder];
+    self.lowElementsArray = self.originalArray;
+    searchBar.showsCancelButton = false;
+    [self.tableView reloadData];
+    searchBar.text = @"";
+}
+-(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
+    searchBar.tintColor = [UIColor synergoRedColor];
+    [searchBar setShowsCancelButton:true animated:true];
+}
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+    [searchBar setShowsCancelButton:false animated:true];
+}
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name contains[c] %@",
+                              searchText];
+    NSArray *filteredElements = [self.lowElementsArray filteredArrayUsingPredicate:predicate];
+    self.lowElementsArray = filteredElements;
+    [self.tableView reloadData];
+}
+
 
 
 @end

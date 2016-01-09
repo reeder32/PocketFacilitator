@@ -7,20 +7,26 @@
 //
 
 #import "ElementsDetailViewTableViewController.h"
+#import "UIColor+UIColor_SynergoColors.h"
+#import "ElementsFromDatabase.h"
+#import <Parse/Parse.h>
+#import "UIColor+UIColor_SynergoColors.h"
+
 
 
 @interface ElementsDetailViewTableViewController ()
 @property (nonatomic) NSMutableArray *favorites;
-
+@property (strong, nonatomic) UIView *headerView;
 @end
+
+NSString *path = @"PocketFacilitator.db";
 
 @implementation ElementsDetailViewTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.detailNavItem.title = self.name;
-    //self.guidelinesTitle.text = self.guidelines;
+    self.navBar.title = self.name;
+    self.navigationItem.backBarButtonItem.tintColor = [UIColor synergoMaroonColor];
     [self formatTextData];
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -44,6 +50,18 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     return 1;
+}
+- (IBAction)handlePlusButtonPressed:(id)sender {
+    [[PFUser currentUser]addUniqueObject:self.name forKey:@"favorites"];
+    [[PFUser currentUser]pinInBackgroundWithName:@"favorites"];
+    [[PFUser currentUser]saveEventually:^(BOOL succeeded, NSError * _Nullable error) {
+        if (succeeded) {
+            NSLog(@"YEAH Muthafucka!");
+        }else{
+            NSLog(@"Nope! try again %@", error.localizedDescription);
+        }
+    }];
+    NSLog(@"plus button pressed");
 }
 - (IBAction)handleCloseButtonPressed:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -77,7 +95,8 @@
     if ([[variationsArray objectAtIndex:0]isEqualToString:@""]|| [[variationsArray objectAtIndex:0]isEqualToString:@" "]) {
         self.variationsTitle.text = @"There aren't any variations on file";
     }else{
-        self.variationsTitle.text = [variationsArray componentsJoinedByString:@"\n"];
+        NSMutableString *mutString = [[variationsArray componentsJoinedByString:@"\n-"]mutableCopy];
+        self.variationsTitle.text = [NSString stringWithFormat:@"-%@", mutString];
         
     }
     
@@ -87,11 +106,12 @@
         self.reflectionQuestionsTitle.text = @"There aren't any reflection questions on file";
         
     }else{
-        self.reflectionQuestionsTitle.text = [questionsArray componentsJoinedByString:@"?\n"];
+        self.reflectionQuestionsTitle.text = [[questionsArray componentsJoinedByString:@"?\n"]stringByReplacingOccurrencesOfString:@"\n " withString:@""];
     }
     
     NSArray *desiredOutcomesArray = [self.desiredOutcomes componentsSeparatedByString:@"@"];
-    self.desiredOutcomesTitle.text = [desiredOutcomesArray componentsJoinedByString:@"\n"];
+    NSMutableString *mutString = [[desiredOutcomesArray componentsJoinedByString:@"\n*"]mutableCopy];
+    self.desiredOutcomesTitle.text = [NSString stringWithFormat:@"*%@", mutString];
     NSArray *titleArray = @[self.desiredOutcomesTitle, self.reflectionQuestionsTitle, self.variationsTitle, self.guidelinesTitle, self.equipmentTitle];
     for (UILabel *label in titleArray) {
         [label sizeToFit];
@@ -106,24 +126,7 @@
     
     return UITableViewAutomaticDimension;
 }
--(void)scrollViewDidScroll: (UIScrollView*)scrollView
-{
-    float scrollViewHeight = scrollView.frame.size.height;
-    float scrollContentSizeHeight = scrollView.contentSize.height;
-    float scrollOffset = scrollView.contentOffset.y;
-    
-    if (scrollOffset == 0)
-    {
-        
-        NSLog(@"We are at the top");
-    }
-    else if (scrollOffset + scrollViewHeight == scrollContentSizeHeight)
-    {
-        
-        // then we are at the end
-        NSLog(@"We are at the bottom");
-    }
-}
+
 
 
 @end

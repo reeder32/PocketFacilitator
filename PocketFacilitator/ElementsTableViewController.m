@@ -8,20 +8,26 @@
 
 #import "ElementsTableViewController.h"
 #import "UIColor+UIColor_SynergoColors.h"
-#import "Favorites.h"
-
-
+#import "ElementsFromDatabase.h"
+#import "ElementObject.h"
 
 @interface ElementsTableViewController ()
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *menuButton;
+@property NSArray *originalArray;
 @end
 
 @implementation ElementsTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+   
+    
 }
+-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section{
+    return 50;
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

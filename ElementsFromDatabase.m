@@ -7,30 +7,30 @@
 //
 
 #import "ElementsFromDatabase.h"
-#import "HighElementsDetails.h"
-#import "LowElementsDetails.h"
-#import "IceBreakersDetails.h"
-#import "InitiativesDetails.h"
-#import "DesiredLearningOutcomesObject.h"
+#import "ElementObject.h"
 #import <sqlite3.h>
+
 
 @implementation ElementsFromDatabase
 
 static ElementsFromDatabase *_database;
+#define kDatabaseName (@"levelProgress.db")
 + (ElementsFromDatabase *)database{
     if (_database == nil) {
         _database = [[ElementsFromDatabase alloc]init];
+        
     }
     return _database;
 }
 
 -(id)init{
     if ((self= [super init])) {
-        NSString *dbFilePath = [[NSBundle mainBundle] pathForResource:@"PocketFacilitator" ofType:@"db"];
-        if (sqlite3_open([dbFilePath UTF8String], &_database) != SQLITE_OK) {
+        self.dbFilePath = [[NSBundle mainBundle] pathForResource:@"PocketFacilitator" ofType:@"db"];
+        if (sqlite3_open([self.dbFilePath UTF8String], &_database) != SQLITE_OK) {
             NSLog(@"Failed to open database!");
         }
     }
+    NSLog(@"self.dbFilePath is -->%@<--", self.dbFilePath);
     return self;
 }
 
@@ -58,7 +58,7 @@ static ElementsFromDatabase *_database;
                 NSString *guidelines = [NSString stringWithUTF8String:guidelinesChar];
                 NSString *outcomes = [NSString stringWithUTF8String:desiredOutcomesChar];
                 NSString *questions = [NSString stringWithUTF8String:reflectionQuestionsChar];
-                HighElementsDetails *details = [[HighElementsDetails alloc]initWithUniqueName:name variations:variations guidelines:guidelines desiredOutcomes:outcomes reflectionQuestions:questions];
+                ElementObject *details = [[ElementObject alloc]initWithUniqueName:name variations:variations guidelines:guidelines desiredOutcomes:outcomes reflectionQuestions:questions equipment:nil];
                 [mutArray addObject:details];
             }
             //  username.text=@"No Username";
@@ -68,7 +68,9 @@ static ElementsFromDatabase *_database;
             
         
     }
-    return mutArray;
+    NSArray *sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+    NSArray *returnArray = [mutArray sortedArrayUsingDescriptors:sortDescriptors];
+    return returnArray;
     
 }
 -(NSArray *)lowElementsArray{
@@ -95,7 +97,7 @@ static ElementsFromDatabase *_database;
             NSString *guidelines = [NSString stringWithUTF8String:guidelinesChar];
             NSString *outcomes = [NSString stringWithUTF8String:desiredOutcomesChar];
             NSString *questions = [NSString stringWithUTF8String:reflectionQuestionsChar];
-            LowElementsDetails *details = [[LowElementsDetails alloc]initWithUniqueName:name variations:variations guidelines:guidelines desiredOutcomes:outcomes reflectionQuestions:questions];
+            ElementObject *details = [[ElementObject alloc]initWithUniqueName:name variations:variations guidelines:guidelines desiredOutcomes:outcomes reflectionQuestions:questions equipment:nil];
             [mutArray addObject:details];
         }
         //  username.text=@"No Username";
@@ -105,7 +107,9 @@ static ElementsFromDatabase *_database;
         
         
     }
-    return mutArray;
+    NSArray *sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+    NSArray *returnArray = [mutArray sortedArrayUsingDescriptors:sortDescriptors];
+    return returnArray;
     
 }
 -(NSArray *)iceBreakersArray{
@@ -132,7 +136,7 @@ static ElementsFromDatabase *_database;
             NSString *guidelines = [NSString stringWithUTF8String:guidelinesChar];
             NSString *outcomes = [NSString stringWithUTF8String:desiredOutcomesChar];
             NSString *questions = [NSString stringWithUTF8String:reflectionQuestionsChar];
-            IceBreakersDetails *details = [[IceBreakersDetails alloc]initWithUniqueName:name variations:variations guidelines:guidelines desiredOutcomes:outcomes reflectionQuestions:questions];
+            ElementObject *details = [[ElementObject alloc]initWithUniqueName:name variations:variations guidelines:guidelines desiredOutcomes:outcomes reflectionQuestions:questions equipment:nil];
             [mutArray addObject:details];
         }
         //  username.text=@"No Username";
@@ -142,7 +146,9 @@ static ElementsFromDatabase *_database;
         
         
     }
-    return mutArray;
+    NSArray *sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+    NSArray *returnArray = [mutArray sortedArrayUsingDescriptors:sortDescriptors];
+    return returnArray;
     
 }
 -(NSArray *)initiativesArray{
@@ -171,7 +177,7 @@ static ElementsFromDatabase *_database;
             NSString *outcomes = [NSString stringWithUTF8String:desiredOutcomesChar];
             NSString *questions = [NSString stringWithUTF8String:reflectionQuestionsChar];
             NSString *equipment = [NSString stringWithUTF8String:equipmentChar];
-            InitiativesDetails *details = [[InitiativesDetails alloc]initWithUniqueName:name variations:variations guidelines:guidelines desiredOutcomes:outcomes reflectionQuestions:questions equipment:equipment];
+            ElementObject *details = [[ElementObject alloc]initWithUniqueName:name variations:variations guidelines:guidelines desiredOutcomes:outcomes reflectionQuestions:questions equipment:equipment];
             [mutArray addObject:details];
         }
         //  username.text=@"No Username";
@@ -181,26 +187,29 @@ static ElementsFromDatabase *_database;
         
         
     }
-    return mutArray;
+    NSArray *sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+    NSArray *returnArray = [mutArray sortedArrayUsingDescriptors:sortDescriptors];
+    return returnArray;
     
 }
 
--(NSArray *)desiredOutcomesArray{
+-(NSArray *)allElementsArray{
     NSMutableArray *mutArray = [NSMutableArray array];
-    for (HighElementsDetails *detail in self.highElementsArray) {
-        DesiredLearningOutcomesObject *dlo = [[DesiredLearningOutcomesObject alloc]initWithUniqueName:detail.name variations:detail.variations guidelines:detail.guidelines desiredOutcomes:detail.desiredOutcomes reflectionQuestions:detail.reflectionQuestions equipment:nil];
-        [mutArray addObject:dlo];
+    for (ElementObject *element in self.highElementsArray) {
+        [mutArray addObject:element];
     }
-    for (LowElementsDetails *detail in self.lowElementsArray) {
-        DesiredLearningOutcomesObject *dlo = [[DesiredLearningOutcomesObject alloc]initWithUniqueName:detail.name variations:detail.variations guidelines:detail.guidelines desiredOutcomes:detail.desiredOutcomes reflectionQuestions:detail.reflectionQuestions equipment:nil];
-        [mutArray addObject:dlo];
+    for (ElementObject *element in self.lowElementsArray) {
+        
+        [mutArray addObject:element];
     }
-    for (InitiativesDetails *detail in self.initiativesArray) {
-        DesiredLearningOutcomesObject *dlo = [[DesiredLearningOutcomesObject alloc]initWithUniqueName:detail.name variations:detail.variations guidelines:detail.guidelines desiredOutcomes:detail.desiredOutcomes reflectionQuestions:detail.reflectionQuestions equipment:detail.equipment];
-        [mutArray addObject:dlo];
+    for (ElementObject *element in self.initiativesArray) {
+        
+        [mutArray addObject:element];
     }
     
-    return mutArray;
+    NSArray *sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+    NSArray *returnArray = [mutArray sortedArrayUsingDescriptors:sortDescriptors];
+    return returnArray;
     
 }
 

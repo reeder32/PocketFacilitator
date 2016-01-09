@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LowElementsTableViewController : UITableViewController
+@interface LowElementsTableViewController : UITableViewController<UISearchBarDelegate>
 @property (strong, nonatomic) NSArray *lowElementsArray;
 @end

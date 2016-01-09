@@ -8,12 +8,14 @@
 
 #import "HighElementsTableViewController.h"
 #import "ElementsFromDatabase.h"
-#import "HighElementsDetails.h"
+#import "ElementObject.h"
 #import "ElementsTableViewCell.h"
 #import "ElementsDetailViewTableViewController.h"
+#import "UIColor+UIColor_SynergoColors.h"
 
 @interface HighElementsTableViewController ()
 @property NSArray *highElementsArray;
+@property NSArray *originalArray;
 @end
 
 @implementation HighElementsTableViewController
@@ -21,15 +23,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.highElementsArray = [ElementsFromDatabase database].highElementsArray;
+    self.originalArray = self.highElementsArray;
     self.tableView.rowHeight = 50;
     [self.tableView reloadData];
 
 }
 
--(void)viewDidAppear:(BOOL)animated{
-    
-    
-}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     
@@ -65,21 +66,47 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"ShowHighElementsDetails"]) {
-        HighElementsDetails *detail = (HighElementsDetails *)sender;
+        ElementObject *element = (ElementObject *)sender;
         ElementsDetailViewTableViewController *dvc = segue.destinationViewController;
-        NSString *name = detail.name;
-        NSString *guidelines = detail.guidelines;
-        NSString *questions = detail.reflectionQuestions;
-        NSString *desiredOutcomes = detail.desiredOutcomes;
-        NSString *variations = detail.variations;
+        NSString *name = element.name;
+        NSString *guidelines = element.guidelines;
+        NSString *questions = element.reflectionQuestions;
+        NSString *desiredOutcomes = element.desiredOutcomes;
+        NSString *variations = element.variations;
         
         NSLog(@"%@ %@ %@ %@ %@", name, guidelines, questions, desiredOutcomes, variations);
+        dvc.elementObject = element;
         dvc.name = name;
         dvc.guidelines = guidelines;
         dvc.reflectionQuestions = questions;
         dvc.desiredOutcomes = desiredOutcomes;
         dvc.variations = variations;
     }
+}
+
+#pragma mark - Search Bar Delegate Methods
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    [searchBar resignFirstResponder];
+    self.highElementsArray = self.originalArray;
+    searchBar.showsCancelButton = false;
+    [self.tableView reloadData];
+    searchBar.text = @"";
+}
+-(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
+    searchBar.tintColor = [UIColor synergoRedColor];
+    [searchBar setShowsCancelButton:true animated:true];
+}
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+    [searchBar setShowsCancelButton:false animated:true];
+}
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name contains[c] %@",
+                              searchText];
+    NSArray *filteredElements = [self.highElementsArray filteredArrayUsingPredicate:predicate];
+    self.highElementsArray = filteredElements;
+    [self.tableView reloadData];
 }
 
 

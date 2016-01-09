@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface DesiredLearningOutcomesTableViewController : UITableViewController
+@property (strong, nonatomic) NSArray *outcomesArray;
+@property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
 
 @end

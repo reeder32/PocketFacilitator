@@ -7,15 +7,21 @@
 //
 
 #import "DesiredLearningOutcomesTableViewController.h"
+#import "DesiredLearningOutcomesTableViewCell.h"
+#import "ElementObject.h"
+#import "UIColor+UIColor_SynergoColors.h"
+#import "ElementsDetailViewTableViewController.h"
+#import "UIColor+UIColor_SynergoColors.h"
 
 @interface DesiredLearningOutcomesTableViewController ()
-
+@property NSArray *originalArray;
 @end
 
 @implementation DesiredLearningOutcomesTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.originalArray = self.outcomesArray;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -32,67 +38,81 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+
+    return self.outcomesArray.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
+    DesiredLearningOutcomesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DesiredLearningOutcomesCell" forIndexPath:indexPath];
+    ElementObject *object = [self.outcomesArray objectAtIndex:indexPath.row];
+    cell.outcomeLabel.textColor = [UIColor synergoDarkGrayColor];
+    cell.outcomeLabel.text = object.name;
     // Configure the cell...
     
     return cell;
 }
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self performSegueWithIdentifier:@"ShowDetail" sender:[self.outcomesArray objectAtIndex:indexPath.row]];
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"ShowDetail"]) {
+        ElementObject *element = (ElementObject *)sender;
+        ElementsDetailViewTableViewController *dvc = segue.destinationViewController;
+        NSString *name = element.name;
+        NSString *guidelines = element.guidelines;
+        NSString *variations = element.variations;
+        NSString *desiredOutcomes = element.desiredOutcomes;
+        NSString *reflectionQuestions = element.reflectionQuestions;
+        NSString *equipment = element.equipment;
+        
+        NSLog(@"%@ %@ %@ %@ %@", name, guidelines, reflectionQuestions, desiredOutcomes, variations);
+        dvc.name = name;
+        dvc.guidelines = guidelines;
+        dvc.variations = variations;
+        dvc.desiredOutcomes = desiredOutcomes;
+        dvc.reflectionQuestions = reflectionQuestions;
+        if (equipment) {
+            dvc.equipment = equipment;
+        }
+        
+
+    }
 }
-*/
+#pragma mark - Search Bar Delegate Methods
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    [searchBar resignFirstResponder];
+    self.outcomesArray = self.originalArray;
+    searchBar.showsCancelButton = false;
+    [self.tableView reloadData];
+    searchBar.text = @"";
+}
+-(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
+    searchBar.tintColor = [UIColor synergoRedColor];
+    [searchBar setShowsCancelButton:true animated:true];
+}
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+    [searchBar setShowsCancelButton:false animated:true];
+}
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name contains[c] %@",
+                              searchText];
+    NSArray *filteredElements = [self.outcomesArray filteredArrayUsingPredicate:predicate];
+    self.outcomesArray = filteredElements;
+    [self.tableView reloadData];
+}
+
+
 
 @end

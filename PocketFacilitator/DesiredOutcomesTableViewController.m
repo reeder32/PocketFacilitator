@@ -9,7 +9,8 @@
 #import "DesiredOutcomesTableViewController.h"
 #import "UIColor+UIColor_SynergoColors.h"
 #import "ElementsFromDatabase.h"
-#import "DesiredLearningOutcomesObject.h"
+#import "ElementObject.h"
+#import "DesiredLearningOutcomesTableViewController.h"
 
 @interface DesiredOutcomesTableViewController ()
 @property NSArray *desiredOutcomes;
@@ -27,7 +28,7 @@
 @implementation DesiredOutcomesTableViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.desiredOutcomes = [ElementsFromDatabase database].allElementsArray;
     
     //* un-comment when i need a list of font names
 //    for (NSString* family in [UIFont familyNames])
@@ -43,10 +44,15 @@
     self.tableView.preservesSuperviewLayoutMargins = NO;
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    self.desiredOutcomes = [ElementsFromDatabase database].desiredOutcomesArray;
-}
+
 -(void)viewDidAppear:(BOOL)animated{
+    [self setUpArraysForTableView];
+}
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+-(void)setUpArraysForTableView{
     NSMutableArray *trustMutArray = [NSMutableArray array];
     NSMutableArray *commMutArray = [NSMutableArray array];
     NSMutableArray *learderShipArray = [NSMutableArray array];
@@ -57,30 +63,29 @@
     NSMutableArray *conflictMutArray = [NSMutableArray array];
     NSMutableArray *comfortZoneMutArray = [NSMutableArray array];
     NSMutableArray *otherArray = [NSMutableArray array];
-    for (DesiredLearningOutcomesObject *object in self.desiredOutcomes) {
-        NSString *outcomes = object.desiredOutcomes;
+    for (ElementObject *element in self.desiredOutcomes) {
+        NSString *outcomes = element.desiredOutcomes;
         NSArray *outcomesArray = [outcomes componentsSeparatedByString:@"@"];
-        NSLog(@"outcomesArray is %@", outcomesArray);
         if ([outcomesArray containsObject:@"Trust"]) {
-            [trustMutArray addObject:object];
+            [trustMutArray addObject:element];
         } if ([outcomesArray containsObject:@"Communication"]){
-            [commMutArray addObject:object];
+            [commMutArray addObject:element];
         } if ([outcomesArray containsObject:@"Teamwork"]){
-            [teamMutArray addObject:object];
+            [teamMutArray addObject:element];
         } if ([outcomesArray containsObject:@"Listening Skills"]){
-            [listenMutArray addObject:object];
+            [listenMutArray addObject:element];
         } if ([outcomesArray containsObject:@"Self-Awareness"]){
-            [selfAwareMutArray addObject:object];
+            [selfAwareMutArray addObject:element];
         } if ([outcomesArray containsObject:@"Conflict Resolution"]){
-            [conflictMutArray addObject:object];
+            [conflictMutArray addObject:element];
         } if ([outcomesArray containsObject:@"Comfort Zones"]){
-            [comfortZoneMutArray addObject:object];
+            [comfortZoneMutArray addObject:element];
         } if ([outcomesArray containsObject:@"Leadership"]){
-            [learderShipArray addObject:object];
+            [learderShipArray addObject:element];
         } if ([outcomesArray containsObject:@"Interpersonal Skills"]){
-            [interpersonalMutArray addObject:object];
+            [interpersonalMutArray addObject:element];
         }else{
-            [otherArray addObject:object];
+            [otherArray addObject:element];
         }
     }
     
@@ -93,22 +98,10 @@
     self.interpersonalSkillsArray = interpersonalMutArray;
     self.conflictResolutionArray = conflictMutArray;
     self.comfortZonesArray = comfortZoneMutArray;
-     NSLog(@"trustArray is %@", self.trustArray);
-     NSLog(@"communicationArray is %@", self.communicationArray);
-     NSLog(@"leadershipArray is %@", self.leadershipArray);
-     NSLog(@"teamworkArray is %@", self.teamworkArray);
-     NSLog(@"listeningArray is %@", self.listeningSkillsArray);
-     NSLog(@"selfawarenessArray is %@", self.selfAwarenessArray);
-     NSLog(@"interpersnalArray is %@", self.interpersonalSkillsArray);
-     NSLog(@"conflictArray is is %@", self.conflictResolutionArray);
-     NSLog(@"comfortZoneArray is %@", self.comfortZonesArray);
     
-}
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+    
 
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -130,50 +123,66 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.contentView.superview.backgroundColor = [UIColor whiteColor];
 }
+#pragma mark - Tableview Selection Methods
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 0) {
+        [self performSegueWithIdentifier:@"TrustSegue" sender:nil];
+    }else if (indexPath.row == 1){
+        [self performSegueWithIdentifier:@"CommunicationSegue" sender:nil];
+    }else if (indexPath.row ==2){
+        [self performSegueWithIdentifier:@"LeadershipSegue" sender:nil];
+    }else if (indexPath.row ==3){
+        [self performSegueWithIdentifier:@"TeamworkSegue" sender:nil];
+    }else if (indexPath.row ==4){
+        [self performSegueWithIdentifier:@"ListeningSegue" sender:nil];
+    }else if (indexPath.row ==5){
+        [self performSegueWithIdentifier:@"SelfAwareSegue" sender:nil];
+    }else if (indexPath.row ==6){
+        [self performSegueWithIdentifier:@"InterpersonalSegue" sender:nil];
+    }else if (indexPath.row ==7){
+        [self performSegueWithIdentifier:@"ConflictSegue" sender:nil];
+    }else{
+        [self performSegueWithIdentifier:@"ComfortSegue" sender:nil];
+    }
+}
 
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
-
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- } else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
-
-/*
  #pragma mark - Navigation
  
  // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+     DesiredLearningOutcomesTableViewController *dvc = segue.destinationViewController;
+     if ([segue.identifier isEqualToString:@"TrustSegue"]) {
+         dvc.navigationItem.title = @"Trust";
+         dvc.outcomesArray = self.trustArray;
+     }else if ([segue.identifier isEqualToString:@"CommunicationSegue"]){
+         dvc.navigationItem.title = @"Communication";
+         dvc.outcomesArray = self.communicationArray;
+     }else if ([segue.identifier isEqualToString:@"LeadershipSegue"]){
+         dvc.navigationItem.title = @"Leadership";
+         dvc.outcomesArray = self.leadershipArray;
+     }else if ([segue.identifier isEqualToString:@"TeamworkSegue"]){
+         dvc.navigationItem.title = @"Teamwork";
+         dvc.outcomesArray = self.teamworkArray;
+     }else if ([segue.identifier isEqualToString:@"ListeningSegue"]){
+         dvc.navigationItem.title = @"Listening Skills";
+         dvc.outcomesArray = self.listeningSkillsArray;
+     }else if ([segue.identifier isEqualToString:@"SelfAwareSegue"]){
+         dvc.navigationItem.title = @"Self-Awareness";
+         dvc.outcomesArray = self.selfAwarenessArray;
+     }else if ([segue.identifier isEqualToString:@"InterpersonalSegue"]){
+         dvc.navigationItem.title = @"Interpersonal Skills";
+         dvc.outcomesArray = self.interpersonalSkillsArray;
+     }else if ([segue.identifier isEqualToString:@"ConflictSegue"]){
+         dvc.navigationItem.title = @"Conflict Resolution";
+         dvc.outcomesArray = self.conflictResolutionArray;
+     }else{
+         dvc.navigationItem.title = @"Comfort Zones";
+         dvc.outcomesArray = self.comfortZonesArray;
+     }
  // Get the new view controller using [segue destinationViewController].
  // Pass the selected object to the new view controller.
  }
- */
+ 
 
 
 @end

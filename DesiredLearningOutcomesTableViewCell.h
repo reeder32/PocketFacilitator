@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface DesiredLearningOutcomesTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *outcomeLabel;
 
 @end

@@ -8,12 +8,14 @@
 
 #import "InitiativesTableViewController.h"
 #import "ElementsFromDatabase.h"
-#import "InitiativesDetails.h"
+#import "ElementObject.h"
 #import "InitiativesTableViewCell.h"
 #import "ElementsDetailViewTableViewController.h"
+#import "UIColor+UIColor_SynergoColors.h"
 
 @interface InitiativesTableViewController ()
 @property (strong, nonatomic) NSArray *initiativesArray;
+@property (strong, nonatomic) NSArray *originalArray;
 @end
 
 @implementation InitiativesTableViewController
@@ -21,6 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.initiativesArray = [ElementsFromDatabase database].initiativesArray;
+    self.originalArray = self.initiativesArray;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -65,16 +68,17 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
    
     if ([segue.identifier isEqualToString:@"ShowInitiativesDetails"]) {
-         InitiativesDetails *detail = (InitiativesDetails *)sender;
+         ElementObject *element = (ElementObject *)sender;
         ElementsDetailViewTableViewController *dvc = segue.destinationViewController;
-        NSString *name = detail.name;
-        NSString *guidelines = detail.guidelines;
-        NSString *questions = detail.reflectionQuestions;
-        NSString *desiredOutcomes = detail.desiredOutcomes;
-        NSString *variations = detail.variations;
-        NSString *equipment = detail.equipment;
+        NSString *name = element.name;
+        NSString *guidelines = element.guidelines;
+        NSString *questions = element.reflectionQuestions;
+        NSString *desiredOutcomes = element.desiredOutcomes;
+        NSString *variations = element.variations;
+        NSString *equipment = element.equipment;
         
         NSLog(@"%@ %@ %@ %@ %@", name, guidelines, questions, desiredOutcomes, variations);
+        dvc.elementObject = element;
         dvc.name = name;
         dvc.guidelines = guidelines;
         dvc.reflectionQuestions = questions;
@@ -85,5 +89,28 @@
 
 }
 
+#pragma mark - Search Bar Delegate Methods
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    [searchBar resignFirstResponder];
+    self.initiativesArray = self.originalArray;
+    searchBar.showsCancelButton = false;
+    [self.tableView reloadData];
+    searchBar.text = @"";
+}
+-(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
+    searchBar.tintColor = [UIColor synergoRedColor];
+    [searchBar setShowsCancelButton:true animated:true];
+}
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+    [searchBar setShowsCancelButton:false animated:true];
+}
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
 
+   
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name contains[c] %@",
+                              searchText];
+    NSArray *filteredElements = [self.initiativesArray filteredArrayUsingPredicate:predicate];
+    self.initiativesArray = filteredElements;
+    [self.tableView reloadData];
+}
 @end

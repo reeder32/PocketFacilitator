@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "UIColor+UIColor_SynergoColors.h"
+#import <Parse/Parse.h>
 
 
 
@@ -19,6 +20,12 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [Parse enableLocalDatastore];
+    
+    // Initialize Parse.
+    [Parse setApplicationId:@"rxoTl4hK0W8gRtmarItDMzSqjvxsilvqGnypQyV5"
+                  clientKey:@"GVsCS5IfWc8GoFEMZsRbQ89XT7HKZ1dZWDTDaUDE"];
     //app background view color
     [[UIWindow appearance] setBackgroundColor:[UIColor synergoLightGrayColor]];
     
@@ -37,15 +44,16 @@
     //setup navigation appearance
     UINavigationBar.appearance.tintColor = [UIColor synergoMaroonColor];
     
-    NSDictionary *textAttributes = @{ NSForegroundColorAttributeName       : [UIColor synergoMaroonColor],
-                                      NSFontAttributeName            : [UIFont fontWithName:@"OpenSans" size:17.0]
-                                      };
+    NSDictionary *textAttributes = @{NSForegroundColorAttributeName: [UIColor synergoMaroonColor],NSFontAttributeName : [UIFont fontWithName:@"OpenSans" size:17.0]};
     UINavigationBar.appearance.titleTextAttributes = textAttributes;
-    NSDictionary *buttonAttributes = @{ NSFontAttributeName : [UIFont fontWithName:@"OpenSans" size:0.1]};
-    [[UIBarButtonItem appearance]setTitleTextAttributes:buttonAttributes forState:UIControlStateNormal];
-    
+    NSDictionary *buttonAttributes = @{NSForegroundColorAttributeName : [UIColor synergoMaroonColor], NSFontAttributeName : [UIFont fontWithName:@"OpenSans" size:0.1]};
+
+    //Hides "Back" button text!!!
+    [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UINavigationBar class]]] setTitleTextAttributes:buttonAttributes forState:UIControlStateNormal];
+
     //setup uitableview cells
     [[UITableViewCell appearance] setTintColor:[UIColor synergoRedColor]];
+   
     return YES;
 }
 
@@ -55,6 +63,7 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
+    NSLog(@"ApplicationDidEnterBackground");
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
