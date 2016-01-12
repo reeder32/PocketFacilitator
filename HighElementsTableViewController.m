@@ -12,6 +12,8 @@
 #import "ElementsTableViewCell.h"
 #import "ElementsDetailViewTableViewController.h"
 #import "UIColor+UIColor_SynergoColors.h"
+#import "AddFavoriteElementToArray.h"
+
 
 @interface HighElementsTableViewController ()
 @property NSArray *highElementsArray;
@@ -35,7 +37,10 @@
     [super didReceiveMemoryWarning];
     
 }
-
+-(ElementObject *) elementForIndex:(NSIndexPath*) path
+{
+    return [self.highElementsArray objectAtIndex:path.row];
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -52,15 +57,71 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ElementsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HighElementsCell" forIndexPath:indexPath];
-    cell.elementNameLabel.text = [[self.highElementsArray objectAtIndex:indexPath.row]valueForKey:@"name"];
     
+    cell.elementNameLabel.text = [[self.highElementsArray objectAtIndex:indexPath.row]valueForKey:@"name"];
+    cell.swipeBackgroundColor = [UIColor synergoLightGrayColor];
+    cell.delegate = self;
+    cell.leftSwipeSettings.transition = MGSwipeTransitionDrag;
     return cell;
 }
-
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self performSegueWithIdentifier:@"ShowHighElementsDetails" sender:[self.highElementsArray objectAtIndex:indexPath.row]];
 }
+#pragma mark Swipe Delegate
+
+-(BOOL) swipeTableCell:(MGSwipeTableCell*) cell canSwipe:(MGSwipeDirection) direction;
+{
+    return YES;
+}
+
+-(NSArray*) swipeTableCell:(MGSwipeTableCell*) cell swipeButtonsForDirection:(MGSwipeDirection)direction
+             swipeSettings:(MGSwipeSettings*) swipeSettings expansionSettings:(MGSwipeExpansionSettings*) expansionSettings
+{
+    
+    swipeSettings.transition = MGSwipeTransitionClipCenter;
+    swipeSettings.keepButtonsSwiped = NO;
+    expansionSettings.buttonIndex = 0;
+    expansionSettings.threshold = 1.0;
+    expansionSettings.expansionLayout = MGSwipeExpansionLayoutCenter;
+    expansionSettings.expansionColor = [UIColor synergoMaroonColor];
+    expansionSettings.triggerAnimation.easingFunction = MGSwipeEasingFunctionCubicOut;
+    expansionSettings.fillOnTrigger = NO;
+    
+    __weak HighElementsTableViewController * me = self;
+    AddFavoriteElementToArray *addFav = [[AddFavoriteElementToArray alloc]init];
+    UIColor * color = [UIColor synergoLightGrayColor];
+    UIFont * font = [UIFont fontWithName:@"OpenSans-Bold" size:14.0];
+    if (direction == MGSwipeDirectionLeftToRight) {
+        MGSwipeButton * favoriteButton = [MGSwipeButton buttonWithTitle:@"Favorite" backgroundColor:color padding:15 callback:^BOOL(MGSwipeTableCell *sender) {
+            ElementObject * element = [me elementForIndex:[me.tableView indexPathForCell:sender]];
+            NSLog(@"Save Element: %@", element.name);
+            [addFav addElementName:element.name toUser:[PFUser currentUser]];
+            return YES;
+        }];
+        favoriteButton.titleLabel.font = font;
+        
+        return @[favoriteButton];
+    }
+   
+    
+    return nil;
+    
+}
+
+-(void) swipeTableCell:(MGSwipeTableCell*) cell didChangeSwipeState:(MGSwipeState)state gestureIsActive:(BOOL)gestureIsActive
+{
+    NSString * str;
+    switch (state) {
+        case MGSwipeStateNone: str = @"None"; break;
+        case MGSwipeStateSwippingLeftToRight: str = @"SwippingLeftToRight"; break;
+        case MGSwipeStateSwippingRightToLeft: str = @"SwippingRightToLeft"; break;
+        case MGSwipeStateExpandingLeftToRight: str = @"ExpandingLeftToRight"; break;
+        case MGSwipeStateExpandingRightToLeft: str = @"ExpandingRightToLeft"; break;
+    }
+    NSLog(@"Swipe state: %@ ::: Gesture: %@", str, gestureIsActive ? @"Active" : @"Ended");
+}
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation

@@ -50,6 +50,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DesiredLearningOutcomesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DesiredLearningOutcomesCell" forIndexPath:indexPath];
+    
     ElementObject *object = [self.outcomesArray objectAtIndex:indexPath.row];
     cell.outcomeLabel.textColor = [UIColor synergoDarkGrayColor];
     cell.outcomeLabel.text = object.name;

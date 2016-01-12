@@ -8,11 +8,15 @@
 
 #import "RegisterOrLoginViewController.h"
 #import <Parse/Parse.h>
+#import "UIColor+UIColor_SynergoColors.h"
 
 @interface RegisterOrLoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
+@property (weak, nonatomic) IBOutlet UIButton *createAccountButton;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 
 @end
 
@@ -20,6 +24,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.createAccountButton.layer.borderColor = [UIColor synergoDarkGrayColor].CGColor;
+    self.createAccountButton.layer.cornerRadius = 4.0;
+    self.createAccountButton.layer.borderWidth = 1.0;
+    
+    self.loginButton.layer.borderColor = [UIColor synergoDarkGrayColor].CGColor;
+    self.loginButton.layer.cornerRadius = 4.0;
+    self.loginButton.layer.borderWidth = 1.0;
+    
+    
     // Do any additional setup after loading the view.
 }
 

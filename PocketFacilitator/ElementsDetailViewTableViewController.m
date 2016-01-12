@@ -11,12 +11,15 @@
 #import "ElementsFromDatabase.h"
 #import <Parse/Parse.h>
 #import "UIColor+UIColor_SynergoColors.h"
+#import "SVProgressHUD.h"
+#import "AddFavoriteElementToArray.h"
 
 
 
 @interface ElementsDetailViewTableViewController ()
 @property (nonatomic) NSMutableArray *favorites;
 @property (strong, nonatomic) UIView *headerView;
+
 @end
 
 NSString *path = @"PocketFacilitator.db";
@@ -52,16 +55,10 @@ NSString *path = @"PocketFacilitator.db";
     return 1;
 }
 - (IBAction)handlePlusButtonPressed:(id)sender {
-    [[PFUser currentUser]addUniqueObject:self.name forKey:@"favorites"];
-    [[PFUser currentUser]pinInBackgroundWithName:@"favorites"];
-    [[PFUser currentUser]saveEventually:^(BOOL succeeded, NSError * _Nullable error) {
-        if (succeeded) {
-            NSLog(@"YEAH Muthafucka!");
-        }else{
-            NSLog(@"Nope! try again %@", error.localizedDescription);
-        }
-    }];
-    NSLog(@"plus button pressed");
+    AddFavoriteElementToArray *addFavorite = [[AddFavoriteElementToArray alloc]init];
+    [addFavorite addElementName:self.name toUser:[PFUser currentUser]];
+ 
+    
 }
 - (IBAction)handleCloseButtonPressed:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];

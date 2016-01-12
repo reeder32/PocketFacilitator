@@ -8,9 +8,14 @@
 
 #import "LogInViewController.h"
 #import <Parse/Parse.h>
+#import "UIColor+UIColor_SynergoColors.h"
+#import "SVProgressHUD.h"
+#import "RegisterOrLoginViewController.h"
+
 @interface LogInViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
 @end
 
@@ -18,6 +23,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.loginButton.layer.borderColor = [UIColor synergoDarkGrayColor].CGColor;
+    self.loginButton.layer.cornerRadius = 4.0;
+    self.loginButton.layer.borderWidth = 1.0;
+
     // Do any additional setup after loading the view.
 }
 
@@ -26,10 +35,19 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)handleLoginButtonPressed:(id)sender {
+    [SVProgressHUD showWithStatus:@"Logging in"];
+    
     [PFUser logInWithUsernameInBackground:self.usernameTextField.text password:self.passwordTextField.text block:^(PFUser * user, NSError * error) {
-        UIViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"InitialViewController"];
-        [self presentViewController:vc animated:true completion:nil];
+        if (!error) {
+            [SVProgressHUD dismiss];
+            [self.presentingViewController.presentingViewController dismissViewControllerAnimated:true completion:nil];
+        }else{
+            [SVProgressHUD showErrorWithStatus:error.localizedDescription];
+        }
     }];
+}
+- (IBAction)hanldeCancelButtonPressed:(id)sender {
+    [self dismissViewControllerAnimated:true completion:nil];
 }
 
 

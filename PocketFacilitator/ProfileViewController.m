@@ -13,6 +13,7 @@
 #import "UIColor+UIColor_SynergoColors.h"
 #import "SVProgressHUD.h"
 
+
 @interface ProfileViewController ()
 @property (strong, nonatomic) NSMutableArray *favoritesArray;
 @property (weak, nonatomic) IBOutlet UIView *createAccountView;
@@ -25,7 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
+    
     
     
     // Do any additional setup after loading the view.
@@ -37,7 +38,7 @@
         self.createAccountView.hidden = false;
         self.profileTableView.hidden = true;
     }else{
-        [self queryLocalDataStore];
+        [self queryParse];
         
         self.createAccountView.hidden = true;
         self.profileTableView.hidden = false;
@@ -48,15 +49,28 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)handleCreateAccountButtonPressed:(id)sender {
-    
-}
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
     return self.favoritesArray.count;
+}
+-(void)queryParse{
+   
+    PFQuery *query = [PFUser query];
+    [query whereKey:@"username" equalTo:[PFUser currentUser].username];
+    [SVProgressHUD showWithStatus:@"Loading..."];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+        if (!error) {
+            [SVProgressHUD dismiss];
+            self.favoritesArray = object[@"favorites"];
+            [self.profileTableView reloadData];
+        }else{
+            [self queryLocalDataStore];
+        }
+    }];
 }
 -(void)queryLocalDataStore{
     [SVProgressHUD showWithStatus:@"Loading..."];
@@ -65,10 +79,14 @@
     [userQuery fromPinWithName:@"favorites"];
     [userQuery getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
         if (!error) {
+            [SVProgressHUD dismiss];
             NSArray *favorites = object[@"favorites"];
             self.favoritesArray = [favorites mutableCopy];
             [SVProgressHUD dismiss];
             [self.profileTableView reloadData];
+            
+        }else{
+            [SVProgressHUD showErrorWithStatus:error.localizedDescription];
         }
         
     }];
@@ -121,6 +139,24 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"DateCollectionCell" forIndexPath:indexPath];
     return cell;
+}
+- (IBAction)handleLogoutButtonPressed:(id)sender {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Log out?" message:@"Are you sure?" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *logout = [UIAlertAction actionWithTitle:@"Log out" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
+            if (!error) {
+                self.profileTableView.hidden = true;
+                self.createAccountView.hidden = false;
+            }else{
+                [SVProgressHUD showErrorWithStatus:error.localizedDescription];
+            }
+        }];
+    }];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+    [alert addAction:logout];
+    [alert addAction:cancel];
+    [self presentViewController:alert animated:true completion:nil];
+   
 }
 #pragma mark - Navigation
 
