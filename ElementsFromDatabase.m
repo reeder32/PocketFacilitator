@@ -206,6 +206,9 @@ static ElementsFromDatabase *_database;
         
         [mutArray addObject:element];
     }
+    for (ElementObject *element in self.iceBreakersArray) {
+        [mutArray addObject:element];
+    }
     
     NSArray *sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
     NSArray *returnArray = [mutArray sortedArrayUsingDescriptors:sortDescriptors];

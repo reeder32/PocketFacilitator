@@ -37,10 +37,7 @@
     [super didReceiveMemoryWarning];
     
 }
--(ElementObject *) elementForIndex:(NSIndexPath*) path
-{
-    return [self.highElementsArray objectAtIndex:path.row];
-}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -57,16 +54,20 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ElementsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HighElementsCell" forIndexPath:indexPath];
-    
-    cell.elementNameLabel.text = [[self.highElementsArray objectAtIndex:indexPath.row]valueForKey:@"name"];
     cell.swipeBackgroundColor = [UIColor synergoLightGrayColor];
     cell.delegate = self;
     cell.leftSwipeSettings.transition = MGSwipeTransitionDrag;
+    cell.elementNameLabel.text = [[self.highElementsArray objectAtIndex:indexPath.row]valueForKey:@"name"];
+    
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self performSegueWithIdentifier:@"ShowHighElementsDetails" sender:[self.highElementsArray objectAtIndex:indexPath.row]];
+}
+-(ElementObject *) elementForIndex:(NSIndexPath*) path
+{
+    return [self.highElementsArray objectAtIndex:path.row];
 }
 #pragma mark Swipe Delegate
 

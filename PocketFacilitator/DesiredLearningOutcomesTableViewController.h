@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MGSwipeTableCell.h"
 
-@interface DesiredLearningOutcomesTableViewController : UITableViewController
+@interface DesiredLearningOutcomesTableViewController : UITableViewController<MGSwipeTableCellDelegate>
 @property (strong, nonatomic) NSArray *outcomesArray;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
 

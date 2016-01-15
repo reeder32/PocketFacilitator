@@ -19,6 +19,10 @@
 		274E243C1C44FB9B00754191 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 274E24371C44FB9B00754191 /* Info.plist */; };
 		274E243D1C44FB9B00754191 /* MGSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 274E24391C44FB9B00754191 /* MGSwipeButton.m */; };
 		274E243E1C44FB9B00754191 /* MGSwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 274E243B1C44FB9B00754191 /* MGSwipeTableCell.m */; };
+		274E24411C45674B00754191 /* ElementsToAddToDayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 274E24401C45674B00754191 /* ElementsToAddToDayTableViewCell.m */; };
+		274E24441C458DE400754191 /* SavedDayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 274E24431C458DE400754191 /* SavedDayTableViewController.m */; };
+		274E244A1C45ADE500754191 /* DaysCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 274E24491C45ADE500754191 /* DaysCollectionViewCell.m */; };
+		274E244D1C45B30F00754191 /* SavedDayInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 274E244C1C45B30F00754191 /* SavedDayInfoViewController.m */; };
 		276E95B51BF56AB400117387 /* LowElementsDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 276E95B41BF56AB400117387 /* LowElementsDetails.m */; };
 		276E95BB1BF56DCF00117387 /* LowElementsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 276E95BA1BF56DCF00117387 /* LowElementsTableViewCell.m */; };
 		278ED5461BEEDE2C00EB0B71 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 278ED5451BEEDE2C00EB0B71 /* CoreData.framework */; };
@@ -31,7 +35,6 @@
 		279926C21C0A68A4007D27F1 /* InitiativesDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 279926C11C0A68A4007D27F1 /* InitiativesDetails.m */; };
 		279BCDED1C0A6C2D003ABA13 /* InitiativesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 279BCDEC1C0A6C2D003ABA13 /* InitiativesTableViewController.m */; };
 		279BCDF01C0A6C3A003ABA13 /* IceBreakersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 279BCDEF1C0A6C3A003ABA13 /* IceBreakersTableViewController.m */; };
-		279BCDF71C0A6F38003ABA13 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 279BCDF61C0A6F38003ABA13 /* MenuTableViewController.m */; };
 		279BCE481C0ABB66003ABA13 /* AcknowledgementsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 279BCE471C0ABB66003ABA13 /* AcknowledgementsViewController.m */; };
 		279BCE4B1C0ABBA3003ABA13 /* TermsOfServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 279BCE4A1C0ABBA3003ABA13 /* TermsOfServiceViewController.m */; };
 		279BCE511C0AF76D003ABA13 /* LegalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 279BCE501C0AF76D003ABA13 /* LegalTableViewController.m */; };
@@ -39,11 +42,12 @@
 		27A590651C322E10009EFA5A /* ElementObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A590641C322E10009EFA5A /* ElementObject.m */; };
 		27A590681C32388A009EFA5A /* DesiredLearningOutcomesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A590671C32388A009EFA5A /* DesiredLearningOutcomesTableViewCell.m */; };
 		27A5906B1C3238E3009EFA5A /* DesiredLearningOutcomesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A5906A1C3238E3009EFA5A /* DesiredLearningOutcomesTableViewController.m */; };
-		27A5906D1C328ED6009EFA5A /* PocketFacilitator.db in Resources */ = {isa = PBXBuildFile; fileRef = 27A5906C1C328ED6009EFA5A /* PocketFacilitator.db */; };
 		27C44A351BE556D2000D01D8 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C44A341BE556D2000D01D8 /* ProfileViewController.m */; };
 		27C44A3E1BE55D0F000D01D8 /* ShopSynergoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C44A3D1BE55D0F000D01D8 /* ShopSynergoViewController.m */; };
 		27C44A451BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C44A441BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.m */; };
 		27C44A8C1BE7D38D000D01D8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27C44A8B1BE7D38D000D01D8 /* QuartzCore.framework */; };
+		27CE211D1C487A7700364FDE /* PocketFacilitator.db in Resources */ = {isa = PBXBuildFile; fileRef = 27CE211C1C487A7700364FDE /* PocketFacilitator.db */; };
+		27CE21201C487B8100364FDE /* IceBreakersTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CE211F1C487B8100364FDE /* IceBreakersTableViewCell.m */; };
 		27E2BD241C407FE70091946D /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E2BD231C407FE70091946D /* SearchTableViewCell.m */; };
 		27E2BD2A1C40CD790091946D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E2BD291C40CD790091946D /* AudioToolbox.framework */; };
 		27E2BD2C1C40CD870091946D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E2BD2B1C40CD870091946D /* CFNetwork.framework */; };
@@ -143,6 +147,14 @@
 		274E24391C44FB9B00754191 /* MGSwipeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSwipeButton.m; sourceTree = "<group>"; };
 		274E243A1C44FB9B00754191 /* MGSwipeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSwipeTableCell.h; sourceTree = "<group>"; };
 		274E243B1C44FB9B00754191 /* MGSwipeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSwipeTableCell.m; sourceTree = "<group>"; };
+		274E243F1C45674B00754191 /* ElementsToAddToDayTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElementsToAddToDayTableViewCell.h; sourceTree = "<group>"; };
+		274E24401C45674B00754191 /* ElementsToAddToDayTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElementsToAddToDayTableViewCell.m; sourceTree = "<group>"; };
+		274E24421C458DE400754191 /* SavedDayTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedDayTableViewController.h; sourceTree = "<group>"; };
+		274E24431C458DE400754191 /* SavedDayTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedDayTableViewController.m; sourceTree = "<group>"; };
+		274E24481C45ADE500754191 /* DaysCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DaysCollectionViewCell.h; path = PocketFacilitator/DaysCollectionViewCell.h; sourceTree = "<group>"; };
+		274E24491C45ADE500754191 /* DaysCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DaysCollectionViewCell.m; path = PocketFacilitator/DaysCollectionViewCell.m; sourceTree = "<group>"; };
+		274E244B1C45B30F00754191 /* SavedDayInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedDayInfoViewController.h; sourceTree = "<group>"; };
+		274E244C1C45B30F00754191 /* SavedDayInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedDayInfoViewController.m; sourceTree = "<group>"; };
 		276E95B31BF56AB400117387 /* LowElementsDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LowElementsDetails.h; sourceTree = "<group>"; };
 		276E95B41BF56AB400117387 /* LowElementsDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LowElementsDetails.m; sourceTree = "<group>"; };
 		276E95B91BF56DCF00117387 /* LowElementsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LowElementsTableViewCell.h; sourceTree = "<group>"; };
@@ -165,8 +177,6 @@
 		279BCDEC1C0A6C2D003ABA13 /* InitiativesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitiativesTableViewController.m; sourceTree = "<group>"; };
 		279BCDEE1C0A6C3A003ABA13 /* IceBreakersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IceBreakersTableViewController.h; sourceTree = "<group>"; };
 		279BCDEF1C0A6C3A003ABA13 /* IceBreakersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IceBreakersTableViewController.m; sourceTree = "<group>"; };
-		279BCDF51C0A6F38003ABA13 /* MenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewController.h; sourceTree = "<group>"; };
-		279BCDF61C0A6F38003ABA13 /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewController.m; sourceTree = "<group>"; };
 		279BCE461C0ABB66003ABA13 /* AcknowledgementsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AcknowledgementsViewController.h; sourceTree = "<group>"; };
 		279BCE471C0ABB66003ABA13 /* AcknowledgementsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AcknowledgementsViewController.m; sourceTree = "<group>"; };
 		279BCE491C0ABBA3003ABA13 /* TermsOfServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsOfServiceViewController.h; sourceTree = "<group>"; };
@@ -181,7 +191,6 @@
 		27A590671C32388A009EFA5A /* DesiredLearningOutcomesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesiredLearningOutcomesTableViewCell.m; sourceTree = "<group>"; };
 		27A590691C3238E3009EFA5A /* DesiredLearningOutcomesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesiredLearningOutcomesTableViewController.h; sourceTree = "<group>"; };
 		27A5906A1C3238E3009EFA5A /* DesiredLearningOutcomesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesiredLearningOutcomesTableViewController.m; sourceTree = "<group>"; };
-		27A5906C1C328ED6009EFA5A /* PocketFacilitator.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = PocketFacilitator.db; path = PocketFacilitator/PocketFacilitator.db; sourceTree = "<group>"; };
 		27C44A331BE556D2000D01D8 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		27C44A341BE556D2000D01D8 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		27C44A3C1BE55D0F000D01D8 /* ShopSynergoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShopSynergoViewController.h; path = ../ShopSynergoViewController.h; sourceTree = "<group>"; };
@@ -189,6 +198,9 @@
 		27C44A431BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+UIColor_SynergoColors.h"; sourceTree = "<group>"; };
 		27C44A441BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+UIColor_SynergoColors.m"; sourceTree = "<group>"; };
 		27C44A8B1BE7D38D000D01D8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		27CE211C1C487A7700364FDE /* PocketFacilitator.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = PocketFacilitator.db; sourceTree = "<group>"; };
+		27CE211E1C487B8100364FDE /* IceBreakersTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IceBreakersTableViewCell.h; sourceTree = "<group>"; };
+		27CE211F1C487B8100364FDE /* IceBreakersTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IceBreakersTableViewCell.m; sourceTree = "<group>"; };
 		27E2BD221C407FE70091946D /* SearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTableViewCell.h; sourceTree = "<group>"; };
 		27E2BD231C407FE70091946D /* SearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewCell.m; sourceTree = "<group>"; };
 		27E2BD291C40CD790091946D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -302,8 +314,6 @@
 			isa = PBXGroup;
 			children = (
 				274E24361C44FB9B00754191 /* MGSwipeTableCell */,
-				27E2BD451C40F82A0091946D /* UserFavoritesTableViewCell.h */,
-				27E2BD461C40F82A0091946D /* UserFavoritesTableViewCell.m */,
 				2708B6561BE43411003C4A2B /* PocketFacilitator */,
 				273A07E31BF6779F0007BB4B /* Model */,
 				2708B6731BE43412003C4A2B /* PocketFacilitatorTests */,
@@ -326,6 +336,8 @@
 			isa = PBXGroup;
 			children = (
 				2708B6631BE43411003C4A2B /* Main.storyboard */,
+				27CE211E1C487B8100364FDE /* IceBreakersTableViewCell.h */,
+				27CE211F1C487B8100364FDE /* IceBreakersTableViewCell.m */,
 				2708B65A1BE43411003C4A2B /* AppDelegate.h */,
 				2708B65B1BE43411003C4A2B /* AppDelegate.m */,
 				27C44A3F1BE55D31000D01D8 /* ViewControllers */,
@@ -381,7 +393,7 @@
 				278ED55A1BEF0FA800EB0B71 /* ElementsFromDatabase.m */,
 				27A590631C322E10009EFA5A /* ElementObject.h */,
 				27A590641C322E10009EFA5A /* ElementObject.m */,
-				27A5906C1C328ED6009EFA5A /* PocketFacilitator.db */,
+				27CE211C1C487A7700364FDE /* PocketFacilitator.db */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -417,10 +429,6 @@
 				27E2BD271C40918D0091946D /* Secondary View Controllers */,
 				27E2BD281C4091B90091946D /* Search */,
 				27E2BD251C4091370091946D /* Legal */,
-				278ED5621BEF39E100EB0B71 /* ElementsDetailViewTableViewController.h */,
-				278ED5631BEF39E100EB0B71 /* ElementsDetailViewTableViewController.m */,
-				279BCDF51C0A6F38003ABA13 /* MenuTableViewController.h */,
-				279BCDF61C0A6F38003ABA13 /* MenuTableViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -451,6 +459,8 @@
 		27C44AAA1BE7D4A2000D01D8 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				27E2BD451C40F82A0091946D /* UserFavoritesTableViewCell.h */,
+				27E2BD461C40F82A0091946D /* UserFavoritesTableViewCell.m */,
 				274E23E51C44E9DF00754191 /* AddFavoriteElementToArray.h */,
 				274E23E61C44E9DF00754191 /* AddFavoriteElementToArray.m */,
 				27C44A431BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.h */,
@@ -464,7 +474,11 @@
 				27A590661C32388A009EFA5A /* DesiredLearningOutcomesTableViewCell.h */,
 				27A590671C32388A009EFA5A /* DesiredLearningOutcomesTableViewCell.m */,
 				27E2BD221C407FE70091946D /* SearchTableViewCell.h */,
+				274E243F1C45674B00754191 /* ElementsToAddToDayTableViewCell.h */,
+				274E24401C45674B00754191 /* ElementsToAddToDayTableViewCell.m */,
 				27E2BD231C407FE70091946D /* SearchTableViewCell.m */,
+				274E24481C45ADE500754191 /* DaysCollectionViewCell.h */,
+				274E24491C45ADE500754191 /* DaysCollectionViewCell.m */,
 			);
 			name = Classes;
 			path = ..;
@@ -501,6 +515,12 @@
 		27E2BD271C40918D0091946D /* Secondary View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				278ED5621BEF39E100EB0B71 /* ElementsDetailViewTableViewController.h */,
+				278ED5631BEF39E100EB0B71 /* ElementsDetailViewTableViewController.m */,
+				274E244B1C45B30F00754191 /* SavedDayInfoViewController.h */,
+				274E244C1C45B30F00754191 /* SavedDayInfoViewController.m */,
+				274E24421C458DE400754191 /* SavedDayTableViewController.h */,
+				274E24431C458DE400754191 /* SavedDayTableViewController.m */,
 				27EF836F1BECA5EC00B7F96D /* LowElementsTableViewController.h */,
 				27EF83701BECA5EC00B7F96D /* LowElementsTableViewController.m */,
 				27EF836C1BECA5DD00B7F96D /* HighElementsTableViewController.h */,
@@ -687,13 +707,13 @@
 			files = (
 				27F1705B1BEC8F660052A758 /* Oswald-HeavyItalic.ttf in Resources */,
 				27F1703F1BEC8F4A0052A758 /* OpenSans-Italic.ttf in Resources */,
+				27CE211D1C487A7700364FDE /* PocketFacilitator.db in Resources */,
 				27F1703C1BEC8F4A0052A758 /* OpenSans-BoldItalic.ttf in Resources */,
 				27F1705C1BEC8F660052A758 /* Oswald-Light.ttf in Resources */,
 				2708B66A1BE43411003C4A2B /* LaunchScreen.storyboard in Resources */,
 				27F170431BEC8F4A0052A758 /* OpenSans-Semibold.ttf in Resources */,
 				27F1703D1BEC8F4A0052A758 /* OpenSans-ExtraBold.ttf in Resources */,
 				2708B6671BE43411003C4A2B /* Assets.xcassets in Resources */,
-				27A5906D1C328ED6009EFA5A /* PocketFacilitator.db in Resources */,
 				27F170871BEC9D2D0052A758 /* SVProgressHUD.bundle in Resources */,
 				27F170411BEC8F4A0052A758 /* OpenSans-LightItalic.ttf in Resources */,
 				2708B6651BE43411003C4A2B /* Main.storyboard in Resources */,
@@ -766,6 +786,8 @@
 			files = (
 				279926C21C0A68A4007D27F1 /* InitiativesDetails.m in Sources */,
 				2708B65C1BE43411003C4A2B /* AppDelegate.m in Sources */,
+				27CE21201C487B8100364FDE /* IceBreakersTableViewCell.m in Sources */,
+				274E244A1C45ADE500754191 /* DaysCollectionViewCell.m in Sources */,
 				27E2BD441C40D89C0091946D /* RegisterOrLoginViewController.m in Sources */,
 				279BCE4B1C0ABBA3003ABA13 /* TermsOfServiceViewController.m in Sources */,
 				274E243D1C44FB9B00754191 /* MGSwipeButton.m in Sources */,
@@ -775,9 +797,9 @@
 				278ED5641BEF39E100EB0B71 /* ElementsDetailViewTableViewController.m in Sources */,
 				274E243E1C44FB9B00754191 /* MGSwipeTableCell.m in Sources */,
 				279BCDED1C0A6C2D003ABA13 /* InitiativesTableViewController.m in Sources */,
-				279BCDF71C0A6F38003ABA13 /* MenuTableViewController.m in Sources */,
 				27F170861BEC9D2D0052A758 /* SVIndefiniteAnimatedView.m in Sources */,
 				274E23E71C44E9DF00754191 /* AddFavoriteElementToArray.m in Sources */,
+				274E24411C45674B00754191 /* ElementsToAddToDayTableViewCell.m in Sources */,
 				2708B6591BE43411003C4A2B /* main.m in Sources */,
 				276E95BB1BF56DCF00117387 /* LowElementsTableViewCell.m in Sources */,
 				278ED55B1BEF0FA800EB0B71 /* ElementsFromDatabase.m in Sources */,
@@ -787,6 +809,7 @@
 				27A590651C322E10009EFA5A /* ElementObject.m in Sources */,
 				27F3C41C1BF47FF6008CB992 /* ElementsTableViewController.m in Sources */,
 				279BCE481C0ABB66003ABA13 /* AcknowledgementsViewController.m in Sources */,
+				274E24441C458DE400754191 /* SavedDayTableViewController.m in Sources */,
 				27F170881BEC9D2D0052A758 /* SVProgressHUD.m in Sources */,
 				27A590601C31D6C8009EFA5A /* InitiativesTableViewCell.m in Sources */,
 				27C44A351BE556D2000D01D8 /* ProfileViewController.m in Sources */,
@@ -800,6 +823,7 @@
 				279BCDF01C0A6C3A003ABA13 /* IceBreakersTableViewController.m in Sources */,
 				27E2BD411C40D1000091946D /* LogInViewController.m in Sources */,
 				27EF83711BECA5EC00B7F96D /* LowElementsTableViewController.m in Sources */,
+				274E244D1C45B30F00754191 /* SavedDayInfoViewController.m in Sources */,
 				27F170891BEC9D2D0052A758 /* SVRadialGradientLayer.m in Sources */,
 				27A5906B1C3238E3009EFA5A /* DesiredLearningOutcomesTableViewController.m in Sources */,
 			);

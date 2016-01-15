@@ -63,9 +63,10 @@
     NSMutableArray *conflictMutArray = [NSMutableArray array];
     NSMutableArray *comfortZoneMutArray = [NSMutableArray array];
     NSMutableArray *otherArray = [NSMutableArray array];
+    NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:@"@*"];
     for (ElementObject *element in self.desiredOutcomes) {
         NSString *outcomes = element.desiredOutcomes;
-        NSArray *outcomesArray = [outcomes componentsSeparatedByString:@"@"];
+        NSArray *outcomesArray = [outcomes componentsSeparatedByCharactersInSet:set];
         if ([outcomesArray containsObject:@"Trust"]) {
             [trustMutArray addObject:element];
         } if ([outcomesArray containsObject:@"Communication"]){

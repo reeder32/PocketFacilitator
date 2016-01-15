@@ -13,9 +13,13 @@
 @implementation AddFavoriteElementToArray
 
 -(void)addElementName:(NSString *)name toUser:(PFUser *)user{
+    if (!user) {
+        [SVProgressHUD showImage:[UIImage imageNamed:@"light-on"] status:@"You need to be logged in to save"];
+    }
     [user addUniqueObject:name forKey:@"favorites"];
     [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (succeeded) {
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"QueryParseUser" object:nil];
             [SVProgressHUD showSuccessWithStatus:@"Element added to favorites"];
             NSLog(@"element successfully added!");
         }else{

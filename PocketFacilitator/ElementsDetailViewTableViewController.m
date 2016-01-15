@@ -13,12 +13,14 @@
 #import "UIColor+UIColor_SynergoColors.h"
 #import "SVProgressHUD.h"
 #import "AddFavoriteElementToArray.h"
+#import "ProfileViewController.h"
 
 
 
 @interface ElementsDetailViewTableViewController ()
 @property (nonatomic) NSMutableArray *favorites;
 @property (strong, nonatomic) UIView *headerView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *addFavoriteButton;
 
 @end
 
@@ -31,10 +33,14 @@ NSString *path = @"PocketFacilitator.db";
     self.navBar.title = self.name;
     self.navigationItem.backBarButtonItem.tintColor = [UIColor synergoMaroonColor];
     [self formatTextData];
-}
--(void)viewWillAppear:(BOOL)animated{
     
+    NSArray *favorites = [PFUser currentUser][@"favorites"];
+    
+    if ([favorites containsObject:self.name]) {
+        self.addFavoriteButton.enabled = false;
+    }
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -55,6 +61,7 @@ NSString *path = @"PocketFacilitator.db";
     return 1;
 }
 - (IBAction)handlePlusButtonPressed:(id)sender {
+    self.addFavoriteButton.enabled = false;
     AddFavoriteElementToArray *addFavorite = [[AddFavoriteElementToArray alloc]init];
     [addFavorite addElementName:self.name toUser:[PFUser currentUser]];
  
@@ -105,8 +112,8 @@ NSString *path = @"PocketFacilitator.db";
     }else{
         self.reflectionQuestionsTitle.text = [[questionsArray componentsJoinedByString:@"?\n"]stringByReplacingOccurrencesOfString:@"\n " withString:@""];
     }
-    
-    NSArray *desiredOutcomesArray = [self.desiredOutcomes componentsSeparatedByString:@"@"];
+    NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:@"@*"];
+    NSArray *desiredOutcomesArray = [self.desiredOutcomes componentsSeparatedByCharactersInSet:set];
     NSMutableString *mutString = [[desiredOutcomesArray componentsJoinedByString:@"\n*"]mutableCopy];
     self.desiredOutcomesTitle.text = [NSString stringWithFormat:@"*%@", mutString];
     NSArray *titleArray = @[self.desiredOutcomesTitle, self.reflectionQuestionsTitle, self.variationsTitle, self.guidelinesTitle, self.equipmentTitle];

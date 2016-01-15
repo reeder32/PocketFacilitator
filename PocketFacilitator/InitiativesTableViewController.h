@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MGSwipeTableCell.h"
 
-@interface InitiativesTableViewController : UITableViewController<UISearchBarDelegate>
+@interface InitiativesTableViewController : UITableViewController<UISearchBarDelegate, MGSwipeTableCellDelegate>
 
 @end

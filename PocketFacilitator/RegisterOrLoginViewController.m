@@ -24,14 +24,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]init];
+    tap.numberOfTapsRequired = 1;
+    [tap addTarget:self action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
     self.createAccountButton.layer.borderColor = [UIColor synergoDarkGrayColor].CGColor;
     self.createAccountButton.layer.cornerRadius = 4.0;
     self.createAccountButton.layer.borderWidth = 1.0;
+    self.createAccountButton.layer.shadowColor = [UIColor synergoLightGrayColor].CGColor;
+    self.createAccountButton.backgroundColor = [UIColor synergoLightGrayColor];
+    self.createAccountButton.layer.shadowOpacity = 0.8;
+    self.createAccountButton.layer.shadowRadius = 12;
+    self.createAccountButton.layer.shadowOffset = CGSizeMake(12.0f, 12.0f);
     
     self.loginButton.layer.borderColor = [UIColor synergoDarkGrayColor].CGColor;
     self.loginButton.layer.cornerRadius = 4.0;
     self.loginButton.layer.borderWidth = 1.0;
+    self.loginButton.layer.shadowColor = [UIColor synergoLightGrayColor].CGColor;
+    self.loginButton.backgroundColor = [UIColor synergoLightGrayColor];
+    self.loginButton.layer.shadowOpacity = 0.8;
+    self.loginButton.layer.shadowRadius = 12;
+    self.loginButton.layer.shadowOffset = CGSizeMake(12.0f, 12.0f);
     
+    [self.view endEditing:true];
     
     // Do any additional setup after loading the view.
 }
@@ -42,29 +57,58 @@
 }
 - (IBAction)handleCreateAccountButtonTapped:(id)sender {
     PFUser *user = [PFUser user];
+    BOOL fieldsAreValid = false;
     user.username = self.usernameTextField.text;
     user.password = self.passwordTextField.text;
     user.email = self.emailTextField.text;
-    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        if (succeeded) {
-            [self dismissViewControllerAnimated:true completion:nil];
+    NSArray *array = @[self.usernameTextField, self.passwordTextField, self.emailTextField];
+    for (NSString *string in array) {
+        if (string.length >=4) {
+            fieldsAreValid = true;
         }else{
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Oops!" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *okay = [UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleCancel handler:nil];
-            [alert addAction:okay];
-            [self presentViewController:alert animated:true completion:^{
-                self.usernameTextField.text = nil;
-                self.emailTextField.text = nil;
-            }];
+            fieldsAreValid = false;
         }
-    }];
+    }
+    if (fieldsAreValid){
+        [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+            if (succeeded) {
+                [[NSNotificationCenter defaultCenter]postNotificationName:@"UserLoggedIn" object:nil];
+                [self dismissViewControllerAnimated:true completion:nil];
+            }else{
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Oops!" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *okay = [UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleCancel handler:nil];
+                [alert addAction:okay];
+                [self presentViewController:alert animated:true completion:^{
+                    self.usernameTextField.text = nil;
+                    self.emailTextField.text = nil;
+                }];
+            }
+        }];
+    }
+    
 }
 
 - (IBAction)handleCancelButtonPressed:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
 }
 
-
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    if (textField == self.usernameTextField) {
+        [textField resignFirstResponder];
+        [self.passwordTextField becomeFirstResponder];
+    }else if (textField == self.passwordTextField){
+        [textField resignFirstResponder];
+        [self.emailTextField becomeFirstResponder];
+    }else{
+        [textField resignFirstResponder];
+    }
+    return true;
+}
+-(void)dismissKeyboard{
+    [self.passwordTextField resignFirstResponder];
+    [self.usernameTextField resignFirstResponder];
+    [self.emailTextField resignFirstResponder];
+}
 /*
 #pragma mark - Navigation
 

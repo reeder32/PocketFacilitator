@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MGSwipeTableCell.h"
 
-@interface IceBreakersTableViewController : UITableViewController
+@interface IceBreakersTableViewController : UITableViewController<UISearchBarDelegate, MGSwipeTableCellDelegate>
 
 @end

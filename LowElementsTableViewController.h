@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MGSwipeTableCell.h"
 
-@interface LowElementsTableViewController : UITableViewController<UISearchBarDelegate>
+@interface LowElementsTableViewController : UITableViewController<UISearchBarDelegate,MGSwipeTableCellDelegate>
 @property (strong, nonatomic) NSArray *lowElementsArray;
 @end
