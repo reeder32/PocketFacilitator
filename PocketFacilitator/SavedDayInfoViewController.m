@@ -17,9 +17,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
+    NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:@"),\"("];
+    
     [SVProgressHUD showInfoWithStatus:@""];
-    NSCharacterSet *doNotWant = [NSCharacterSet characterSetWithCharactersInString:@",(\")"];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"MM-dd-yyyy";
     
@@ -29,8 +29,12 @@
     self.dateString = dateString;
     self.navigationItem.title = dateString;
     NSArray *array = self.elementObject[@"elementsArray"];
-    NSString *orgString = [array componentsJoinedByString:@" "];
-    self.textField.text = [[orgString componentsSeparatedByCharactersInSet:doNotWant]componentsJoinedByString:@"\n"];
+    NSString *string = [array componentsJoinedByString:@""];
+    self.textField.text = [[[string stringByTrimmingCharactersInSet:set]stringByReplacingOccurrencesOfString:@"\"" withString:@""]stringByReplacingOccurrencesOfString:@"," withString:@"\n"];
+    
+ 
+    
+    //self.textField.text = [array repl]
     [SVProgressHUD dismiss];
     // Do any additional setup after loading the view.
 }

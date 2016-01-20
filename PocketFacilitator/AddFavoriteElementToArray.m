@@ -9,19 +9,20 @@
 #import "AddFavoriteElementToArray.h"
 #import <Parse/Parse.h>
 #import "SVProgressHUD.h"
+#import "UIColor+UIColor_SynergoColors.h"
 
 @implementation AddFavoriteElementToArray
 
 -(void)addElementName:(NSString *)name toUser:(PFUser *)user{
     if (!user) {
-        [SVProgressHUD showImage:[UIImage imageNamed:@"light-on"] status:@"You need to be logged in to save"];
+        [SVProgressHUD showImage:[UIImage imageNamed:@"profile"] status:@"You need to be logged in to save"];
     }
     [user addUniqueObject:name forKey:@"favorites"];
     [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (succeeded) {
             [[NSNotificationCenter defaultCenter]postNotificationName:@"QueryParseUser" object:nil];
-            [SVProgressHUD showSuccessWithStatus:@"Element added to favorites"];
-            NSLog(@"element successfully added!");
+            
+            [SVProgressHUD showImage:[UIImage imageNamed:@"high-five"] status:@"Element added to favorites!"];
         }else{
             [self saveToLocalDataStore:name];
         }

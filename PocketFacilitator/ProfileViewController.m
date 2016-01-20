@@ -16,6 +16,7 @@
 #import "SavedDayTableViewController.h"
 #import "DaysCollectionViewCell.h"
 #import "SavedDayInfoViewController.h"
+#import "DayPlanTableViewCell.h"
 
 
 @interface ProfileViewController ()
@@ -24,10 +25,9 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *logoutButton;
 @property (strong, nonatomic) NSMutableArray *daysArray;
 @property (strong, nonatomic) NSMutableArray *elementsToAddToDayArray;
-@property (weak, nonatomic) IBOutlet UIButton *createDayButton;
-@property (weak, nonatomic) IBOutlet UICollectionView *dayCollectionView;
-@property (weak, nonatomic) IBOutlet UILabel *explanationLabel;
-@property (weak, nonatomic) IBOutlet UILabel *collectionViewExplanationLabel;
+
+
+@property (weak, nonatomic) IBOutlet UILabel *addFromFavoritesLabel;
 
 
 @end
@@ -40,13 +40,10 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(queryParse) name:@"QueryParseUser" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(queryParseForDayPlans) name:@"QueryParseDayPlans" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(reloadView) name:@"UserLoggedIn" object:nil];
-    self.createDayButton.hidden = true;
-    self.explanationLabel.hidden = false;
+    [self checkForArrayCount];
+    
     self.elementsToAddToDayArray = [[NSMutableArray alloc]init];
-    self.createDayButton.layer.borderColor = [UIColor synergoDarkGrayColor].CGColor;
-    self.createDayButton.layer.borderWidth = 1.0;
-    self.createDayButton.layer.cornerRadius = self.createDayButton.frame.size.width/2;
-    [self.createDayButton.titleLabel setTextAlignment:NSTextAlignmentCenter];
+    
     // Do any additional setup after loading the view.
     
 }
@@ -55,18 +52,20 @@
         self.logoutButton.enabled = false;
         self.createAccountView.hidden = false;
         self.profileTableView.hidden = true;
-        self.elementsToAddToDayTableView.hidden = true;
-        self.collectionViewExplanationLabel.hidden = true;
+      
     }else{
         [self queryParse];
         [self queryParseForDayPlans];
         self.logoutButton.enabled = true;
         self.createAccountView.hidden = true;
         self.profileTableView.hidden = false;
-        self.elementsToAddToDayTableView.hidden = false;
+       
         
     }
 
+}
+-(void)viewDidDisappear:(BOOL)animated{
+    [SVProgressHUD dismiss];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -74,15 +73,20 @@
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
+    
+    return 3;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (tableView == self.profileTableView) {
-        return self.favoritesArray.count;
-    }else{
-        return self.elementsToAddToDayArray.count;
-    }
+    if (section == 0 && self.elementsToAddToDayArray.count ==0) {
+        return 0;
+    }else if (section == 0 && self.elementsToAddToDayArray.count >=1){
+        return 1;
     
+    }else if (section == 1){
+        return self.daysArray.count;
+    }else{
+        return self.favoritesArray.count;
+    }
 }
 -(void)queryParse{
     
@@ -121,69 +125,110 @@
 #pragma mark - tableview
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (tableView == self.elementsToAddToDayTableView) {
+    if (indexPath.section ==0) {
         return YES;
-    }return NO;
+    }else{
+        return NO;
+    }
+    
     
 }
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    UIView *footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.profileTableView.tableFooterView.frame.size.width, self.profileTableView.tableFooterView.frame.size.height)];
+    
+    footerView.backgroundColor = [UIColor whiteColor];
 
+    return footerView;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 10;
+}
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.elementsToAddToDayArray removeObjectAtIndex:indexPath.row];
-        [self.elementsToAddToDayTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-        [self checkForArrayCount];
+    
+        if (editingStyle == UITableViewCellEditingStyleDelete) {
+            if (indexPath.section == 0) {
+            [self.elementsToAddToDayArray removeAllObjects];
+            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [self checkForArrayCount];
         }
+    }
+    
 }
 -(void)checkForArrayCount{
     if (self.elementsToAddToDayArray.count == 0) {
-        self.createDayButton.hidden = true;
-        self.explanationLabel.hidden = false;
+        self.addFromFavoritesLabel.hidden = false;
+        
     }
     
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    if (tableView == self.profileTableView) {
-        return 45;
+  
+    if (section == 1 || section ==2) {
+        return 60;
     }return 0;
     
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    UIView *favoritesView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.profileTableView.tableHeaderView.frame.size.width, self.profileTableView.tableHeaderView.frame.size.height)];
-    favoritesView.backgroundColor = [UIColor colorWithRed:0.97f green:0.97f blue:0.97f alpha:1.0f];
-    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 100, 40)];
-    [label setFont:[UIFont fontWithName:@"OpenSans-Bold" size:20.0]];
+    UIView *headverView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.profileTableView.tableHeaderView.frame.size.width, self.profileTableView.tableHeaderView.frame.size.height)];
+    
+    headverView.backgroundColor = [UIColor colorWithRed:0.96f green:0.97f blue:0.97f alpha:1.0f];
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(8, 30, 182, 17)];
+    [label setFont:[UIFont fontWithName:@"OpenSans-Bold" size:12.0]];
     label.textColor = [UIColor synergoMaroonColor];
-    label.text = @"Favorites";
-    [favoritesView addSubview:label];
-    if (tableView == self.profileTableView) {
-        return favoritesView;
+    [headverView addSubview:label];
+    if (section ==1) {
+        label.text = @"Saved Days";
+        return headverView;
+    }else if (section == 2) {
+        label.text = @"Favorites";
+        return headverView;
     }else{
         return nil;
     }
+    
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (tableView == self.profileTableView) {
+    if (indexPath.section == 0){
+        ElementsToAddToDayTableViewCell *cell =  [tableView dequeueReusableCellWithIdentifier:@"DayElementsCell" forIndexPath:indexPath];
+        
+        cell.nameLabel.text = [NSString stringWithFormat:@"%lu activites added", (unsigned long)self.elementsToAddToDayArray.count];
+        cell.createDayButton.layer.borderColor = [UIColor synergoDarkGrayColor].CGColor;
+        cell.createDayButton.layer.borderWidth = 1.0;
+        cell.createDayButton.layer.cornerRadius = cell.createDayButton.frame.size.width/2;
+        [cell.createDayButton.titleLabel setTextAlignment:NSTextAlignmentCenter];
+        return cell;
+    }else if (indexPath.section == 2) {
         UserFavoritesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FavoritesCell"];
         cell.delegate = self;
         NSString *name = [self.favoritesArray objectAtIndex:indexPath.row];
         cell.nameLabel.text = name;
+        
         return cell;
         
+
     }else{
-        ElementsToAddToDayTableViewCell *cell =  [tableView dequeueReusableCellWithIdentifier:@"DayElementsCell" forIndexPath:indexPath];
-        
-        cell.nameLabel.text = [self.elementsToAddToDayArray objectAtIndex:indexPath.row];
-        
+        PFObject *object = [self.daysArray objectAtIndex:indexPath.row];
+        NSDate *date = object[@"date"];
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+        [dateFormat setDateStyle:NSDateFormatterShortStyle];
+
+        DayPlanTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DayPlanCell" forIndexPath:indexPath];
+        cell.dateText.text = [dateFormat stringFromDate:date];
+       
         return cell;
     }
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (tableView == self.profileTableView) {
+    if (indexPath.section ==1) {
+        [self performSegueWithIdentifier:@"DayDetails" sender:[self.daysArray objectAtIndex:indexPath.row]];
+    }
+    if (indexPath.section == 2) {
         UserFavoritesTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         [self addElementName:cell.nameLabel.text];
+        [tableView deselectRowAtIndexPath:indexPath animated:true];
     }
 }
 -(NSString *) elementForIndex:(NSIndexPath*) path
@@ -191,9 +236,7 @@
     return [self.favoritesArray objectAtIndex:path.row];
     
 }
--(NSString *)favoriteForIndex:(NSIndexPath*) path{
-    return [self.elementsToAddToDayArray objectAtIndex:path.row];
-}
+
 #pragma mark Swipe Delegate
 
 -(BOOL) swipeTableCell:(MGSwipeTableCell*) cell canSwipe:(MGSwipeDirection) direction;
@@ -253,9 +296,10 @@
 
 -(void)addElementName:(NSString *) name{
     [self.elementsToAddToDayArray addObject:name];
-    [self.elementsToAddToDayTableView reloadData];
-    self.createDayButton.hidden = false;
-    self.explanationLabel.hidden = true;
+    self.addFromFavoritesLabel.hidden = true;
+    [self.profileTableView reloadData];
+    
+    
     
 }
 -(void)removeElementName:(NSString *) name forIndexPath:(NSIndexPath *)path{
@@ -287,38 +331,18 @@
     NSLog(@"Swipe state: %@ ::: Gesture: %@", str, gestureIsActive ? @"Active" : @"Ended");
 }
 
-#pragma mark - uicollectionview
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return self.daysArray.count;
-}
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    PFObject *object = [self.daysArray objectAtIndex:indexPath.row];
-    NSDate *date = object[@"date"];
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
-    [dateFormat setDateStyle:NSDateFormatterShortStyle];
-    
-    DaysCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"DateCollectionCell" forIndexPath:indexPath];
-    cell.layer.cornerRadius = 5.0;
-    cell.dateLabel.text = [dateFormat stringFromDate:date];
-    
-    return cell;
-}
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    [self performSegueWithIdentifier:@"DayDetails" sender:[self.daysArray objectAtIndex:indexPath.row]];
-}
 -(void)queryParseForDayPlans{
     [self.elementsToAddToDayArray removeAllObjects];
-    [self.elementsToAddToDayTableView reloadData];
+    
     [self checkForArrayCount];
     PFQuery *query = [PFQuery queryWithClassName:@"DayPlan"];
     [query whereKey:@"user" equalTo:[PFUser currentUser]];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         if (objects) {
             self.daysArray = [objects mutableCopy];
-            self.collectionViewExplanationLabel.hidden = true;
-            [self.dayCollectionView reloadData];
+            [self.profileTableView reloadData];
         }else{
-            self.collectionViewExplanationLabel.hidden = false;
+            
         }
     }];
     
@@ -330,9 +354,9 @@
             if (!error) {
                 [PFObject unpinAllObjectsInBackgroundWithName:@"favorites"];
                 [self.daysArray removeAllObjects];
-                [self.dayCollectionView reloadData];
+    
                 self.logoutButton.enabled = false;
-                self.elementsToAddToDayTableView.hidden = true;
+                
                 self.profileTableView.hidden = true;
                 self.createAccountView.hidden = false;
             }else{
@@ -359,6 +383,7 @@
     }if ([segue.identifier isEqualToString:@"DayDetails"]) {
         SavedDayInfoViewController *dvc = segue.destinationViewController;
         PFObject *object = (PFObject *)sender;
+        NSArray *array = object[@"elementsArray"];
         dvc.elementObject = object;
         
        

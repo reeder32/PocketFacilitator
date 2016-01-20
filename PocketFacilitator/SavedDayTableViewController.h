@@ -12,5 +12,5 @@
 @property NSMutableArray *elementsArray;
 
 @property (weak, nonatomic) IBOutlet UITextField *dateTextField;
-
+@property (strong, nonatomic) UITapGestureRecognizer *tap;
 @end

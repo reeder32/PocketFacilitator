@@ -9,10 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MGSwipeTableCell.h"
 
-@interface ProfileViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, MGSwipeTableCellDelegate>
+@interface ProfileViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MGSwipeTableCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *profileTableView;
-
-@property (weak, nonatomic) IBOutlet UITableView *elementsToAddToDayTableView;
-
 @property (strong, nonatomic) NSMutableArray *favoritesArray;
 @end

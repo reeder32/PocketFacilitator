@@ -11,4 +11,7 @@
 @interface ElementsToAddToDayTableViewCell : MGSwipeTableCell
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+
+@property (weak, nonatomic) IBOutlet UIButton *createDayButton;
+
 @end

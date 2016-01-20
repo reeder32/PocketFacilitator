@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		270069D41C49902000C270FF /* DayPlanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 270069D31C49902000C270FF /* DayPlanTableViewCell.m */; };
 		2708B6591BE43411003C4A2B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2708B6581BE43411003C4A2B /* main.m */; };
 		2708B65C1BE43411003C4A2B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2708B65B1BE43411003C4A2B /* AppDelegate.m */; };
 		2708B6651BE43411003C4A2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2708B6631BE43411003C4A2B /* Main.storyboard */; };
@@ -124,6 +125,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		270069D21C49902000C270FF /* DayPlanTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayPlanTableViewCell.h; sourceTree = "<group>"; };
+		270069D31C49902000C270FF /* DayPlanTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayPlanTableViewCell.m; sourceTree = "<group>"; };
 		2708B6541BE43411003C4A2B /* PocketFacilitator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketFacilitator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2708B6581BE43411003C4A2B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2708B65A1BE43411003C4A2B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -336,6 +339,8 @@
 			isa = PBXGroup;
 			children = (
 				2708B6631BE43411003C4A2B /* Main.storyboard */,
+				270069D21C49902000C270FF /* DayPlanTableViewCell.h */,
+				270069D31C49902000C270FF /* DayPlanTableViewCell.m */,
 				27CE211E1C487B8100364FDE /* IceBreakersTableViewCell.h */,
 				27CE211F1C487B8100364FDE /* IceBreakersTableViewCell.m */,
 				2708B65A1BE43411003C4A2B /* AppDelegate.h */,
@@ -792,6 +797,7 @@
 				279BCE4B1C0ABBA3003ABA13 /* TermsOfServiceViewController.m in Sources */,
 				274E243D1C44FB9B00754191 /* MGSwipeButton.m in Sources */,
 				278ED55E1BEF12D000EB0B71 /* HighElementsDetails.m in Sources */,
+				270069D41C49902000C270FF /* DayPlanTableViewCell.m in Sources */,
 				278ED5611BEF23CD00EB0B71 /* ElementsTableViewCell.m in Sources */,
 				27F1702F1BEC871D0052A758 /* DesiredOutcomesTableViewController.m in Sources */,
 				278ED5641BEF39E100EB0B71 /* ElementsDetailViewTableViewController.m in Sources */,

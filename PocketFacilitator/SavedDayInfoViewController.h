@@ -10,7 +10,7 @@
 #import <Parse/Parse.h>
 
 @interface SavedDayInfoViewController : UIViewController<UITextFieldDelegate>
-@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+
 @property (weak, nonatomic) IBOutlet UITextView *textField;
 @property (strong, nonatomic) PFObject *elementObject;
 @property NSString *dateString;
