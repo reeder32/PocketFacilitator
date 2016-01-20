@@ -85,6 +85,7 @@
     }
 }
 #pragma mark - Search Bar Delegate Methods
+
 -(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
     [searchBar resignFirstResponder];
     self.lowElementsArray = self.originalArray;
@@ -99,6 +100,7 @@
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
     [searchBar setShowsCancelButton:false animated:true];
 }
+
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     
     

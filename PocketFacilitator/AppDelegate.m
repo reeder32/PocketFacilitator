@@ -26,11 +26,10 @@
     // Initialize Parse.
     [Parse setApplicationId:@"rxoTl4hK0W8gRtmarItDMzSqjvxsilvqGnypQyV5"
                   clientKey:@"GVsCS5IfWc8GoFEMZsRbQ89XT7HKZ1dZWDTDaUDE"];
+    
     //app background view color
     [[UIWindow appearance] setBackgroundColor:[UIColor synergoLightGrayColor]];
     
-    //unselected icon tint color
-    [[UIView appearanceWhenContainedInInstancesOfClasses:@[[UITabBar class]]] setTintColor:[UIColor synergoDarkGrayColor]];
     
     //selected tint color
     [[UITabBar appearance] setTintColor:[UIColor synergoMaroonColor]];
@@ -48,8 +47,15 @@
     UINavigationBar.appearance.titleTextAttributes = textAttributes;
     NSDictionary *buttonAttributes = @{NSForegroundColorAttributeName : [UIColor synergoMaroonColor], NSFontAttributeName : [UIFont fontWithName:@"OpenSans" size:0.1]};
 
+    if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_8_4) {
+        //unselected icon tint color
+        [[UIView appearanceWhenContainedInInstancesOfClasses:@[[UITabBar class]]] setTintColor:[UIColor synergoDarkGrayColor]];
+        [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UINavigationBar class]]] setTitleTextAttributes:buttonAttributes forState:UIControlStateNormal];
+    }
+    
+    
     //Hides "Back" button text!!!
-    [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UINavigationBar class]]] setTitleTextAttributes:buttonAttributes forState:UIControlStateNormal];
+    
 
     //setup uitableview cells
     [[UITableViewCell appearance] setTintColor:[UIColor synergoRedColor]];

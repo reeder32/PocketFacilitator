@@ -47,15 +47,14 @@
 		27C44A3E1BE55D0F000D01D8 /* ShopSynergoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C44A3D1BE55D0F000D01D8 /* ShopSynergoViewController.m */; };
 		27C44A451BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C44A441BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.m */; };
 		27C44A8C1BE7D38D000D01D8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27C44A8B1BE7D38D000D01D8 /* QuartzCore.framework */; };
-		27CE211D1C487A7700364FDE /* PocketFacilitator.db in Resources */ = {isa = PBXBuildFile; fileRef = 27CE211C1C487A7700364FDE /* PocketFacilitator.db */; };
 		27CE21201C487B8100364FDE /* IceBreakersTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CE211F1C487B8100364FDE /* IceBreakersTableViewCell.m */; };
+		27E1BC671C4F6846002A6E9C /* PocketFacilitator.db in Resources */ = {isa = PBXBuildFile; fileRef = 27E1BC661C4F6846002A6E9C /* PocketFacilitator.db */; };
 		27E2BD241C407FE70091946D /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E2BD231C407FE70091946D /* SearchTableViewCell.m */; };
 		27E2BD2A1C40CD790091946D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E2BD291C40CD790091946D /* AudioToolbox.framework */; };
 		27E2BD2C1C40CD870091946D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E2BD2B1C40CD870091946D /* CFNetwork.framework */; };
 		27E2BD2E1C40CD920091946D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E2BD2D1C40CD920091946D /* CoreGraphics.framework */; };
 		27E2BD301C40CD9B0091946D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E2BD2F1C40CD9B0091946D /* CoreLocation.framework */; };
 		27E2BD321C40CDA70091946D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E2BD311C40CDA70091946D /* Security.framework */; };
-		27E2BD341C40CDAF0091946D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E2BD331C40CDAF0091946D /* StoreKit.framework */; };
 		27E2BD361C40CDCE0091946D /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E2BD351C40CDCE0091946D /* libz.tbd */; };
 		27E2BD381C40CE230091946D /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E2BD371C40CE230091946D /* Parse.framework */; };
 		27E2BD3A1C40CEB20091946D /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E2BD391C40CEB20091946D /* libsqlite3.tbd */; };
@@ -125,8 +124,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		270069D21C49902000C270FF /* DayPlanTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayPlanTableViewCell.h; sourceTree = "<group>"; };
-		270069D31C49902000C270FF /* DayPlanTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayPlanTableViewCell.m; sourceTree = "<group>"; };
+		270069D21C49902000C270FF /* DayPlanTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DayPlanTableViewCell.h; path = PocketFacilitator/DayPlanTableViewCell.h; sourceTree = "<group>"; };
+		270069D31C49902000C270FF /* DayPlanTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DayPlanTableViewCell.m; path = PocketFacilitator/DayPlanTableViewCell.m; sourceTree = "<group>"; };
 		2708B6541BE43411003C4A2B /* PocketFacilitator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketFacilitator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2708B6581BE43411003C4A2B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2708B65A1BE43411003C4A2B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -201,9 +200,9 @@
 		27C44A431BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+UIColor_SynergoColors.h"; sourceTree = "<group>"; };
 		27C44A441BE56A2E000D01D8 /* UIColor+UIColor_SynergoColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+UIColor_SynergoColors.m"; sourceTree = "<group>"; };
 		27C44A8B1BE7D38D000D01D8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		27CE211C1C487A7700364FDE /* PocketFacilitator.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = PocketFacilitator.db; sourceTree = "<group>"; };
-		27CE211E1C487B8100364FDE /* IceBreakersTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IceBreakersTableViewCell.h; sourceTree = "<group>"; };
-		27CE211F1C487B8100364FDE /* IceBreakersTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IceBreakersTableViewCell.m; sourceTree = "<group>"; };
+		27CE211E1C487B8100364FDE /* IceBreakersTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IceBreakersTableViewCell.h; path = PocketFacilitator/IceBreakersTableViewCell.h; sourceTree = "<group>"; };
+		27CE211F1C487B8100364FDE /* IceBreakersTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IceBreakersTableViewCell.m; path = PocketFacilitator/IceBreakersTableViewCell.m; sourceTree = "<group>"; };
+		27E1BC661C4F6846002A6E9C /* PocketFacilitator.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = PocketFacilitator.db; sourceTree = "<group>"; };
 		27E2BD221C407FE70091946D /* SearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTableViewCell.h; sourceTree = "<group>"; };
 		27E2BD231C407FE70091946D /* SearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewCell.m; sourceTree = "<group>"; };
 		27E2BD291C40CD790091946D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -211,7 +210,6 @@
 		27E2BD2D1C40CD920091946D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		27E2BD2F1C40CD9B0091946D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		27E2BD311C40CDA70091946D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		27E2BD331C40CDAF0091946D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		27E2BD351C40CDCE0091946D /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		27E2BD371C40CE230091946D /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		27E2BD391C40CEB20091946D /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -282,7 +280,6 @@
 				27E2BD3A1C40CEB20091946D /* libsqlite3.tbd in Frameworks */,
 				27E2BD361C40CDCE0091946D /* libz.tbd in Frameworks */,
 				27F1700C1BEB602B0052A758 /* SystemConfiguration.framework in Frameworks */,
-				27E2BD341C40CDAF0091946D /* StoreKit.framework in Frameworks */,
 				27E2BD321C40CDA70091946D /* Security.framework in Frameworks */,
 				27E2BD301C40CD9B0091946D /* CoreLocation.framework in Frameworks */,
 				27E2BD2E1C40CD920091946D /* CoreGraphics.framework in Frameworks */,
@@ -339,10 +336,6 @@
 			isa = PBXGroup;
 			children = (
 				2708B6631BE43411003C4A2B /* Main.storyboard */,
-				270069D21C49902000C270FF /* DayPlanTableViewCell.h */,
-				270069D31C49902000C270FF /* DayPlanTableViewCell.m */,
-				27CE211E1C487B8100364FDE /* IceBreakersTableViewCell.h */,
-				27CE211F1C487B8100364FDE /* IceBreakersTableViewCell.m */,
 				2708B65A1BE43411003C4A2B /* AppDelegate.h */,
 				2708B65B1BE43411003C4A2B /* AppDelegate.m */,
 				27C44A3F1BE55D31000D01D8 /* ViewControllers */,
@@ -386,6 +379,7 @@
 		273A07E31BF6779F0007BB4B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				27E1BC661C4F6846002A6E9C /* PocketFacilitator.db */,
 				279926C01C0A68A4007D27F1 /* InitiativesDetails.h */,
 				279926C11C0A68A4007D27F1 /* InitiativesDetails.m */,
 				279926BD1C0A682F007D27F1 /* IceBreakersDetails.h */,
@@ -398,7 +392,6 @@
 				278ED55A1BEF0FA800EB0B71 /* ElementsFromDatabase.m */,
 				27A590631C322E10009EFA5A /* ElementObject.h */,
 				27A590641C322E10009EFA5A /* ElementObject.m */,
-				27CE211C1C487A7700364FDE /* PocketFacilitator.db */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -445,7 +438,6 @@
 				27E2BD371C40CE230091946D /* Parse.framework */,
 				27E2BD351C40CDCE0091946D /* libz.tbd */,
 				27E2BD391C40CEB20091946D /* libsqlite3.tbd */,
-				27E2BD331C40CDAF0091946D /* StoreKit.framework */,
 				27E2BD311C40CDA70091946D /* Security.framework */,
 				27E2BD2F1C40CD9B0091946D /* CoreLocation.framework */,
 				27E2BD2D1C40CD920091946D /* CoreGraphics.framework */,
@@ -464,6 +456,10 @@
 		27C44AAA1BE7D4A2000D01D8 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				270069D21C49902000C270FF /* DayPlanTableViewCell.h */,
+				270069D31C49902000C270FF /* DayPlanTableViewCell.m */,
+				27CE211E1C487B8100364FDE /* IceBreakersTableViewCell.h */,
+				27CE211F1C487B8100364FDE /* IceBreakersTableViewCell.m */,
 				27E2BD451C40F82A0091946D /* UserFavoritesTableViewCell.h */,
 				27E2BD461C40F82A0091946D /* UserFavoritesTableViewCell.m */,
 				274E23E51C44E9DF00754191 /* AddFavoriteElementToArray.h */,
@@ -674,6 +670,11 @@
 					2708B6531BE43411003C4A2B = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = C67UGMY2HN;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
 					};
 					2708B66F1BE43412003C4A2B = {
 						CreatedOnToolsVersion = 7.1;
@@ -712,7 +713,7 @@
 			files = (
 				27F1705B1BEC8F660052A758 /* Oswald-HeavyItalic.ttf in Resources */,
 				27F1703F1BEC8F4A0052A758 /* OpenSans-Italic.ttf in Resources */,
-				27CE211D1C487A7700364FDE /* PocketFacilitator.db in Resources */,
+				27E1BC671C4F6846002A6E9C /* PocketFacilitator.db in Resources */,
 				27F1703C1BEC8F4A0052A758 /* OpenSans-BoldItalic.ttf in Resources */,
 				27F1705C1BEC8F660052A758 /* Oswald-Light.ttf in Resources */,
 				2708B66A1BE43411003C4A2B /* LaunchScreen.storyboard in Resources */,
@@ -978,6 +979,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = PocketFacilitator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicksapps.PocketFacilitator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -995,6 +997,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = PocketFacilitator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicksapps.PocketFacilitator;
 				PRODUCT_NAME = "$(TARGET_NAME)";

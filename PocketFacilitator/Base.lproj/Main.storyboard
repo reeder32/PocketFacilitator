@@ -19,6 +19,7 @@
             <string>Montserrat-SemiBold</string>
             <string>Montserrat-SemiBold</string>
             <string>Montserrat-SemiBold</string>
+            <string>Montserrat-SemiBold</string>
         </mutableArray>
         <mutableArray key="OpenSans-Bold.ttf">
             <string>OpenSans-Bold</string>
@@ -162,13 +163,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Elements" id="gqq-OC-jcn">
-                        <barButtonItem key="leftBarButtonItem" image="legal" id="zU2-Vy-K31">
+                        <barButtonItem key="leftBarButtonItem" image="legal" style="done" id="zU2-Vy-K31">
                             <connections>
                                 <action selector="handleMenuButtonPressed:" destination="Bo3-rw-xit" id="sBA-z5-ZhX"/>
                                 <segue destination="8iU-Ds-uhL" kind="presentation" id="LYJ-P7-RRA"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="ypW-WD-gQF">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="search" id="ypW-WD-gQF">
                             <connections>
                                 <segue destination="Ih2-N7-wm1" kind="show" id="Dq0-Zk-BHn"/>
                             </connections>
@@ -232,12 +233,13 @@
                                     <constraint firstItem="SUZ-jL-oQZ" firstAttribute="centerY" secondItem="783-QR-N3e" secondAttribute="centerY" id="CGe-0r-qrx"/>
                                     <constraint firstItem="SUZ-jL-oQZ" firstAttribute="centerX" secondItem="783-QR-N3e" secondAttribute="centerX" id="Gwf-N1-sn6"/>
                                     <constraint firstItem="9iN-Bv-rEQ" firstAttribute="centerX" secondItem="SUZ-jL-oQZ" secondAttribute="centerX" id="bmP-GJ-ly6"/>
+                                    <constraint firstAttribute="height" constant="249" id="boz-GN-6dG"/>
                                     <constraint firstItem="SUZ-jL-oQZ" firstAttribute="top" secondItem="gSG-RT-1aB" secondAttribute="bottom" constant="35" id="sfI-iR-YIJ"/>
                                     <constraint firstItem="9iN-Bv-rEQ" firstAttribute="top" secondItem="SUZ-jL-oQZ" secondAttribute="bottom" constant="45" id="vIY-NV-udo"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LTc-oF-X3X">
-                                <rect key="frame" x="1" y="65" width="598" height="486"/>
+                                <rect key="frame" x="1" y="64" width="598" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.39074167609214783" green="0.0087472060695290565" blue="0.055318959057331085" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="Gtw-wU-uBl">
@@ -356,17 +358,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="n2s-Jo-cdq" firstAttribute="top" secondItem="LTc-oF-X3X" secondAttribute="bottom" id="2Ld-xy-Zzi"/>
-                            <constraint firstItem="n2s-Jo-cdq" firstAttribute="top" secondItem="783-QR-N3e" secondAttribute="bottom" constant="237" id="7UX-bc-y3E"/>
                             <constraint firstItem="783-QR-N3e" firstAttribute="leading" secondItem="OI4-Se-Q4s" secondAttribute="leadingMargin" constant="-20" id="GZ9-m2-OLw"/>
                             <constraint firstItem="LTc-oF-X3X" firstAttribute="leading" secondItem="OI4-Se-Q4s" secondAttribute="leadingMargin" constant="-19" id="HCz-tL-Twj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="LTc-oF-X3X" secondAttribute="trailing" constant="-19" id="col-dt-lse"/>
+                            <constraint firstItem="LTc-oF-X3X" firstAttribute="top" secondItem="qem-00-sWe" secondAttribute="bottom" id="nO5-eH-sXj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="783-QR-N3e" secondAttribute="trailing" constant="-18" id="tkp-X9-iei"/>
                             <constraint firstItem="783-QR-N3e" firstAttribute="top" secondItem="qem-00-sWe" secondAttribute="bottom" constant="1" id="uRY-LD-I4W"/>
-                            <constraint firstItem="LTc-oF-X3X" firstAttribute="top" secondItem="qem-00-sWe" secondAttribute="bottom" constant="1" id="yDP-ga-tfE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Your Profile" id="QzT-05-t9F">
-                        <barButtonItem key="rightBarButtonItem" image="logout" id="w6t-Pn-0cQ">
+                        <barButtonItem key="rightBarButtonItem" image="logout" style="done" id="w6t-Pn-0cQ">
                             <connections>
                                 <action selector="handleLogoutButtonPressed:" destination="y54-eq-AVD" id="HWG-8h-p3b"/>
                             </connections>
@@ -688,9 +689,7 @@
                             <outlet property="delegate" destination="EUk-Za-fMi" id="54O-yq-Aqj"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="yY9-Os-eO4">
-                        <barButtonItem key="backBarButtonItem" title="Test" id="S6Y-C4-6kf"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Title" id="yY9-Os-eO4"/>
                     <connections>
                         <outlet property="navigationItem" destination="yY9-Os-eO4" id="U0o-SF-fh7"/>
                         <segue destination="JnC-tK-WKp" kind="presentation" identifier="ShowDetail" id="dpH-QG-ckh"/>
@@ -1273,7 +1272,7 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <items>
                                 <navigationItem title="Title" id="Alt-JB-9Tb">
-                                    <barButtonItem key="leftBarButtonItem" image="down-arrow" style="plain" id="xW8-Tf-mDX">
+                                    <barButtonItem key="leftBarButtonItem" image="down-arrow" id="xW8-Tf-mDX">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="IpW-LA-Mno">
                                             <rect key="frame" x="20" y="2" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1284,7 +1283,7 @@
                                         </button>
                                         <color key="tintColor" red="0.39074167609214783" green="0.0087472060695290565" blue="0.055318959057331085" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </barButtonItem>
-                                    <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="hl0-1V-d2S">
+                                    <barButtonItem key="rightBarButtonItem" systemItem="add" id="hl0-1V-d2S">
                                         <connections>
                                             <action selector="handlePlusButtonPressed:" destination="JnC-tK-WKp" id="jLI-Bb-HX2"/>
                                         </connections>
@@ -1668,7 +1667,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="zPm-Ey-yms">
-                        <barButtonItem key="rightBarButtonItem" image="trash" id="w6w-gC-Fqn">
+                        <barButtonItem key="rightBarButtonItem" image="trash" style="done" id="w6w-gC-Fqn">
                             <connections>
                                 <action selector="handleTrashCanPressed:" destination="9gL-9P-mqX" id="jJj-qw-6Tm"/>
                             </connections>
@@ -1709,10 +1708,14 @@
                             <rect key="frame" x="0.0" y="180" width="600" height="70"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6E-9n-oMi">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6E-9n-oMi">
                                     <rect key="frame" x="0.0" y="2" width="600" height="66"/>
                                     <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
-                                    <state key="normal" image="share"/>
+                                    <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="20"/>
+                                    <state key="normal" image="share">
+                                        <color key="titleColor" red="0.39074167609214783" green="0.0087472060695290565" blue="0.055318959057331085" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <state key="selected" title="DONE" image=" "/>
                                     <connections>
                                         <action selector="handleShareButtonPressed:" destination="TjL-3V-yzq" eventType="touchUpInside" id="9Je-aN-SyG"/>
                                     </connections>
@@ -1751,7 +1754,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Create Your Day" id="9zq-LC-G4f">
-                        <barButtonItem key="rightBarButtonItem" image="addtocalendar" id="lu1-p0-osP">
+                        <barButtonItem key="rightBarButtonItem" image="addtocalendar" style="done" id="lu1-p0-osP">
                             <connections>
                                 <action selector="handleCalendarButtonPressed:" destination="TjL-3V-yzq" id="TSA-wa-1YU"/>
                             </connections>
@@ -1759,6 +1762,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="dateTextField" destination="wsb-gY-Dcr" id="FeR-OR-lNo"/>
+                        <outlet property="shareButton" destination="b6E-9n-oMi" id="g8u-gH-oYL"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="av5-yY-s2o" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1823,6 +1827,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name=" " width="30" height="30"/>
         <image name="addtocalendar" width="32" height="32"/>
         <image name="carabiner-closed" width="30" height="30"/>
         <image name="carabiner-open" width="30" height="30"/>
@@ -1838,6 +1843,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="60A-Zh-3YO"/>
-        <segue reference="kyQ-Qg-mEb"/>
+        <segue reference="dpH-QG-ckh"/>
     </inferredMetricsTieBreakers>
 </document>

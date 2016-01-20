@@ -40,6 +40,7 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(queryParse) name:@"QueryParseUser" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(queryParseForDayPlans) name:@"QueryParseDayPlans" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(reloadView) name:@"UserLoggedIn" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(eraseElementsToAddToDayArray) name:@"EraseArray" object:nil];
     [self checkForArrayCount];
     
     self.elementsToAddToDayArray = [[NSMutableArray alloc]init];
@@ -66,12 +67,17 @@
 }
 -(void)viewDidDisappear:(BOOL)animated{
     [SVProgressHUD dismiss];
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(void)eraseElementsToAddToDayArray{
+    [self.elementsToAddToDayArray removeAllObjects];
+    [self.profileTableView reloadData];
+    [self checkForArrayCount];
+}
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
     return 3;
@@ -383,7 +389,6 @@
     }if ([segue.identifier isEqualToString:@"DayDetails"]) {
         SavedDayInfoViewController *dvc = segue.destinationViewController;
         PFObject *object = (PFObject *)sender;
-        NSArray *array = object[@"elementsArray"];
         dvc.elementObject = object;
         
        

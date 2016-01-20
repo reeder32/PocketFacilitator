@@ -46,11 +46,17 @@
     self.loginButton.layer.shadowRadius = 12;
     self.loginButton.layer.shadowOffset = CGSizeMake(12.0f, 12.0f);
     
-    [self.view endEditing:true];
+    
     
     // Do any additional setup after loading the view.
 }
-
+-(BOOL)shouldAutorotate
+{
+    return YES;
+}
+-(UIInterfaceOrientationMask)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskPortrait;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

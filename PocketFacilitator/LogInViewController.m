@@ -36,13 +36,19 @@
     self.loginButton.layer.shadowRadius = 12;
     self.loginButton.layer.shadowOffset = CGSizeMake(12.0f, 12.0f);
 
-    [self.view endEditing:true];
-    // Do any additional setup after loading the view.
+    
 }
 -(void)dismissKeyboard{
     [self.passwordTextField resignFirstResponder];
     [self.usernameTextField resignFirstResponder];
     
+}
+-(BOOL)shouldAutorotate
+{
+    return YES;
+}
+-(UIInterfaceOrientationMask)supportedInterfaceOrientations{
+     return UIInterfaceOrientationMaskPortrait;
 }
 
 - (void)didReceiveMemoryWarning {

@@ -9,9 +9,11 @@
 #import "SavedDayTableViewController.h"
 #import <Parse/Parse.h>
 #import "SVProgressHUD.h"
+#import "UIColor+UIColor_SynergoColors.h"
 
 
 @interface SavedDayTableViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *shareButton;
 
 
 
@@ -21,12 +23,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self.shareButton setSelected:false];
     NSDate *date = [NSDate date];
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
     [dateFormat setDateStyle:NSDateFormatterMediumStyle];
     self.dateTextField.text = [dateFormat stringFromDate:date];
-    self.dateTextField.inputView = [self configureDatePicker];
+    
     
 }
 -(void)dismissKeyboard{
@@ -82,13 +84,21 @@
         if (indexPath.section == 0) {
             [self.elementsArray removeObjectAtIndex:indexPath.row];
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            if (self.elementsArray.count ==0) {
+                [[NSNotificationCenter defaultCenter]postNotificationName:@"EraseArray" object:nil];
+                [self.navigationController popViewControllerAnimated:true];
+            }
         }
     }
     
 }
 -(void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView setEditing:true animated:true];
+    [self.shareButton setTintColor:[UIColor synergoMaroonColor]];
+    [self.shareButton setImage:nil forState:UIControlStateSelected|UIControlStateHighlighted];
+    [self.shareButton setSelected:true];
 }
+
 
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
@@ -99,10 +109,16 @@
 }
 
 #pragma mark - Date Picker Methods
-
+-(void)textFieldDidBeginEditing:(UITextField *)textField{
+    self.dateTextField.inputView = [self configureDatePicker];
+}
 
 - (UIDatePicker *)configureDatePicker
 {
+    self.tap = [[UITapGestureRecognizer alloc]init];
+    self.tap.numberOfTapsRequired = 1;
+    [self.tap addTarget:self action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:self.tap];
     UIDatePicker *datePicker = [[UIDatePicker alloc] init];
     NSDate *date = [NSDate date];
     datePicker.date = date;
@@ -122,11 +138,6 @@
 }
 -(void)handleDatePickerValueChanged:(UIDatePicker *)datePicker
 {
-    self.tap = [[UITapGestureRecognizer alloc]init];
-    self.tap.numberOfTapsRequired = 1;
-    [self.tap addTarget:self action:@selector(dismissKeyboard)];
-    [self.view addGestureRecognizer:self.tap];
-
     NSDate *date = datePicker.date;
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
     [dateFormat setDateStyle:NSDateFormatterMediumStyle];
@@ -134,6 +145,7 @@
 }
 
 - (IBAction)handleCalendarButtonPressed:(id)sender {
+    
     [SVProgressHUD showWithStatus:@"Saving..."];
     PFObject *day = [PFObject objectWithClassName:@"DayPlan"];
     [day setObject:[PFUser currentUser] forKey:@"user"];
@@ -149,30 +161,44 @@
             [self saveToLocalDataStore];
         }
     }];
- 
+    
     
     
 }
+
 
 -(void)saveToLocalDataStore{
     
 }
 - (IBAction)handleShareButtonPressed:(id)sender {
-    NSString *textString = [self.elementsArray componentsJoinedByString:@"\n"];
-    NSString *dateString = self.dateTextField.text;
-    NSArray *array = @[ dateString, textString];
-    UIActivityViewController *vc = [[UIActivityViewController alloc]initWithActivityItems:array applicationActivities:nil];
-    NSArray *excludeActivities = @[UIActivityTypePostToFacebook,
-                                   UIActivityTypePostToTwitter,
-                                   UIActivityTypeAssignToContact,
-                                   UIActivityTypeAddToReadingList,
-                                   UIActivityTypePostToFlickr,
-                                   UIActivityTypePostToVimeo
-                                   ];
-    vc.excludedActivityTypes = excludeActivities;
-    [self presentViewController:vc animated:true completion:nil];
+    [self checkButtonState];
+   
 }
+-(void)checkButtonState{
+    if ([self.shareButton isSelected]) {
+       
+        [self.tableView setEditing:false animated:true];
+        [self.shareButton setSelected:false];
+        
+    }else {
+        NSString *textString = [self.elementsArray componentsJoinedByString:@"\n"];
+        NSString *dateString = self.dateTextField.text;
+        NSArray *array = @[ dateString, textString];
+        UIActivityViewController *vc = [[UIActivityViewController alloc]initWithActivityItems:array applicationActivities:nil];
+        NSArray *excludeActivities = @[UIActivityTypePostToFacebook,
+                                       UIActivityTypePostToTwitter,
+                                       UIActivityTypeAssignToContact,
+                                       UIActivityTypeAddToReadingList,
+                                       UIActivityTypePostToFlickr,
+                                       UIActivityTypePostToVimeo
+                                       ];
+        vc.excludedActivityTypes = excludeActivities;
+        [self presentViewController:vc animated:true completion:nil];
+    }
+    
+    
 
+}
 /*
 #pragma mark - Navigation
 
