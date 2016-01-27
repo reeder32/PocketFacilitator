@@ -67,7 +67,7 @@
     user.username = self.usernameTextField.text;
     user.password = self.passwordTextField.text;
     user.email = self.emailTextField.text;
-    NSArray *array = @[self.usernameTextField, self.passwordTextField, self.emailTextField];
+    NSArray *array = @[self.usernameTextField.text, self.passwordTextField.text, self.emailTextField.text];
     for (NSString *string in array) {
         if (string.length >=4) {
             fieldsAreValid = true;

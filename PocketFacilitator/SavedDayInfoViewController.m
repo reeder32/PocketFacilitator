@@ -11,6 +11,7 @@
 
 @interface SavedDayInfoViewController ()
 
+@property (weak, nonatomic) IBOutlet UIButton *shareButton;
 @end
 
 @implementation SavedDayInfoViewController
@@ -58,8 +59,16 @@
                                    UIActivityTypePostToVimeo
                                    ];
     vc.excludedActivityTypes = excludeActivities;
-    [self presentViewController:vc animated:true completion:nil];
-    
+    //if iPhone
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        [self presentViewController:vc animated:YES completion:nil];
+    }
+    //if iPad
+    else {
+        // Change Rect to position Popover
+        UIPopoverController *popup = [[UIPopoverController alloc] initWithContentViewController:vc];
+        [popup presentPopoverFromRect:CGRectMake(self.shareButton.frame.size.width/2, self.shareButton.frame.size.height/4, 0, 0)inView:self.tabBarController.tabBar permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
+    }
 }
 - (IBAction)handleTrashCanPressed:(id)sender {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Would you like to delete this day from your profile?" message:@"please confirm below" preferredStyle:UIAlertControllerStyleActionSheet];

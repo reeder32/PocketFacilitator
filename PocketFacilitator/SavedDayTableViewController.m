@@ -150,8 +150,10 @@
     PFObject *day = [PFObject objectWithClassName:@"DayPlan"];
     [day setObject:[PFUser currentUser] forKey:@"user"];
     [day addObject:self.elementsArray forKey:@"elementsArray"];
-    UIDatePicker *datePicker = (UIDatePicker *)self.dateTextField.inputView;
-    [day setObject:datePicker.date forKey:@"date"];
+    NSDateFormatter *dateformat=[[NSDateFormatter alloc]init];
+    [dateformat setDateStyle:NSDateFormatterMediumStyle];
+    NSDate *date = [dateformat dateFromString:self.dateTextField.text];
+    [day setObject:date forKey:@"date"];
     [day saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (succeeded) {
             [[NSNotificationCenter defaultCenter]postNotificationName:@"QueryParseDayPlans" object:nil];
@@ -193,7 +195,17 @@
                                        UIActivityTypePostToVimeo
                                        ];
         vc.excludedActivityTypes = excludeActivities;
-        [self presentViewController:vc animated:true completion:nil];
+        //if iPhone
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+            [self presentViewController:vc animated:YES completion:nil];
+        }
+        //if iPad
+        else {
+            // Change Rect to position Popover
+            UIPopoverController *popup = [[UIPopoverController alloc] initWithContentViewController:vc];
+            [popup presentPopoverFromRect:CGRectMake(self.shareButton.frame.size.width/2, self.shareButton.frame.size.height/4, 0, 0)inView:self.tabBarController.tabBar permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
+        }
+
     }
     
     

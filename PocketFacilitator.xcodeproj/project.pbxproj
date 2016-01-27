@@ -313,7 +313,6 @@
 		2708B64B1BE43411003C4A2B = {
 			isa = PBXGroup;
 			children = (
-				274E24361C44FB9B00754191 /* MGSwipeTableCell */,
 				2708B6561BE43411003C4A2B /* PocketFacilitator */,
 				273A07E31BF6779F0007BB4B /* Model */,
 				2708B6731BE43412003C4A2B /* PocketFacilitatorTests */,
@@ -434,6 +433,7 @@
 		27C44AA91BE7D48E000D01D8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				274E24361C44FB9B00754191 /* MGSwipeTableCell */,
 				27E2BD3B1C40D00B0091946D /* Bolts.framework */,
 				27E2BD371C40CE230091946D /* Parse.framework */,
 				27E2BD351C40CDCE0091946D /* libz.tbd */,
