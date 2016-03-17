@@ -8,7 +8,6 @@
 
 #import "ProfileViewController.h"
 #import "ElementsFromDatabase.h"
-#import <Parse/Parse.h>
 #import "UserFavoritesTableViewCell.h"
 #import "UIColor+UIColor_SynergoColors.h"
 #import "SVProgressHUD.h"
@@ -17,6 +16,9 @@
 #import "DaysCollectionViewCell.h"
 #import "SavedDayInfoViewController.h"
 #import "DayPlanTableViewCell.h"
+#import "AWSIdentityManager.h"
+#import <AWSCore/AWSCore.h>
+#import "UserSettings.h"
 
 
 @interface ProfileViewController ()
@@ -25,7 +27,8 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *logoutButton;
 @property (strong, nonatomic) NSMutableArray *daysArray;
 @property (strong, nonatomic) NSMutableArray *elementsToAddToDayArray;
-
+@property (weak, nonatomic) IBOutlet UIButton *facebookButton;
+@property UserSettings *userSettings;
 
 @property (weak, nonatomic) IBOutlet UILabel *addFromFavoritesLabel;
 
@@ -37,8 +40,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self reloadView];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(queryParse) name:@"QueryParseUser" object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(queryParseForDayPlans) name:@"QueryParseDayPlans" object:nil];
+    self.facebookButton.layer.cornerRadius = 4.0;
+    self.userSettings = [[UserSettings alloc]init];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(loadUserData) name:@"UserAddedElementToFavorites" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(queryUserDayPlans) name:@"QueryUserDayPlans" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(reloadView) name:@"UserLoggedIn" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(eraseElementsToAddToDayArray) name:@"EraseArray" object:nil];
     [self checkForArrayCount];
@@ -49,24 +54,35 @@
     
 }
 -(void)reloadView{
-    if (![PFUser currentUser]) {
+    AWSIdentityManager *identityManager = [AWSIdentityManager sharedInstance];
+
+    NSLog(@"%@", identityManager.userName);
+    if (identityManager.userName == nil) {
         self.logoutButton.enabled = false;
         self.createAccountView.hidden = false;
         self.profileTableView.hidden = true;
       
     }else{
-        [self queryParse];
-        [self queryParseForDayPlans];
+        [self loadUserData];
+        [self queryUserDayPlans];
         self.logoutButton.enabled = true;
         self.createAccountView.hidden = true;
         self.profileTableView.hidden = false;
-       
+    
         
     }
 
 }
 -(void)viewDidDisappear:(BOOL)animated{
     [SVProgressHUD dismiss];
+    
+}
+-(void)loadUserData{
+    
+    UserSettings *settings = [[UserSettings alloc]init];
+    [settings loadUserFavorites];
+    self.favoritesArray = settings.favoritesArray;
+    NSLog(@"self.favoritesArray is %@", self.favoritesArray);
     
 }
 - (void)didReceiveMemoryWarning {
@@ -94,40 +110,7 @@
         return self.favoritesArray.count;
     }
 }
--(void)queryParse{
-    
-    PFQuery *query = [PFUser query];
-    [query whereKey:@"username" equalTo:[PFUser currentUser].username];
-    [SVProgressHUD showWithStatus:@"Loading..."];
-    [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
-        if (!error) {
-            [SVProgressHUD dismiss];
-            self.favoritesArray = object[@"favorites"];
-            [self.profileTableView reloadData];
-        }else{
-            [self queryLocalDataStore];
-        }
-    }];
-}
--(void)queryLocalDataStore{
-    [SVProgressHUD showWithStatus:@"Loading..."];
-    PFQuery *userQuery = [PFUser query];
-    [userQuery fromLocalDatastore];
-    [userQuery fromPinWithName:@"favorites"];
-    [userQuery getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
-        if (!error) {
-            [SVProgressHUD dismiss];
-            NSArray *favorites = object[@"favorites"];
-            self.favoritesArray = [favorites mutableCopy];
-            [SVProgressHUD dismiss];
-            [self.profileTableView reloadData];
-            
-        }else{
-            [SVProgressHUD showErrorWithStatus:error.localizedDescription];
-        }
-        
-    }];
-}
+
 #pragma mark - tableview
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -209,23 +192,25 @@
     }else if (indexPath.section == 2) {
         UserFavoritesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FavoritesCell"];
         cell.delegate = self;
-        NSString *name = [self.favoritesArray objectAtIndex:indexPath.row];
-        cell.nameLabel.text = name;
+     
+        cell.nameLabel.text = [self.favoritesArray objectAtIndex:indexPath.row];
         
         return cell;
         
 
-    }else{
-        PFObject *object = [self.daysArray objectAtIndex:indexPath.row];
-        NSDate *date = object[@"date"];
-        NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
-        [dateFormat setDateStyle:NSDateFormatterShortStyle];
-
-        DayPlanTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DayPlanCell" forIndexPath:indexPath];
-        cell.dateText.text = [dateFormat stringFromDate:date];
-       
-        return cell;
-    }
+    //else{
+//        PFObject *object = [self.daysArray objectAtIndex:indexPath.row];
+//        NSDate *date = object[@"date"];
+//        NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+//        [dateFormat setDateStyle:NSDateFormatterShortStyle];
+//
+//        DayPlanTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DayPlanCell" forIndexPath:indexPath];
+//        cell.dateText.text = [dateFormat stringFromDate:date];
+//       
+//        return cell;
+}else{
+    return nil;
+}
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section ==1) {
@@ -309,18 +294,11 @@
     
 }
 -(void)removeElementName:(NSString *) name forIndexPath:(NSIndexPath *)path{
-    [self.favoritesArray removeObjectAtIndex:path.row];
-    [[PFUser currentUser]removeObject:name forKey:@"favorites"];
-    [[PFUser currentUser]unpinWithName:@"favorites"];
-    [[PFUser currentUser]saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        if (succeeded) {
-            NSLog(@"YEAH Muthafucka!");
-        }else{
-            NSLog(@"Nope! try again %@", error.localizedDescription);
-        }
-    }];
     
+    [self.favoritesArray removeObjectAtIndex:path.row];
     [self.profileTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:path] withRowAnimation:UITableViewRowAnimationLeft];
+    [self.userSettings removeUserFavorite:name];
+
     
 }
 -(void) swipeTableCell:(MGSwipeTableCell*) cell didChangeSwipeState:(MGSwipeState)state gestureIsActive:(BOOL)gestureIsActive
@@ -337,38 +315,36 @@
     NSLog(@"Swipe state: %@ ::: Gesture: %@", str, gestureIsActive ? @"Active" : @"Ended");
 }
 
--(void)queryParseForDayPlans{
+-(void)queryUserDayPlans{
     [self.elementsToAddToDayArray removeAllObjects];
     
     [self checkForArrayCount];
-    PFQuery *query = [PFQuery queryWithClassName:@"DayPlan"];
-    [query whereKey:@"user" equalTo:[PFUser currentUser]];
-    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-        if (objects) {
-            self.daysArray = [objects mutableCopy];
-            [self.profileTableView reloadData];
-        }else{
-            
-        }
-    }];
+//    PFQuery *query = [PFQuery queryWithClassName:@"DayPlan"];
+//    [query whereKey:@"user" equalTo:[PFUser currentUser]];
+//    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+//        if (objects) {
+//            self.daysArray = [objects mutableCopy];
+//            [self.profileTableView reloadData];
+//        }else{
+//            
+//        }
+//    }];
     
 }
 - (IBAction)handleLogoutButtonPressed:(id)sender {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Log out?" message:@"Are you sure?" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *logout = [UIAlertAction actionWithTitle:@"Log out" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
-            if (!error) {
-                [PFObject unpinAllObjectsInBackgroundWithName:@"favorites"];
-                [self.daysArray removeAllObjects];
-    
-                self.logoutButton.enabled = false;
+        AWSIdentityManager *identityManager = [AWSIdentityManager sharedInstance];
+            [identityManager logoutWithCompletionHandler:^(id result, NSError *error) {
+                if (!error) {
+                    NSLog(@"logged out!");
+                    [self reloadView];
+                } else {
+                    
+                    [SVProgressHUD showErrorWithStatus:error.localizedDescription];
+                }
                 
-                self.profileTableView.hidden = true;
-                self.createAccountView.hidden = false;
-            }else{
-                [SVProgressHUD showErrorWithStatus:error.localizedDescription];
-            }
-        }];
+            }];
     }];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
     [alert addAction:logout];
@@ -379,6 +355,47 @@
 - (IBAction)handleCreateDayButtonPressed:(id)sender {
     [self performSegueWithIdentifier:@"CreateDay" sender:nil];
 }
+
+#pragma mark - login methods and buttons
+- (IBAction)handleLoginWithFacebookButtonPressed:(id)sender {
+    [self handleLoginWithSignInProvider:AWSSignInProviderTypeFacebook];
+}
+
+- (void)handleLoginWithSignInProvider:(AWSSignInProviderType)signInProviderType {
+    [[AWSIdentityManager sharedInstance]
+     loginWithSignInProvider:signInProviderType
+     completionHandler:^(id result, NSError *error) {
+         if (!error) {
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 [self.navigationController popViewControllerAnimated:YES];
+                 [[NSNotificationCenter defaultCenter] postNotificationName:@"UserLoggedIn" object:nil];
+             });
+         }
+         NSLog(@"result = %@, error = %@", result, error);
+     }];
+}
+
+- (void)showErrorDialog:(NSString *)loginProviderName withError:(const NSError *)error {
+    // NSLog(@"%@: %@ failed to sign in w/ error: %@", LOG_TAG, loginProviderName, error);
+    
+    UIAlertController *alertController =
+    [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Sign-in Provider Sign-In Error",
+                                                                  @"Sign-in error for sign-in failure.")
+                                        message:NSLocalizedString(@"%@ failed to sign in w/ error: %@",
+                                                                  @"Sign-in message structure for sign-in failure.")
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *doneAction =
+    [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel",
+                                                     @"Label to cancel sign-in failure.")
+                             style:UIAlertActionStyleCancel
+                           handler:nil];
+    [alertController addAction:doneAction];
+    
+    [self presentViewController:alertController
+                       animated:YES
+                     completion:nil];
+}
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -388,8 +405,8 @@
         dvc.elementsArray = self.elementsToAddToDayArray;
     }if ([segue.identifier isEqualToString:@"DayDetails"]) {
         SavedDayInfoViewController *dvc = segue.destinationViewController;
-        PFObject *object = (PFObject *)sender;
-        dvc.elementObject = object;
+        //PFObject *object = (PFObject *)sender;
+        //dvc.elementObject = object;
         
        
     }

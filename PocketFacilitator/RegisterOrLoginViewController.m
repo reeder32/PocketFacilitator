@@ -7,8 +7,9 @@
 //
 
 #import "RegisterOrLoginViewController.h"
-#import <Parse/Parse.h>
 #import "UIColor+UIColor_SynergoColors.h"
+#import <AWSCore/AWSCore.h>
+#import "AWSIdentityManager.h"
 
 @interface RegisterOrLoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
@@ -62,11 +63,12 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)handleCreateAccountButtonTapped:(id)sender {
-    PFUser *user = [PFUser user];
     BOOL fieldsAreValid = false;
-    user.username = self.usernameTextField.text;
-    user.password = self.passwordTextField.text;
-    user.email = self.emailTextField.text;
+//    PFUser *user = [PFUser user];
+//    
+//    user.username = self.usernameTextField.text;
+//    user.password = self.passwordTextField.text;
+//    user.email = self.emailTextField.text;
     NSArray *array = @[self.usernameTextField.text, self.passwordTextField.text, self.emailTextField.text];
     for (NSString *string in array) {
         if (string.length >=4) {
@@ -76,20 +78,20 @@
         }
     }
     if (fieldsAreValid){
-        [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-            if (succeeded) {
-                [[NSNotificationCenter defaultCenter]postNotificationName:@"UserLoggedIn" object:nil];
-                [self dismissViewControllerAnimated:true completion:nil];
-            }else{
-                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Oops!" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction *okay = [UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleCancel handler:nil];
-                [alert addAction:okay];
-                [self presentViewController:alert animated:true completion:^{
-                    self.usernameTextField.text = nil;
-                    self.emailTextField.text = nil;
-                }];
-            }
-        }];
+//        [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+//            if (succeeded) {
+//                [[NSNotificationCenter defaultCenter]postNotificationName:@"UserLoggedIn" object:nil];
+//                [self dismissViewControllerAnimated:true completion:nil];
+//            }else{
+//                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Oops!" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+//                UIAlertAction *okay = [UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleCancel handler:nil];
+//                [alert addAction:okay];
+//                [self presentViewController:alert animated:true completion:^{
+//                    self.usernameTextField.text = nil;
+//                    self.emailTextField.text = nil;
+//                }];
+//            }
+//        }];
     }
     
 }

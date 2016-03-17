@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "UIColor+UIColor_SynergoColors.h"
-#import <Parse/Parse.h>
+#import "AWSMobileClient.h"
 
 
 
@@ -20,17 +20,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    [Parse enableLocalDatastore];
-    
-    // Initialize Parse.
-    [Parse setApplicationId:@"rxoTl4hK0W8gRtmarItDMzSqjvxsilvqGnypQyV5"
-                  clientKey:@"GVsCS5IfWc8GoFEMZsRbQ89XT7HKZ1dZWDTDaUDE"];
-    
-    //app background view color
-    [[UIWindow appearance] setBackgroundColor:[UIColor synergoLightGrayColor]];
-    
-    
+    //initialize aws
+    [[AWSMobileClient sharedInstance] didFinishLaunching:application
+                                             withOptions:launchOptions];
     //selected tint color
     [[UITabBar appearance] setTintColor:[UIColor synergoMaroonColor]];
     
@@ -61,6 +53,18 @@
     [[UITableViewCell appearance] setTintColor:[UIColor synergoRedColor]];
    
     return YES;
+}
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    NSLog(@"application application: %@, openURL: %@, sourceApplication: %@", application.description, url.absoluteURL,
+          sourceApplication);
+    
+    return [[AWSMobileClient sharedInstance] withApplication:application
+                                                     withURL:url
+                                       withSourceApplication:sourceApplication
+                                              withAnnotation:annotation];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

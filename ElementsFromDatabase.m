@@ -30,7 +30,7 @@ static ElementsFromDatabase *_database;
             NSLog(@"Failed to open database!");
         }
     }
-    NSLog(@"self.dbFilePath is -->%@<--", self.dbFilePath);
+   
     return self;
 }
 

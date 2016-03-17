@@ -7,7 +7,6 @@
 //
 
 #import "SavedDayTableViewController.h"
-#import <Parse/Parse.h>
 #import "SVProgressHUD.h"
 #import "UIColor+UIColor_SynergoColors.h"
 
@@ -147,23 +146,23 @@
 - (IBAction)handleCalendarButtonPressed:(id)sender {
     
     [SVProgressHUD showWithStatus:@"Saving..."];
-    PFObject *day = [PFObject objectWithClassName:@"DayPlan"];
-    [day setObject:[PFUser currentUser] forKey:@"user"];
-    [day addObject:self.elementsArray forKey:@"elementsArray"];
-    NSDateFormatter *dateformat=[[NSDateFormatter alloc]init];
-    [dateformat setDateStyle:NSDateFormatterMediumStyle];
-    NSDate *date = [dateformat dateFromString:self.dateTextField.text];
-    [day setObject:date forKey:@"date"];
-    [day saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        if (succeeded) {
-            [[NSNotificationCenter defaultCenter]postNotificationName:@"QueryParseDayPlans" object:nil];
-            [SVProgressHUD showSuccessWithStatus:@"Success!"];
-        }else{
-            
-            [self saveToLocalDataStore];
-        }
-    }];
-    
+//    PFObject *day = [PFObject objectWithClassName:@"DayPlan"];
+//    [day setObject:[PFUser currentUser] forKey:@"user"];
+//    [day addObject:self.elementsArray forKey:@"elementsArray"];
+//    NSDateFormatter *dateformat=[[NSDateFormatter alloc]init];
+//    [dateformat setDateStyle:NSDateFormatterMediumStyle];
+//    NSDate *date = [dateformat dateFromString:self.dateTextField.text];
+//    [day setObject:date forKey:@"date"];
+//    [day saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+//        if (succeeded) {
+//            [[NSNotificationCenter defaultCenter]postNotificationName:@"QueryParseDayPlans" object:nil];
+//            [SVProgressHUD showSuccessWithStatus:@"Success!"];
+//        }else{
+//            
+//            [self saveToLocalDataStore];
+//        }
+//    }];
+//    
     
     
 }

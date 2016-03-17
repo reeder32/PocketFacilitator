@@ -11,11 +11,13 @@
 #import "ElementsDetailViewTableViewController.h"
 #import "IceBreakersTableViewCell.h"
 #import "UIColor+UIColor_SynergoColors.h"
-#import "AddFavoriteElementToArray.h"
+#import "UserSettings.h"
 
 @interface IceBreakersTableViewController ()
+
 @property (strong, nonatomic) NSArray *iceBreakersArray;
 @property (strong, nonatomic) NSArray *originalArray;
+@property UserSettings *userSettings;
 
 @end
 
@@ -24,6 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.userSettings = [[UserSettings alloc]init];
     self.iceBreakersArray = [ElementsFromDatabase database].iceBreakersArray;
     self.originalArray = self.iceBreakersArray;
 }
@@ -131,14 +134,14 @@
     expansionSettings.fillOnTrigger = NO;
     
     __weak IceBreakersTableViewController * me = self;
-    AddFavoriteElementToArray *addFav = [[AddFavoriteElementToArray alloc]init];
+    
     UIColor * color = [UIColor synergoLightGrayColor];
     UIFont * font = [UIFont fontWithName:@"OpenSans-Bold" size:14.0];
     if (direction == MGSwipeDirectionLeftToRight) {
         MGSwipeButton * favoriteButton = [MGSwipeButton buttonWithTitle:@"Favorite" backgroundColor:color padding:15 callback:^BOOL(MGSwipeTableCell *sender) {
             ElementObject * element = [me elementForIndex:[me.tableView indexPathForCell:sender]];
             NSLog(@"Save Element: %@", element.name);
-            [addFav addElementName:element.name toUser:[PFUser currentUser]];
+            [self.userSettings addUserFavorite:element.name];
             return YES;
         }];
         favoriteButton.titleLabel.font = font;

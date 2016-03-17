@@ -12,18 +12,21 @@
 #include "LowElementsTableViewCell.h"
 #import "ElementsDetailViewTableViewController.h"
 #import "UIColor+UIColor_SynergoColors.h"
-#import "AddFavoriteElementToArray.h"
+#import "UserSettings.h"
 
 
 @interface LowElementsTableViewController ()
+
 @property NSArray *originalArray;
+@property UserSettings *userSettings;
+
 @end
 
 @implementation LowElementsTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.userSettings = [[UserSettings alloc]init];
     self.lowElementsArray = [ElementsFromDatabase database].lowElementsArray;
     self.originalArray = self.lowElementsArray;
 }
@@ -135,14 +138,14 @@
     expansionSettings.fillOnTrigger = NO;
     
     __weak LowElementsTableViewController * me = self;
-    AddFavoriteElementToArray *addFav = [[AddFavoriteElementToArray alloc]init];
+    
     UIColor * color = [UIColor synergoLightGrayColor];
     UIFont * font = [UIFont fontWithName:@"OpenSans-Bold" size:14.0];
     if (direction == MGSwipeDirectionLeftToRight) {
         MGSwipeButton * favoriteButton = [MGSwipeButton buttonWithTitle:@"Favorite" backgroundColor:color padding:15 callback:^BOOL(MGSwipeTableCell *sender) {
             ElementObject * element = [me elementForIndex:[me.tableView indexPathForCell:sender]];
             NSLog(@"Save Element: %@", element.name);
-            [addFav addElementName:element.name toUser:[PFUser currentUser]];
+            [self.userSettings addUserFavorite:element.name];
             return YES;
         }];
         favoriteButton.titleLabel.font = font;

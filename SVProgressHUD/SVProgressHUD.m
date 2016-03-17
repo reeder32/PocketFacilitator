@@ -772,7 +772,9 @@ static const CGFloat SVProgressHUDUndefinedProgress = -1;
     }
     
     if(!self.superview){
-        [self.overlayView addSubview:self];
+        dispatch_async(dispatch_get_main_queue(), ^{
+          [self.overlayView addSubview:self];
+        });
     }
     
     if(self.fadeOutTimer){

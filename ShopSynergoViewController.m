@@ -23,10 +23,11 @@ static NSString *urlString = @"http://yhst-132339165737199.stores.yahoo.net/equi
     
 }
 -(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:true];
     [SVProgressHUD dismiss];
 }
 -(void)viewWillAppear:(BOOL)animated{
-    
+    [super viewWillAppear:true];
     self.shopSynergoWebView.alpha = 0;
     NSURL *url = [NSURL URLWithString:urlString];
     [self.shopSynergoWebView loadRequest:[NSURLRequest requestWithURL:url]];

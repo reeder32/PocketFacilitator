@@ -24,14 +24,14 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"MM-dd-yyyy";
     
-    NSDate *date = self.elementObject[@"date"];
+    //NSDate *date = self.elementObject[@"date"];
     
-    NSString *dateString = [dateFormatter stringFromDate:date];
-    self.dateString = dateString;
-    self.navigationItem.title = dateString;
-    NSArray *array = self.elementObject[@"elementsArray"];
-    NSString *string = [array componentsJoinedByString:@""];
-    self.textField.text = [[[string stringByTrimmingCharactersInSet:set]stringByReplacingOccurrencesOfString:@"\"" withString:@""]stringByReplacingOccurrencesOfString:@"," withString:@"\n"];
+    //NSString *dateString = [dateFormatter stringFromDate:date];
+    //self.dateString = dateString;
+    //self.navigationItem.title = dateString;
+    //NSArray *array = self.elementObject[@"elementsArray"];
+   // NSString *string = [array componentsJoinedByString:@""];
+    //self.textField.text = [[[string stringByTrimmingCharactersInSet:set]stringByReplacingOccurrencesOfString:@"\"" withString:@""]stringByReplacingOccurrencesOfString:@"," withString:@"\n"];
     
  
     
@@ -73,15 +73,15 @@
 - (IBAction)handleTrashCanPressed:(id)sender {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Would you like to delete this day from your profile?" message:@"please confirm below" preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *delete = [UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        [self.elementObject deleteInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-            if (succeeded) {
-                [[NSNotificationCenter defaultCenter]postNotificationName:@"QueryParseDayPlans" object:nil];
-                [SVProgressHUD showSuccessWithStatus:@"Deleted"];
-                [self.navigationController popViewControllerAnimated:true];
-            }else{
-                [SVProgressHUD showErrorWithStatus:@"There was a problem!"];
-            }
-        }];
+//        [self.elementObject deleteInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+//            if (succeeded) {
+//                [[NSNotificationCenter defaultCenter]postNotificationName:@"QueryParseDayPlans" object:nil];
+//                [SVProgressHUD showSuccessWithStatus:@"Deleted"];
+//                [self.navigationController popViewControllerAnimated:true];
+//            }else{
+//                [SVProgressHUD showErrorWithStatus:@"There was a problem!"];
+//            }
+//        }];
 
     }];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];

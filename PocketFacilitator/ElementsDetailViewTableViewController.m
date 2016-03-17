@@ -9,10 +9,9 @@
 #import "ElementsDetailViewTableViewController.h"
 #import "UIColor+UIColor_SynergoColors.h"
 #import "ElementsFromDatabase.h"
-#import <Parse/Parse.h>
 #import "UIColor+UIColor_SynergoColors.h"
 #import "SVProgressHUD.h"
-#import "AddFavoriteElementToArray.h"
+#import "UserSettings.h"
 #import "ProfileViewController.h"
 
 
@@ -21,6 +20,7 @@
 @property (nonatomic) NSMutableArray *favorites;
 @property (strong, nonatomic) UIView *headerView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addFavoriteButton;
+@property UserSettings *userSettings;
 
 @end
 
@@ -30,17 +30,20 @@ NSString *path = @"PocketFacilitator.db";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.userSettings = [[UserSettings alloc]init];
+    [self.userSettings loadUserFavorites];
     self.navBar.title = self.name;
     self.navigationItem.backBarButtonItem.tintColor = [UIColor synergoMaroonColor];
     [self formatTextData];
-    
-    NSArray *favorites = [PFUser currentUser][@"favorites"];
-    
-    if ([favorites containsObject:self.name]) {
+
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    NSLog(@"self.userSettings.favoritesArray is %@ and self.name is %@", self.userSettings.favoritesArray, self.name);
+    if ([self.userSettings.favoritesArray containsObject:self.name]) {
         self.addFavoriteButton.enabled = false;
     }
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -61,9 +64,9 @@ NSString *path = @"PocketFacilitator.db";
     return 1;
 }
 - (IBAction)handlePlusButtonPressed:(id)sender {
+    
     self.addFavoriteButton.enabled = false;
-    AddFavoriteElementToArray *addFavorite = [[AddFavoriteElementToArray alloc]init];
-    [addFavorite addElementName:self.name toUser:[PFUser currentUser]];
+    [self.userSettings addUserFavorite:self.name];
  
     
 }

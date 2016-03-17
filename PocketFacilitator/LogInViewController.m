@@ -7,7 +7,8 @@
 //
 
 #import "LogInViewController.h"
-#import <Parse/Parse.h>
+#import "AWSIdentityManager.h"
+#import <AWSCore/AWSCore.h>
 #import "UIColor+UIColor_SynergoColors.h"
 #import "SVProgressHUD.h"
 #import "RegisterOrLoginViewController.h"
@@ -16,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
+@property (nonatomic, strong) id didSignInObserver;
 
 @end
 
@@ -23,6 +25,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    __weak LogInViewController *weakSelf = self;
+    self.didSignInObserver =
+    [[NSNotificationCenter defaultCenter]
+     addObserverForName:AWSIdentityManagerDidSignInNotification
+     object:[AWSIdentityManager sharedInstance]
+     queue:[NSOperationQueue mainQueue]
+     usingBlock:^(NSNotification * _Nonnull note) {
+         [weakSelf.presentingViewController
+          dismissViewControllerAnimated:YES
+          completion:nil];
+     }];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]init];
     tap.numberOfTapsRequired = 1;
     [tap addTarget:self action:@selector(dismissKeyboard)];
@@ -58,19 +71,22 @@
 - (IBAction)handleLoginButtonPressed:(id)sender {
     [SVProgressHUD showWithStatus:@"Logging in"];
     
-    [PFUser logInWithUsernameInBackground:self.usernameTextField.text password:self.passwordTextField.text block:^(PFUser * user, NSError * error) {
-        if (!error) {
-            [SVProgressHUD dismiss];
-            [[NSNotificationCenter defaultCenter]postNotificationName:@"UserLoggedIn" object:nil];
-            [self.presentingViewController.presentingViewController dismissViewControllerAnimated:true completion:nil];
-        }else{
-            [SVProgressHUD showErrorWithStatus:error.localizedDescription];
-        }
-    }];
+//    [PFUser logInWithUsernameInBackground:self.usernameTextField.text password:self.passwordTextField.text block:^(PFUser * user, NSError * error) {
+//        if (!error) {
+//            [SVProgressHUD dismiss];
+//            [[NSNotificationCenter defaultCenter]postNotificationName:@"UserLoggedIn" object:nil];
+//            [self.presentingViewController.presentingViewController dismissViewControllerAnimated:true completion:nil];
+//        }else{
+//            [SVProgressHUD showErrorWithStatus:error.localizedDescription];
+//        }
+//    }];
 }
 - (IBAction)hanldeCancelButtonPressed:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
 }
+#pragma mark - Utility Methods
+
+
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     if (textField == self.usernameTextField) {
         [textField resignFirstResponder];
