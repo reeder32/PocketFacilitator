@@ -29,7 +29,7 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Favorites"];
     NSMutableArray *favorites = [NSMutableArray array];
     favorites = [[context executeFetchRequest:fetchRequest error:nil] mutableCopy];
-    if ([[favorites valueForKey:@"name"]containsObject:name]) {
+    if ([[favorites valueForKey:@"name"] containsObject:name]) {
         NSLog(@"This is already a favorite");
         return;
     }
