@@ -7,10 +7,9 @@
 //
 
 #import "SavedDayTableViewController.h"
-#import <Parse/Parse.h>
 #import "SVProgressHUD.h"
 #import "UIColor+UIColor_SynergoColors.h"
-
+#import <CoreData/CoreData.h>
 
 @interface SavedDayTableViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;
@@ -21,8 +20,21 @@
 
 @implementation SavedDayTableViewController
 
+-(NSManagedObjectContext *)managedObjectContext {
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.elementsArray = self.initialArray;
     [self.shareButton setSelected:false];
     NSDate *date = [NSDate date];
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
@@ -43,7 +55,7 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
+    
     return 1;
 }
 
@@ -105,7 +117,7 @@
     id element = [self.elementsArray objectAtIndex:fromIndexPath.row];
     [self.elementsArray removeObjectAtIndex:fromIndexPath.row];
     [self.elementsArray insertObject:element atIndex:toIndexPath.row];
-
+    
 }
 
 #pragma mark - Date Picker Methods
@@ -147,38 +159,38 @@
 - (IBAction)handleCalendarButtonPressed:(id)sender {
     
     [SVProgressHUD showWithStatus:@"Saving..."];
-    PFObject *day = [PFObject objectWithClassName:@"DayPlan"];
-    [day setObject:[PFUser currentUser] forKey:@"user"];
-    [day addObject:self.elementsArray forKey:@"elementsArray"];
+    
     NSDateFormatter *dateformat=[[NSDateFormatter alloc]init];
     [dateformat setDateStyle:NSDateFormatterMediumStyle];
     NSDate *date = [dateformat dateFromString:self.dateTextField.text];
-    [day setObject:date forKey:@"date"];
-    [day saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        if (succeeded) {
-            [[NSNotificationCenter defaultCenter]postNotificationName:@"QueryParseDayPlans" object:nil];
-            [SVProgressHUD showSuccessWithStatus:@"Success!"];
-        }else{
-            
-            [self saveToLocalDataStore];
-        }
-    }];
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSManagedObject *object = [NSEntityDescription insertNewObjectForEntityForName:@"DayPlans" inManagedObjectContext:context];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.elementsArray];
+    [object setValue:date forKey:@"date"];
+    [object setValue:data forKey:@"activitiesArray"];
     
     
-    
+    NSError *error = nil;
+    [context save:&error];
+    if (error) {
+        
+        [SVProgressHUD showErrorWithStatus:error.localizedDescription];
+        
+    }else{
+        
+    [SVProgressHUD showSuccessWithStatus:@"Success!"];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"UpdateDayPlan" object:nil];
+    }
 }
 
 
--(void)saveToLocalDataStore{
-    
-}
 - (IBAction)handleShareButtonPressed:(id)sender {
     [self checkButtonState];
-   
+    
 }
 -(void)checkButtonState{
     if ([self.shareButton isSelected]) {
-       
+        
         [self.tableView setEditing:false animated:true];
         [self.shareButton setSelected:false];
         
@@ -205,20 +217,20 @@
             UIPopoverController *popup = [[UIPopoverController alloc] initWithContentViewController:vc];
             [popup presentPopoverFromRect:CGRectMake(self.shareButton.frame.size.width/2, self.shareButton.frame.size.height/4, 0, 0)inView:self.tabBarController.tabBar permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
         }
-
+        
     }
     
     
-
+    
 }
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

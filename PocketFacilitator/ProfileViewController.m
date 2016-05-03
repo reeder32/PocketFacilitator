@@ -8,7 +8,7 @@
 
 #import "ProfileViewController.h"
 #import "ElementsFromDatabase.h"
-#import <Parse/Parse.h>
+#import <CoreData/CoreData.h>
 #import "UserFavoritesTableViewCell.h"
 #import "UIColor+UIColor_SynergoColors.h"
 #import "SVProgressHUD.h"
@@ -22,7 +22,7 @@
 @interface ProfileViewController ()
 
 @property (weak, nonatomic) IBOutlet UIView *createAccountView;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *logoutButton;
+
 @property (strong, nonatomic) NSMutableArray *daysArray;
 @property (strong, nonatomic) NSMutableArray *elementsToAddToDayArray;
 
@@ -34,12 +34,24 @@
 
 @implementation ProfileViewController
 
+-(NSManagedObjectContext *)managedObjectContext {
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+   
     [self reloadView];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(queryParse) name:@"QueryParseUser" object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(queryParseForDayPlans) name:@"QueryParseDayPlans" object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(reloadView) name:@"UserLoggedIn" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(reloadView) name:@"AddedFavorite" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(savedDayActivites) name:@"UpdateDayPlan" object:nil];
+    
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(eraseElementsToAddToDayArray) name:@"EraseArray" object:nil];
     [self checkForArrayCount];
     
@@ -49,21 +61,32 @@
     
 }
 -(void)reloadView{
-    if (![PFUser currentUser]) {
-        self.logoutButton.enabled = false;
-        self.createAccountView.hidden = false;
-        self.profileTableView.hidden = true;
-      
-    }else{
-        [self queryParse];
-        [self queryParseForDayPlans];
-        self.logoutButton.enabled = true;
-        self.createAccountView.hidden = true;
-        self.profileTableView.hidden = false;
-       
-        
-    }
-
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSFetchRequest *fetchFavorites = [[NSFetchRequest alloc] initWithEntityName:@"Favorites"];
+    NSFetchRequest *fetchDayPlans = [[NSFetchRequest alloc] initWithEntityName:@"DayPlans"];
+    self.daysArray = [[context executeFetchRequest:fetchDayPlans error:nil] mutableCopy];
+    self.favoritesArray = [[context executeFetchRequest:fetchFavorites error:nil] mutableCopy];
+    NSLog(@"favoritesArray is %@", self.favoritesArray);
+        if (self.favoritesArray.count == 0) {
+            self.createAccountView.hidden = false;
+            self.profileTableView.hidden = true;
+            
+        }else{
+            
+            self.createAccountView.hidden = true;
+            self.profileTableView.hidden = false;
+            [self.profileTableView reloadData];
+        }
+    
+    
+}
+-(void)savedDayActivites{
+    
+    [self.elementsToAddToDayArray removeAllObjects];
+    [self checkForArrayCount];
+    [self reloadView];
+    
 }
 -(void)viewDidDisappear:(BOOL)animated{
     [SVProgressHUD dismiss];
@@ -87,47 +110,21 @@
         return 0;
     }else if (section == 0 && self.elementsToAddToDayArray.count >=1){
         return 1;
-    
+        
     }else if (section == 1){
         return self.daysArray.count;
     }else{
         return self.favoritesArray.count;
     }
 }
--(void)queryParse{
+-(void)updateFavorites{
+   
+            [SVProgressHUD dismiss];
     
-    PFQuery *query = [PFUser query];
-    [query whereKey:@"username" equalTo:[PFUser currentUser].username];
-    [SVProgressHUD showWithStatus:@"Loading..."];
-    [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
-        if (!error) {
-            [SVProgressHUD dismiss];
-            self.favoritesArray = object[@"favorites"];
-            [self.profileTableView reloadData];
-        }else{
-            [self queryLocalDataStore];
-        }
-    }];
+            [self reloadView];
+    
 }
--(void)queryLocalDataStore{
-    [SVProgressHUD showWithStatus:@"Loading..."];
-    PFQuery *userQuery = [PFUser query];
-    [userQuery fromLocalDatastore];
-    [userQuery fromPinWithName:@"favorites"];
-    [userQuery getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
-        if (!error) {
-            [SVProgressHUD dismiss];
-            NSArray *favorites = object[@"favorites"];
-            self.favoritesArray = [favorites mutableCopy];
-            [SVProgressHUD dismiss];
-            [self.profileTableView reloadData];
-            
-        }else{
-            [SVProgressHUD showErrorWithStatus:error.localizedDescription];
-        }
-        
-    }];
-}
+
 #pragma mark - tableview
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -143,7 +140,7 @@
     UIView *footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.profileTableView.tableFooterView.frame.size.width, self.profileTableView.tableFooterView.frame.size.height)];
     
     footerView.backgroundColor = [UIColor whiteColor];
-
+    
     return footerView;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
@@ -152,8 +149,8 @@
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
-        if (editingStyle == UITableViewCellEditingStyleDelete) {
-            if (indexPath.section == 0) {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        if (indexPath.section == 0) {
             [self.elementsToAddToDayArray removeAllObjects];
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
             [self checkForArrayCount];
@@ -164,13 +161,15 @@
 -(void)checkForArrayCount{
     if (self.elementsToAddToDayArray.count == 0) {
         self.addFromFavoritesLabel.hidden = false;
-        
     }
-    
+    if (self.daysArray.count == 0 && self.favoritesArray.count ==0) {
+        self.profileTableView.hidden = true;
+        self.createAccountView.hidden = false;
+    }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-  
+    
     if (section == 1 || section ==2) {
         return 60;
     }return 0;
@@ -209,21 +208,22 @@
     }else if (indexPath.section == 2) {
         UserFavoritesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FavoritesCell"];
         cell.delegate = self;
-        NSString *name = [self.favoritesArray objectAtIndex:indexPath.row];
-        cell.nameLabel.text = name;
+        NSManagedObject *favorite = [self.favoritesArray objectAtIndex:indexPath.row];
+        cell.nameLabel.text = [favorite valueForKey:@"name"];
+        
         
         return cell;
         
-
+        
     }else{
-        PFObject *object = [self.daysArray objectAtIndex:indexPath.row];
-        NSDate *date = object[@"date"];
+        NSManagedObject *object = [self.daysArray objectAtIndex:indexPath.row];
+        NSDate *date = [object valueForKey:@"date"];
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
         [dateFormat setDateStyle:NSDateFormatterShortStyle];
-
+        
         DayPlanTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DayPlanCell" forIndexPath:indexPath];
         cell.dateText.text = [dateFormat stringFromDate:date];
-       
+        
         return cell;
     }
 }
@@ -286,8 +286,8 @@
         
         MGSwipeButton *deleteButton = [MGSwipeButton buttonWithTitle:@"Remove" backgroundColor:[UIColor redColor]padding:15 callback:^BOOL(MGSwipeTableCell *sender) {
             NSString *element = [me elementForIndex:[me.profileTableView indexPathForCell:sender]];
-                     
-                [self removeElementName:element forIndexPath:[me.profileTableView indexPathForCell:sender]];
+            
+            [self removeElementName:element forIndexPath:[me.profileTableView indexPathForCell:sender]];
             
             return YES;
         }];
@@ -309,19 +309,13 @@
     
 }
 -(void)removeElementName:(NSString *) name forIndexPath:(NSIndexPath *)path{
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    [context deleteObject:[self.favoritesArray objectAtIndex:path.row]];
+    [context save:nil];
     [self.favoritesArray removeObjectAtIndex:path.row];
-    [[PFUser currentUser]removeObject:name forKey:@"favorites"];
-    [[PFUser currentUser]unpinWithName:@"favorites"];
-    [[PFUser currentUser]saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        if (succeeded) {
-            NSLog(@"YEAH Muthafucka!");
-        }else{
-            NSLog(@"Nope! try again %@", error.localizedDescription);
-        }
-    }];
-    
     [self.profileTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:path] withRowAnimation:UITableViewRowAnimationLeft];
-    
+    [self checkForArrayCount];
 }
 -(void) swipeTableCell:(MGSwipeTableCell*) cell didChangeSwipeState:(MGSwipeState)state gestureIsActive:(BOOL)gestureIsActive
 {
@@ -337,45 +331,6 @@
     NSLog(@"Swipe state: %@ ::: Gesture: %@", str, gestureIsActive ? @"Active" : @"Ended");
 }
 
--(void)queryParseForDayPlans{
-    [self.elementsToAddToDayArray removeAllObjects];
-    
-    [self checkForArrayCount];
-    PFQuery *query = [PFQuery queryWithClassName:@"DayPlan"];
-    [query whereKey:@"user" equalTo:[PFUser currentUser]];
-    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-        if (objects) {
-            self.daysArray = [objects mutableCopy];
-            [self.profileTableView reloadData];
-        }else{
-            
-        }
-    }];
-    
-}
-- (IBAction)handleLogoutButtonPressed:(id)sender {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Log out?" message:@"Are you sure?" preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *logout = [UIAlertAction actionWithTitle:@"Log out" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
-            if (!error) {
-                [PFObject unpinAllObjectsInBackgroundWithName:@"favorites"];
-                [self.daysArray removeAllObjects];
-    
-                self.logoutButton.enabled = false;
-                
-                self.profileTableView.hidden = true;
-                self.createAccountView.hidden = false;
-            }else{
-                [SVProgressHUD showErrorWithStatus:error.localizedDescription];
-            }
-        }];
-    }];
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
-    [alert addAction:logout];
-    [alert addAction:cancel];
-    [self presentViewController:alert animated:true completion:nil];
-    
-}
 - (IBAction)handleCreateDayButtonPressed:(id)sender {
     [self performSegueWithIdentifier:@"CreateDay" sender:nil];
 }
@@ -383,15 +338,17 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
     if ([segue.identifier isEqualToString:@"CreateDay"]) {
-        SavedDayTableViewController *dvc = segue.destinationViewController;
-        dvc.elementsArray = self.elementsToAddToDayArray;
-    }if ([segue.identifier isEqualToString:@"DayDetails"]) {
-        SavedDayInfoViewController *dvc = segue.destinationViewController;
-        PFObject *object = (PFObject *)sender;
-        dvc.elementObject = object;
         
-       
+        SavedDayTableViewController *dvc = segue.destinationViewController;
+        dvc.initialArray = self.elementsToAddToDayArray;
+        
+    }if ([segue.identifier isEqualToString:@"DayDetails"]) {
+        
+        NSManagedObject *object = (NSManagedObject *)sender;
+        SavedDayInfoViewController *dvc = segue.destinationViewController;
+        dvc.elementObject = object;
     }
 }
 

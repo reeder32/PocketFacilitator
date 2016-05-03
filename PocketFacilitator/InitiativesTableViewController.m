@@ -150,7 +150,7 @@
         MGSwipeButton * favoriteButton = [MGSwipeButton buttonWithTitle:@"Favorite" backgroundColor:color padding:15 callback:^BOOL(MGSwipeTableCell *sender) {
             ElementObject * element = [me elementForIndex:[me.tableView indexPathForCell:sender]];
             NSLog(@"Save Element: %@", element.name);
-            [addFav addElementName:element.name toUser:[PFUser currentUser]];
+            [addFav addElementNameToCoreData:element.name];
             return YES;
         }];
         favoriteButton.titleLabel.font = font;

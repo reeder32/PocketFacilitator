@@ -8,6 +8,7 @@
 
 #import "SavedDayInfoViewController.h"
 #import "SVProgressHUD.h"
+#import <CoreData/CoreData.h>
 
 @interface SavedDayInfoViewController ()
 
@@ -16,24 +17,34 @@
 
 @implementation SavedDayInfoViewController
 
+-(NSManagedObjectContext *)managedObjectContext {
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:@"),\"("];
-    
-    [SVProgressHUD showInfoWithStatus:@""];
+    [SVProgressHUD showWithStatus:@"Loading..."];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"MM-dd-yyyy";
     
-    NSDate *date = self.elementObject[@"date"];
+    NSDate *date = [self.elementObject valueForKey:@"date"];
     
     NSString *dateString = [dateFormatter stringFromDate:date];
     self.dateString = dateString;
     self.navigationItem.title = dateString;
-    NSArray *array = self.elementObject[@"elementsArray"];
-    NSString *string = [array componentsJoinedByString:@""];
-    self.textField.text = [[[string stringByTrimmingCharactersInSet:set]stringByReplacingOccurrencesOfString:@"\"" withString:@""]stringByReplacingOccurrencesOfString:@"," withString:@"\n"];
     
- 
+    NSArray *array = [NSKeyedUnarchiver unarchiveObjectWithData:[self.elementObject valueForKey:@"activitiesArray"]];
+    
+    NSString *string = [array componentsJoinedByString:@"\n"];
+    self.textField.text = string;
+    
+    
     
     //self.textField.text = [array repl]
     [SVProgressHUD dismiss];
@@ -73,16 +84,15 @@
 - (IBAction)handleTrashCanPressed:(id)sender {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Would you like to delete this day from your profile?" message:@"please confirm below" preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *delete = [UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        [self.elementObject deleteInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-            if (succeeded) {
-                [[NSNotificationCenter defaultCenter]postNotificationName:@"QueryParseDayPlans" object:nil];
-                [SVProgressHUD showSuccessWithStatus:@"Deleted"];
-                [self.navigationController popViewControllerAnimated:true];
-            }else{
-                [SVProgressHUD showErrorWithStatus:@"There was a problem!"];
-            }
-        }];
-
+        NSManagedObjectContext *context = [self managedObjectContext];
+        [context deleteObject:self.elementObject];
+        [context save:nil];
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"UpdateDayPlan" object:nil];
+        
+        [SVProgressHUD showSuccessWithStatus:@"Deleted"];
+        [self.navigationController popViewControllerAnimated:true];
+        
+        
     }];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
     [alert addAction:delete];
@@ -91,13 +101,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

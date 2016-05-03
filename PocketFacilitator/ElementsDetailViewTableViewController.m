@@ -9,7 +9,7 @@
 #import "ElementsDetailViewTableViewController.h"
 #import "UIColor+UIColor_SynergoColors.h"
 #import "ElementsFromDatabase.h"
-#import <Parse/Parse.h>
+#import <CoreData/CoreData.h>
 #import "UIColor+UIColor_SynergoColors.h"
 #import "SVProgressHUD.h"
 #import "AddFavoriteElementToArray.h"
@@ -28,24 +28,44 @@ NSString *path = @"PocketFacilitator.db";
 
 @implementation ElementsDetailViewTableViewController
 
+-(NSManagedObjectContext *)managedObjectContext {
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navBar.title = self.name;
     self.navigationItem.backBarButtonItem.tintColor = [UIColor synergoMaroonColor];
     [self formatTextData];
-    
-    NSArray *favorites = [PFUser currentUser][@"favorites"];
-    
-    if ([favorites containsObject:self.name]) {
-        self.addFavoriteButton.enabled = false;
+    [self checkCoreData];
     }
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+-(void)checkCoreData{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Favorites"];
+    NSMutableArray *array = [NSMutableArray array];
+    array = [[context executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    for (NSManagedObject *object in array) {
+        if ([self.name isEqualToString:[object valueForKey:@"name"]]) {
+            NSLog(@"title is %@ and name is %@", self.name, [object valueForKey:@"name"]);
+            self.addFavoriteButton.enabled = false;
+        }
+    }
+    
+    
+
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -61,10 +81,11 @@ NSString *path = @"PocketFacilitator.db";
     return 1;
 }
 - (IBAction)handlePlusButtonPressed:(id)sender {
-    self.addFavoriteButton.enabled = false;
+    
     AddFavoriteElementToArray *addFavorite = [[AddFavoriteElementToArray alloc]init];
-    [addFavorite addElementName:self.name toUser:[PFUser currentUser]];
- 
+    
+    [addFavorite addElementNameToCoreData:self.name];
+    [self checkCoreData];
     
 }
 - (IBAction)handleCloseButtonPressed:(id)sender {

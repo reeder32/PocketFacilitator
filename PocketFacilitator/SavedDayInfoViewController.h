@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Parse/Parse.h>
+#import <CoreData/CoreData.h>
 
 @interface SavedDayInfoViewController : UIViewController<UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextView *textField;
-@property (strong, nonatomic) PFObject *elementObject;
+
+@property NSManagedObject *elementObject;
 @property NSString *dateString;
 @property NSString *textFieldString;
 

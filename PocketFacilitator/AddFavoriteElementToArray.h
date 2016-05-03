@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Parse/Parse.h>
+#import <CoreData/CoreData.h>
 
 @interface AddFavoriteElementToArray : NSObject
 
--(void)addElementName:(NSString *)name toUser:(PFUser *)user;
+-(void)addElementNameToCoreData:(NSString *)name;
+
 @end

@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface SavedDayTableViewController : UITableViewController<UITextFieldDelegate>
-@property NSMutableArray *elementsArray;
-
+@property (strong, nonatomic) NSMutableArray *elementsArray;
+@property NSMutableArray *initialArray;
 @property (weak, nonatomic) IBOutlet UITextField *dateTextField;
 @property (strong, nonatomic) UITapGestureRecognizer *tap;
 @end
