@@ -21,10 +21,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    
-    //app background view color
-    [[UIWindow appearance] setBackgroundColor:[UIColor synergoLightGrayColor]];
-    
+  
     
     //selected tint color
     [[UITabBar appearance] setTintColor:[UIColor synergoMaroonColor]];
