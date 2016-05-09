@@ -239,7 +239,7 @@
 }
 -(NSString *) elementForIndex:(NSIndexPath*) path
 {
-    return [self.favoritesArray objectAtIndex:path.row];
+    return [[self.favoritesArray valueForKey:@"name"]objectAtIndex:path.row];
     
 }
 
@@ -270,10 +270,10 @@
         expansionSettings.triggerAnimation.easingFunction = MGSwipeEasingFunctionCubicOut;
         expansionSettings.fillOnTrigger = NO;
         MGSwipeButton * favoriteButton = [MGSwipeButton buttonWithTitle:@"Add to day" backgroundColor:color padding:15 callback:^BOOL(MGSwipeTableCell *sender) {
+            
             NSString *element = [me elementForIndex:[me.profileTableView indexPathForCell:sender]];
             [self addElementName:element];
-            
-            
+                        
             return YES;
         }];
         
@@ -285,6 +285,7 @@
         swipeSettings.transition = MGSwipeTransition3D;
         
         MGSwipeButton *deleteButton = [MGSwipeButton buttonWithTitle:@"Remove" backgroundColor:[UIColor redColor]padding:15 callback:^BOOL(MGSwipeTableCell *sender) {
+            
             NSString *element = [me elementForIndex:[me.profileTableView indexPathForCell:sender]];
             
             [self removeElementName:element forIndexPath:[me.profileTableView indexPathForCell:sender]];
@@ -299,6 +300,7 @@
     return nil;
     
 }
+
 
 -(void)addElementName:(NSString *) name{
     [self.elementsToAddToDayArray addObject:name];
